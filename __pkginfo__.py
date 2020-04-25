@@ -22,7 +22,7 @@ copyright = """
 """
 
 modname = "cawdrey"
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 license = 'LGPLv3'
 
 short_desc = 'Several useful custom dictionaries'
