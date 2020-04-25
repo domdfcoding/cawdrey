@@ -41,4 +41,4 @@ This package also provides two base classes for creating your own custom diction
 
 
 
-`Why Cawdry? <https://en.wikipedia.org/wiki/Robert_Cawdrey>`_
+`Why Cawdrey? <https://en.wikipedia.org/wiki/Robert_Cawdrey>`_
