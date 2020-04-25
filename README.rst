@@ -2,8 +2,8 @@
 Cawdrey
 ==========
 
-.. image:: https://travis-ci.com/domdfcoding/cawdrey.svg?branch=master
-	:target: https://travis-ci.com/domdfcoding/cawdrey
+.. image:: https://travis-ci.org/domdfcoding/cawdrey.svg?branch=master
+	:target: https://travis-ci.org/domdfcoding/cawdrey
 	:alt: Build Status
 .. image:: https://readthedocs.org/projects/cawdrey/badge/?version=latest
 	:target: https://cawdrey.readthedocs.io/en/latest/?badge=latest
