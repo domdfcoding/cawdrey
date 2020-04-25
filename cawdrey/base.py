@@ -29,9 +29,8 @@ Base Classes
 
 
 # stdlib
-from abc import abstractmethod, ABC
-from collections.abc import Mapping
-from collections.abc import MutableMapping
+from abc import ABC, abstractmethod
+from collections.abc import Mapping, MutableMapping
 
 # 3rd party
 from domdf_python_tools.doctools import is_documented_by

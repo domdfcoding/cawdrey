@@ -13,7 +13,7 @@ import uuid
 import immutables
 
 # this package
-from frozendict import frozendict
+from cawdrey import frozendict
 
 dictionary_sizes = (8, 1000,)
 max_size = max(dictionary_sizes)
