@@ -24,7 +24,8 @@ Cawdrey
 
 A collection of useful custom dictionaries for Python.
 
-Contents:
+Contents
+##########
 
 	* ``frozendict``: An immutable dictionary that cannot be changed after creation.
 	* ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
@@ -39,6 +40,36 @@ This package also provides two base classes for creating your own custom diction
 
 	* ``MutableBase``: An Abstract Base Class for mutable dictionaries.
 
+|
 
+Other Dictionary Packages
+===========================
+
+If you're looking to unflatten a dictionary, such as to go from this:
+
+.. code-block:: python
+
+	{'foo.bar': 'val'}
+
+to this:
+
+.. code-block:: python
+	{'foo': {'bar': 'val'}}
+
+check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
+
+.. _unflatten: https://github.com/dairiki/unflatten
+.. _morph: https://github.com/metagriffin/morph
+.. _flattery: https://github.com/acg/python-flattery
+
+There's also `python-benedict`_, which provides a custom dictionary with **keylist/keypath** support, **I/O** shortcuts (``Base64``, ``CSV``, ``JSON``, ``TOML``, ``XML``, ``YAML``, ``pickle``, ``query-string``) and many **utilities**.
+
+.. _python-benedict: https://github.com/fabiocaccamo/python-benedict
+
+|
+
+
+And Finally:
+==============
 
 `Why Cawdrey? <https://en.wikipedia.org/wiki/Robert_Cawdrey>`_
