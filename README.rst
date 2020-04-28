@@ -62,11 +62,16 @@ check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
 .. _morph: https://github.com/metagriffin/morph
 .. _flattery: https://github.com/acg/python-flattery
 
+
+`indexed`_ provides an OrederedDict where the values can be accessed by their index as well as by their keys.
+
+.. _indexed: https://github.com/niklasf/indexed.py
+
 There's also `python-benedict`_, which provides a custom dictionary with **keylist/keypath** support, **I/O** shortcuts (``Base64``, ``CSV``, ``JSON``, ``TOML``, ``XML``, ``YAML``, ``pickle``, ``query-string``) and many **utilities**.
 
 .. _python-benedict: https://github.com/fabiocaccamo/python-benedict
 
-|
+
 
 
 And Finally:

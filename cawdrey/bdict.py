@@ -54,6 +54,9 @@ class bdict(dict):
 	"""
 	
 	def __init__(self, seq=None, **kwargs):
+		if seq and kwargs:
+			raise TypeError(f'expected at most 1 arguments, got {len(kwargs)-1:d}')
+		
 		super().__init__(self)
 		if seq:
 			for key, value in dict(seq).items():

@@ -77,7 +77,7 @@ class FrozenBase(DictWrapper, Mapping):
 	dict_cls = None
 	
 	@abstractmethod
-	def __init__(self, *args, **kwargs):
+	def  __init__(self, *args, **kwargs):
 		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
 
