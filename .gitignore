@@ -1,3 +1,5 @@
+# This file is managed by `git_helper`. Don't edit it directly
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -132,21 +134,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+
 .idea
 build
 *.egg-info
-*/__pycache__
+**/__pycache__
+**/conda
 
-*.pyc
-*.pyo
-doc/_build
 
-.orig
-.rej
-dist
-.DS_Store
-.~
-index-*.html
-venv*
-
-*,cover

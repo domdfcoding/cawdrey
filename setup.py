@@ -1,12 +1,8 @@
 #!/usr/bin/env python
+# This file is managed by `git_helper`. Don't edit it directly
 """Setup script"""
 
-from __pkginfo__ import (
-	author, author_email, install_requires,
-	license, long_description, classifiers,
-	modname, short_desc, VERSION, web,
-	project_urls, keywords,
-	)
+from __pkginfo__ import *
 
 from setuptools import setup, find_packages
 
@@ -15,16 +11,19 @@ setup(
 		author_email=author_email,
 		classifiers=classifiers,
 		description=short_desc,
-		entry_points=None,
+		entry_points=entry_points,
+		extras_require=extras_require,
+		include_package_data=True,
 		install_requires=install_requires,
 		license=license,
 		long_description=long_description,
 		name=modname,
-		packages=find_packages(exclude=("tests",)),
-		py_modules=None,
-		url=web,
+		packages=find_packages(exclude=("tests", "doc-source")),
 		project_urls=project_urls,
-		version=VERSION,
+		py_modules=py_modules,
 		python_requires=">=3.6",
+		url=web,
+		version=VERSION,
 		keywords=keywords,
+
 		)

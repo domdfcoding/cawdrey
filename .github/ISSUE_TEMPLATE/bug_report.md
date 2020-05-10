@@ -24,11 +24,11 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
    3. 
 
 ## Actual result:
-<!--Please add screenshots if needed-->
+<!--Please add screenshots if needed and include the Python traceback if present-->
 
 
 ## Expected result:
-<!--Include the Python traceback if present-->
+
 
 ## Reproduces how often: 
 <!--[Easily reproduced/Intermittent issue/No steps to reproduce]-->
@@ -38,7 +38,10 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
   * Operating System: 
   * Python: 
-  * Cawdrey: 
+  * cawdrey: 
+  
+## Installation source
+<!-- e.g. Github repository, Github Releases, PyPI/pip, Anaconda/conda -->
 
 
 ## Other Additional Information:

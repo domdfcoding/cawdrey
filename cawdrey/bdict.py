@@ -7,6 +7,8 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 """
 #
 #  Copyright (c) 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Improved May 2020 with suggestions from
+#      https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published by
@@ -24,8 +26,10 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 #  MA 02110-1301, USA.
 #
 
+from collections import UserDict
 
-class bdict(dict):
+
+class bdict(UserDict):
 	"""
 	Returns a new dictionary initialized from an optional positional argument
 	and a possibly empty set of keyword arguments.
@@ -54,23 +58,28 @@ class bdict(dict):
 	"""
 	
 	def __init__(self, seq=None, **kwargs):
-		if seq and kwargs:
-			raise TypeError(f'expected at most 1 arguments, got {len(kwargs)-1:d}')
+		# if seq and kwargs:
+		# 	raise TypeError(f'expected at most 1 arguments, got {len(kwargs)-1:d}')
 		
-		super().__init__(self)
-		if seq:
-			for key, value in dict(seq).items():
-				self.__setitem__(key, value)
-		else:
-			for key, value in kwargs.items():
-				self.__setitem__(key, value)
+		super().__init__(seq, **kwargs)
+		# if seq:
+		# 	for key, value in dict(seq).items():
+		# 		self.__setitem__(key, value)
+		# else:
+		# 	for key, value in kwargs.items():
+		# 		self.__setitem__(key, value)
 	
 	def __setitem__(self, key, val):
-		if key in self or val in self:
-			if key in self and self[key] != val:
-				raise ValueError(f"The key '{key}' is already present in the dictionary")
-			if val in self and self[val] != key:
-				raise ValueError(f"The key '{val}' is already present in the dictionary")
+		if key in self:
+			del self[self[key]]
+		if val in self:
+			del self[val]
+		#
+		# if key in self or val in self:
+		# 	if key in self and self[key] != val:
+		# 		raise ValueError(f"The key '{key}' is already present in the dictionary")
+		# 	if val in self and self[val] != key:
+		# 		raise ValueError(f"The key '{val}' is already present in the dictionary")
 		
 		if key is None:
 			key = "_None"
@@ -89,12 +98,12 @@ class bdict(dict):
 			else:
 				val = "_False"
 		
-		dict.__setitem__(self, key, val)
-		dict.__setitem__(self, val, key)
-	
+		self.data[key] = val
+		self.data[val] = key
+		
 	def __delitem__(self, key):
-		dict.__delitem__(self, self[key])
-		dict.__delitem__(self, key)
+		value = self.data.pop(key)
+		self.data.pop(value, None)
 	
 	def __getitem__(self, key):
 		if key is None:
@@ -106,7 +115,7 @@ class bdict(dict):
 			else:
 				key = "_False"
 		
-		val = dict.__getitem__(self, key)
+		val = super().__getitem__(key)
 		
 		if val == "_None":
 			return None
@@ -127,4 +136,4 @@ class bdict(dict):
 			else:
 				key = "_False"
 		
-		return dict.__contains__(self, key)
+		return super().__contains__(key)

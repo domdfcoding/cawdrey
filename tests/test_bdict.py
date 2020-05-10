@@ -21,6 +21,20 @@ def test_bdict():
 	assert new_dict["False"] is False
 	new_dict["None"] = None
 	assert new_dict["None"] is None
+	
+	# test replacing keys
+	
+	new_dict = bdict([("Key1", "Value1"), ("Key2", "Value2"), ("Key3", "Value3")])
+	
+	new_dict["Key1"] = 1234
+	assert "Value1" not in new_dict
+	assert new_dict[1234] == "Key1"
+	assert new_dict["Key1"] == 1234
+	
+	new_dict["Value2"] = 5678
+	assert "Key2" not in new_dict
+	assert new_dict[5678] == "Value2"
+	assert new_dict["Value2"] == 5678
 
 
 def test_bdict_from_dict():
@@ -59,17 +73,6 @@ def test_bdict_from_list():
 	
 	assert new_dict[23] == "Dom"
 	assert new_dict["Alice"] == 27
-
-
-def test_bdict_errors():
-	new_dict = bdict([("Key1", "Value1"), ("Key2", "Value2"), ("Key3", "Value3")])
-	
-	with pytest.raises(ValueError):
-		new_dict["Key1"] = 1234
-	with pytest.raises(ValueError):
-		new_dict["Value1"] = 1234
-	new_dict["Key1"] = "Value1"
-	new_dict["Value1"] = "Key1"
 
 
 def test_bdict_bool():
