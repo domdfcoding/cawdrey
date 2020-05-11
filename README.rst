@@ -16,17 +16,38 @@ Cawdrey
 .. image:: https://img.shields.io/pypi/pyversions/cawdrey.svg
     :target: https://pypi.org/project/cawdrey/
     :alt: PyPI - Python Version
+.. image:: https://img.shields.io/pypi/wheel/cawdrey
+    :target: https://pypi.org/project/cawdrey/
+    :alt: PyPI - Wheel
+.. image:: https://img.shields.io/pypi/implementation/cawdrey
+    :target: https://pypi.org/project/cawdrey/
+    :alt: PyPI - Implementation
 .. image:: https://img.shields.io/conda/v/domdfcoding/cawdrey
     :alt: Conda
+    :target: https://anaconda.org/domdfcoding/cawdrey
+.. image:: https://img.shields.io/conda/pn/domdfcoding/cawdrey?label=conda%7Cplatform
+    :alt: Conda Platform
     :target: https://anaconda.org/domdfcoding/cawdrey
 .. image:: https://coveralls.io/repos/github/domdfcoding/cawdrey/badge.svg?branch=master
     :target: https://coveralls.io/github/domdfcoding/cawdrey?branch=master
     :alt: Coverage
-.. image:: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
+
+.. image:: https://img.shields.io/github/license/domdfcoding/cawdrey
     :alt: License
     :target: https://github.com/domdfcoding/cawdrey/blob/master/LICENSE
 .. image:: https://img.shields.io/github/languages/top/domdfcoding/cawdrey
     :alt: GitHub top language
+.. image:: https://img.shields.io/github/commits-since/domdfcoding/cawdrey/v0.1.3
+    :target: https://github.com/domdfcoding/cawdrey/pulse
+    :alt: GitHub commits since tagged version
+.. image:: https://img.shields.io/github/last-commit/domdfcoding/cawdrey
+    :target: https://github.com/domdfcoding/cawdrey/commit/master
+    :alt: GitHub last commit
+.. image:: https://img.shields.io/maintenance/yes/2020
+    :alt: Maintenance
+.. image:: https://img.shields.io/codefactor/grade/github/domdfcoding/cawdrey
+    :target: https://www.codefactor.io/repository/github/domdfcoding/cawdrey
+    :alt: CodeFactor Grade
 
 .. end shields
 
