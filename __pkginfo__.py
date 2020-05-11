@@ -49,9 +49,9 @@ long_description = (repo_root / "README.rst").read_text() + '\n'
 conda_description = """Several useful custom dictionaries
 
 
-Before installing please ensure you have added the "conda-forge" channel. """
+Before installing please ensure you have added the following channels: domdfcoding, conda-forge"""
 install_requires = (repo_root / "requirements.txt").read_text().split('\n')
-extras_require = {}
+extras_require = {'all': []}
 
 classifiers = [
 		'Development Status :: 3 - Alpha',

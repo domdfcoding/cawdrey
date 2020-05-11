@@ -27,6 +27,8 @@ python_versions:
 # travis secure password for PyPI
 travis_pypi_secure: "dumMBMVtBP9QB27XlJVgGbib8S5mWEeufn4lHBphwRT2Sr4yKgUaWdqCEpvJU3FwXeDCEGbaLkkRxL/wlmzzgNrTRl/xpSaXi8qjMPdxXfn8FGjaFfdqZEhYLdBrX100vDxcNehQpHi9sfLRsE4ttdHkn8YtamOp1KKPQOQpuZn5vvig602Ik9q7Lscm3jbhbWtomAqY1o7x95Tdj8RmpGX3c+76+eKnFHgGDaD4LiZTT4V1lNi84GkXaiEsDebPvPT2ki1xaeOhUyI4SeJrywGKPLqKYO1/BXdKWwX0HgUtav5KXdAqmLL8hH0ysrxKkKybkMXmPr63NU7pSTwYVWf2FTZe+QarUCQoToFtRNEPNf3/Serwx8TP6f8AraibZeeGrwK4CDvCl9qVQCsMr5xcB8WDPgLUCbF06Wrvb9umy6m5TAlX02YGnFjjBkciUjUpAsoi0JslaXQXSYWVj/PzEHMYGEuITn8TZpbIRChQhLoj9hE5gpTJxkHPsidoUjg0S5v9oC7+XVjpGyaOVsWMIiy2gSNIYNSyLo1aXf7Rx2ZNQvQRrqP8KMcHtUiltUn1X56AeVOHrB36PuM0oHHV6oNsTL8xCccHyuIb2FthH7RukQox6hHDm3nPEh+seuFM6fu5cJLF2MEDrDOClZXVOLpYus4BqYRCI5Wgv/k="
 
+travis_site: org
+
 # directory that contains tests
 tests_dir: "tests"
 
@@ -34,12 +36,7 @@ tests_dir: "tests"
 #additional_setup_args:
 #  foo: bar
 
-conda_description: "Several useful custom dictionaries
-
-
-
-Before installing please ensure you have added the \"conda-forge\" channel.
-"
+conda_description: "Several useful custom dictionaries"
 
 classifiers:
   - 'Development Status :: 3 - Alpha'

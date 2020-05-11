@@ -11,7 +11,7 @@ python:
 install:
   - sudo apt-get update
   
-  - pip install rst2txt 
+  - pip install rst2txt yolk3k 
   - pip install coveralls tox tox-travis
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
   - bash miniconda.sh -b -p $HOME/miniconda
@@ -20,6 +20,8 @@ script:
   - tox
 after_success:
   - coveralls
+  - chmod +x .ci/travis_build_conda.sh
+  - .ci/travis_build_conda.sh || travis_terminate 1;
 
 deploy:
   provider: pypi
@@ -32,4 +34,5 @@ deploy:
   distributions: "sdist bdist_wheel"
   skip_existing: true
 after_deploy:
-  - .ci/travis_build_conda.sh || travis_terminate 1;
+  - chmod +x .ci/travis_deploy_conda.sh
+  - .ci/travis_deploy_conda.sh || travis_terminate 1;
