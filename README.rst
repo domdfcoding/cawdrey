@@ -31,7 +31,6 @@ Cawdrey
 .. image:: https://coveralls.io/repos/github/domdfcoding/cawdrey/badge.svg?branch=master
     :target: https://coveralls.io/github/domdfcoding/cawdrey?branch=master
     :alt: Coverage
-
 .. image:: https://img.shields.io/github/license/domdfcoding/cawdrey
     :alt: License
     :target: https://github.com/domdfcoding/cawdrey/blob/master/LICENSE
