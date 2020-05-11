@@ -67,7 +67,7 @@ classifiers = [
 		'Programming Language :: Python :: Implementation :: PyPy',
 		'Topic :: Software Development :: Libraries :: Python Modules',
 		'Topic :: Utilities',
-		
+
 		]
 
 keywords = "ordereddict frozenordereddict orderedfrozendict ordered frozen immutable frozendict dict dictionary map Mapping MappingProxyType developers"
