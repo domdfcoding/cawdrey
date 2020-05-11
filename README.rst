@@ -62,6 +62,7 @@ If you're looking to unflatten a dictionary, such as to go from this:
 to this:
 
 .. code-block:: python
+
     {'foo': {'bar': 'val'}}
 
 check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
