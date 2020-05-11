@@ -1,4 +1,6 @@
-pytest
-coverage
-pytest-cov
-immutables
+coverage >=5.1
+immutables 
+pytest >=5.1.1
+pytest-cov >=2.8.1
+pytest-randomly
+pytz >=2019.1
