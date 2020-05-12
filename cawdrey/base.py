@@ -40,19 +40,19 @@ class DictWrapper(ABC):
 	"""
 	Absrtract Mixin class for classes that wrap a dict object or similar
 	"""
-	
+
 	def __getitem__(self, key):
 		return self._dict[key]
-	
+
 	def __contains__(self, key):
 		return key in self._dict
-	
+
 	def __iter__(self):
 		return iter(self._dict)
-	
+
 	def __len__(self):
 		return len(self._dict)
-	
+
 	def __repr__(self):
 		return f'<{self.__class__.__name__} {self._dict!r}>'
 
@@ -67,17 +67,17 @@ class DictWrapper(ABC):
 class FrozenBase(DictWrapper, Mapping):
 	"""
 	Abstract Base Class for Frozen dictionaries
-	
+
 	Used by frozendict and FrozenOrderedDict.
-	
+
 	Custom subclasses must implement at a minimum ``__init__``,
 	``copy``, ``fromkeys``.
 	"""
-	
+
 	dict_cls = None
-	
+
 	@abstractmethod
-	def  __init__(self, *args, **kwargs):
+	def __init__(self, *args, **kwargs):
 		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
 
@@ -90,27 +90,27 @@ class FrozenBase(DictWrapper, Mapping):
 class MutableBase(DictWrapper, MutableMapping):
 	"""
 	Abstract Base Class for mutable dictionaries
-	
+
 	Used by NonelessDict and NonelessOrderedDict.
-	
+
 	Custom subclasses must implement at a minimum ``__init__``,
 	``copy``, ``fromkeys``.
 	"""
-	
+
 	dict_cls = None
-	
+
 	@abstractmethod
 	def __init__(self, *args, **kwargs):
 		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
-	
+
 	def __setitem__(self, key, value):
 		if value:
 			self._dict[key] = value
-	
+
 	def __delitem__(self, key):
 		del self._dict[key]
-	
+
 	@classmethod
 	@is_documented_by(dict.fromkeys)
 	def fromkeys(cls, *args, **kwargs):

@@ -56,11 +56,11 @@ class bdict(UserDict):
 
 	Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
 	"""
-	
+
 	def __init__(self, seq=None, **kwargs):
 		# if seq and kwargs:
 		# 	raise TypeError(f'expected at most 1 arguments, got {len(kwargs)-1:d}')
-		
+
 		super().__init__(seq, **kwargs)
 		# if seq:
 		# 	for key, value in dict(seq).items():
@@ -68,7 +68,7 @@ class bdict(UserDict):
 		# else:
 		# 	for key, value in kwargs.items():
 		# 		self.__setitem__(key, value)
-	
+
 	def __setitem__(self, key, val):
 		if key in self:
 			del self[self[key]]
@@ -80,43 +80,43 @@ class bdict(UserDict):
 		# 		raise ValueError(f"The key '{key}' is already present in the dictionary")
 		# 	if val in self and self[val] != key:
 		# 		raise ValueError(f"The key '{val}' is already present in the dictionary")
-		
+
 		if key is None:
 			key = "_None"
 		if val is None:
 			val = "_None"
-		
+
 		if isinstance(key, bool):
 			if key:
 				key = "_True"
 			else:
 				key = "_False"
-		
+
 		if isinstance(val, bool):
 			if val:
 				val = "_True"
 			else:
 				val = "_False"
-		
+
 		self.data[key] = val
 		self.data[val] = key
-		
+
 	def __delitem__(self, key):
 		value = self.data.pop(key)
 		self.data.pop(value, None)
-	
+
 	def __getitem__(self, key):
 		if key is None:
 			key = "_None"
-		
+
 		if isinstance(key, bool):
 			if key:
 				key = "_True"
 			else:
 				key = "_False"
-		
+
 		val = super().__getitem__(key)
-		
+
 		if val == "_None":
 			return None
 		elif val == "_True":
@@ -125,15 +125,15 @@ class bdict(UserDict):
 			return False
 		else:
 			return val
-	
+
 	def __contains__(self, key):
 		if key is None:
 			key = "_None"
-		
+
 		if isinstance(key, bool):
 			if key:
 				key = "_True"
 			else:
 				key = "_False"
-		
+
 		return super().__contains__(key)

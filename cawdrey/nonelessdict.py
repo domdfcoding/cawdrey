@@ -41,13 +41,13 @@ class NonelessDict(MutableBase):
     and not add the key in that case.
     Use the set_with_strict_none_check function to check only for None
     """
-    
+
     dict_cls = dict
 
     def __init__(self, *args, **kwargs):
         if hasattr(self, "_dict"):
             raise TypeError(f"`{self.__class__}` can only be initialised once.")
-    
+
         super().__init__(*args, **kwargs)
 
     def copy(self, **add_or_replace):

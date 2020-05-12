@@ -189,25 +189,25 @@ def test_sorted_items(fd2, fd_dict_2):
 
 def test_sorted_values(fd, fd_dict):
 	fd_sorted = fd.sorted(by="values")
-	
+
 	res = []
-	
+
 	for k, v in fd_dict.items():
 		if not res:
 			res.append((k, v))
 		else:
 			pos = None
-			
+
 			for i, entry in enumerate(res):
 				if v < entry[1]:
 					pos = i
 					break
-			
+
 			if pos is None:
 				res.append((k, v))
 			else:
 				res.insert(pos, (k, v))
-	
+
 	assert list(fd_sorted.items()) == res
 	assert fd_sorted is fd_sorted.sorted(by="values")
 
@@ -224,7 +224,7 @@ def test_sorted_bad_by(fd):
 def test_unhashable_value(fd_unhashable):
 	with pytest.raises(TypeError):
 		hash(fd_unhashable)
-	
+
 	# hash is cached
 	with pytest.raises(TypeError):
 		hash(fd_unhashable)
@@ -273,10 +273,10 @@ def test_format(fd, fd_repr):
 
 def test_iter(fd):
 	items = []
-	
+
 	for x in iter(fd):
 		items.append((x, fd[x]))
-	
+
 	assert tuple(fd.items()) == tuple(items)
 
 
@@ -362,6 +362,6 @@ def test_init(fd):
 
 def test_delvar(fd):
 	del fd
-	
+
 	with pytest.raises(NameError):
 		fd

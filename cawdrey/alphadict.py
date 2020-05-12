@@ -51,10 +51,9 @@ class AlphaDict(FrozenOrderedDict):
 		dict(**kwargs) -> new AlphaDict initialized with the name=value pairs
 			in the keyword argument list.  For example:  dict(one=1, two=2)
 		"""
-		
+
 		if seq:
 			kwargs = dict(seq)
-		
+
 		print(sorted(kwargs.items()))
 		super().__init__(sorted(kwargs.items()))
-

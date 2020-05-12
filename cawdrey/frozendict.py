@@ -38,16 +38,16 @@ class frozendict(FrozenBase):
 	drop-in replacement for dictionaries where immutability is desired.
 	"""
 	dict_cls = dict
-	
+
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
 			raise TypeError(f"`{self.__class__}` can only be initialised once.")
-		
+
 		super().__init__(*args, **kwargs)
-	
+
 	def copy(self, **add_or_replace):
 		return self.__class__(self, **add_or_replace)
-	
+
 	def __hash__(self):
 		if self._hash is None:
 			h = 0
@@ -55,7 +55,7 @@ class frozendict(FrozenBase):
 				h ^= hash((key, value))
 			self._hash = h
 		return self._hash
-	
+
 	def sorted(self, *args, by="keys", **kwargs):
 		"""
 		Return a new `frozendict`, with the element insertion sorted.
@@ -76,13 +76,13 @@ class frozendict(FrozenBase):
 		key function. But this is an implementation detail and you should not
 		rely on it.
 		"""
-		
+
 		if not self:
 			return self
-		
+
 		sort_by_keys = by == "keys"
 		sort_by_values = by == "values"
-		
+
 		if sort_by_keys:
 			tosort = self.keys()
 		elif sort_by_values:
@@ -91,38 +91,38 @@ class frozendict(FrozenBase):
 			tosort = self.items()
 		else:
 			raise ValueError(f"Unexpected value for parameter `by`: {by}")
-		
+
 		if sort_by_values:
 			kwargs.setdefault("key", lambda item: item[1])
-		
+
 		it_sorted = sorted(tosort, *args, **kwargs)
-		
+
 		if it_sorted == list(tosort):
 			return self
-		
+
 		if sort_by_keys:
 			res = {k: self[k] for k in it_sorted}
 		else:
 			res = it_sorted
-		
+
 		return self.__class__(res)
-	
+
 	def __add__(self, other, *args, **kwargs):
 		"""
 		If you add a dict-like object, a new frozendict will be returned, equal
 		to the old frozendict updated with the other object.
 		"""
-		
+
 		tmp = dict(self)
-		
+
 		try:
 			tmp.update(other)
 		except Exception:
 			raise TypeError(
 					f"Unsupported operand type(s) for +: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
-		
+
 		return self.__class__(tmp)
-	
+
 	def __sub__(self, other, *args, **kwargs):
 		"""
 		The method will create a new `frozendict`, result of the subtraction
@@ -134,13 +134,13 @@ class frozendict(FrozenBase):
 		If `other` is another type of iterable, the result will have the
 		items of `frozendict` without the keys that are in `other`.
 		"""
-		
+
 		try:
 			iter(other)
 		except Exception:
 			raise TypeError(
 					f"Unsupported operand type(s) for -: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
-		
+
 		try:
 			res = {k: v for k, v in self.items() if (k, v) not in other.items()}
 		except Exception:
@@ -148,11 +148,11 @@ class frozendict(FrozenBase):
 				true_other = other
 			else:
 				true_other = tuple(other)
-			
+
 			res = {k: v for k, v in self.items() if k not in true_other}
-		
+
 		return self.__class__(res)
-	
+
 	def __and__(self, other, *args, **kwargs):
 		"""
 		Returns a new `frozendict`, that is the intersection between `self`
@@ -173,7 +173,7 @@ class frozendict(FrozenBase):
 		The last two behaviors breaks voluntarly the `dict.items()` API, for
 		consistency and practical reasons.
 		"""
-		
+
 		try:
 			try:
 				res = {k: v for k, v in other.items() if (k, v) in self.items()}
@@ -182,5 +182,5 @@ class frozendict(FrozenBase):
 		except Exception:
 			raise TypeError(
 					f"Unsupported operand type(s) for &: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
-		
+
 		return self.__class__(res)
