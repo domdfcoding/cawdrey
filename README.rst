@@ -2,7 +2,7 @@
 Cawdrey
 ==========
 
-.. start shields
+.. start shields 
 
 .. list-table::
 	:stub-columns: 1
