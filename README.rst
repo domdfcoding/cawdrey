@@ -70,7 +70,7 @@ Cawdrey
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/cawdrey
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/cawdrey/v0.1.3
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/cawdrey/v0.1.4
 	:target: https://github.com/domdfcoding/cawdrey/pulse
 	:alt: GitHub commits since tagged version
 
