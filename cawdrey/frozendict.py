@@ -118,8 +118,8 @@ class frozendict(FrozenBase):
 		try:
 			tmp.update(other)
 		except Exception:
-			raise TypeError(
-					f"Unsupported operand type(s) for +: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
+			msg = f"Unsupported operand type(s) for +: `{self.__class__.__name__}` and `{other.__class__.__name__}`"
+			raise TypeError(msg) from None
 
 		return self.__class__(tmp)
 
@@ -138,8 +138,8 @@ class frozendict(FrozenBase):
 		try:
 			iter(other)
 		except Exception:
-			raise TypeError(
-					f"Unsupported operand type(s) for -: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
+			msg = f"Unsupported operand type(s) for -: `{self.__class__.__name__}` and `{other.__class__.__name__}`"
+			raise TypeError(msg) from None
 
 		try:
 			res = {k: v for k, v in self.items() if (k, v) not in other.items()}
@@ -180,7 +180,7 @@ class frozendict(FrozenBase):
 			except Exception:
 				res = {k: self[k] for k in other if k in self}
 		except Exception:
-			raise TypeError(
-					f"Unsupported operand type(s) for &: `{self.__class__.__name__}` and `{other.__class__.__name__}`") from None
+			msg = f"Unsupported operand type(s) for &: `{self.__class__.__name__}` and `{other.__class__.__name__}`"
+			raise TypeError(msg) from None
 
 		return self.__class__(res)
