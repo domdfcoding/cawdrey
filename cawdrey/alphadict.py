@@ -24,10 +24,10 @@ Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabeticall
 #  MA 02110-1301, USA.
 #
 
-
 # stdlib
 from collections import OrderedDict
 
+# this package
 from .frozenordereddict import FrozenOrderedDict
 
 
@@ -36,6 +36,7 @@ def alphabetical_dict(**kwargs):
 
 
 class AlphaDict(FrozenOrderedDict):
+
 	def __init__(self, seq=None, **kwargs):
 		"""
 		Initialize an immutable, Alphabetised dictionary.

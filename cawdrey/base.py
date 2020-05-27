@@ -27,7 +27,6 @@ Base Classes
 #  MA 02110-1301, USA.
 #
 
-
 # stdlib
 from abc import ABC, abstractmethod
 from collections.abc import Mapping, MutableMapping

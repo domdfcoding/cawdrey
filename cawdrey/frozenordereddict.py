@@ -25,7 +25,6 @@ Provides FrozenOrderedDict, an immutable ordered dictionary.
 #  MA 02110-1301, USA.
 #
 
-
 # stdlib
 import operator
 from collections import OrderedDict
@@ -36,29 +35,29 @@ from .base import FrozenBase
 
 
 class FrozenOrderedDict(FrozenBase):
-    """
-    An immutable OrderedDict.
-    It can be used as a drop-in replacement for dictionaries where immutability is desired.
-    """
+	"""
+	An immutable OrderedDict.
+	It can be used as a drop-in replacement for dictionaries where immutability is desired.
+	"""
 
-    dict_cls = OrderedDict
+	dict_cls = OrderedDict
 
-    def __init__(self, *args, **kwargs):
-        if hasattr(self, "_dict"):
-            raise TypeError(f"`{self.__class__}` can only be initialised once.")
+	def __init__(self, *args, **kwargs):
+		if hasattr(self, "_dict"):
+			raise TypeError(f"`{self.__class__}` can only be initialised once.")
 
-        super().__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 
-    def copy(self, *args, **kwargs):
-        new_dict = self._dict.copy()
+	def copy(self, *args, **kwargs):
+		new_dict = self._dict.copy()
 
-        if args or kwargs:
-            new_dict.update(OrderedDict(*args, **kwargs))
+		if args or kwargs:
+			new_dict.update(OrderedDict(*args, **kwargs))
 
-        return self.__class__(new_dict)
+		return self.__class__(new_dict)
 
-    def __hash__(self):
-        if self._hash is None:
-            self._hash = reduce(operator.xor, map(hash, self.items()), 0)
+	def __hash__(self):
+		if self._hash is None:
+			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 
-        return self._hash
+		return self._hash

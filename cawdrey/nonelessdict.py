@@ -25,7 +25,6 @@ Provides frozendict, a simple immutable dictionary.
 #  MA 02110-1301, USA.
 #
 
-
 # stdlib
 import operator
 from collections import OrderedDict
@@ -36,65 +35,65 @@ from .base import MutableBase
 
 
 class NonelessDict(MutableBase):
-    """
-    A wrapper around dict that will check if a value is None/empty/False,
-    and not add the key in that case.
-    Use the set_with_strict_none_check function to check only for None
-    """
+	"""
+	A wrapper around dict that will check if a value is None/empty/False,
+	and not add the key in that case.
+	Use the set_with_strict_none_check function to check only for None
+	"""
 
-    dict_cls = dict
+	dict_cls = dict
 
-    def __init__(self, *args, **kwargs):
-        if hasattr(self, "_dict"):
-            raise TypeError(f"`{self.__class__}` can only be initialised once.")
+	def __init__(self, *args, **kwargs):
+		if hasattr(self, "_dict"):
+			raise TypeError(f"`{self.__class__}` can only be initialised once.")
 
-        super().__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 
-    def copy(self, **add_or_replace):
-        return self.__class__(self, **add_or_replace)
+	def copy(self, **add_or_replace):
+		return self.__class__(self, **add_or_replace)
 
-    def __hash__(self):
-        if self._hash is None:
-            h = 0
-            for key, value in self._dict.items():
-                h ^= hash((key, value))
-            self._hash = h
-        return self._hash
+	def __hash__(self):
+		if self._hash is None:
+			h = 0
+			for key, value in self._dict.items():
+				h ^= hash((key, value))
+			self._hash = h
+		return self._hash
 
-    def set_with_strict_none_check(self, key, value):
-        if value is not None:
-            self._dict[key] = value
+	def set_with_strict_none_check(self, key, value):
+		if value is not None:
+			self._dict[key] = value
 
 
 class NonelessOrderedDict(MutableBase):
-    """
-    A wrapper around OrderedDict that will check if a value is None/empty/False,
-    and not add the key in that case.
-    Use the set_with_strict_none_check function to check only for None
-    """
+	"""
+	A wrapper around OrderedDict that will check if a value is None/empty/False,
+	and not add the key in that case.
+	Use the set_with_strict_none_check function to check only for None
+	"""
 
-    dict_cls = OrderedDict
+	dict_cls = OrderedDict
 
-    def __init__(self, *args, **kwargs):
-        if hasattr(self, "_dict"):
-            raise TypeError(f"`{self.__class__}` can only be initialised once.")
+	def __init__(self, *args, **kwargs):
+		if hasattr(self, "_dict"):
+			raise TypeError(f"`{self.__class__}` can only be initialised once.")
 
-        super().__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 
-    def copy(self, *args, **kwargs):
-        new_dict = self._dict.copy()
+	def copy(self, *args, **kwargs):
+		new_dict = self._dict.copy()
 
-        if args or kwargs:
-            new_dict.update(OrderedDict(*args, **kwargs))
+		if args or kwargs:
+			new_dict.update(OrderedDict(*args, **kwargs))
 
-        return self.__class__(new_dict)
+		return self.__class__(new_dict)
 
-    def __hash__(self):
-        if self._hash is None:
-            self._hash = reduce(operator.xor, map(hash, self.items()), 0)
+	def __hash__(self):
+		if self._hash is None:
+			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 
-        return self._hash
+		return self._hash
 
-    def set_with_strict_none_check(self, key, value):
-        if value is not None:
-            self._dict[key] = value
+	def set_with_strict_none_check(self, key, value):
+		if value is not None:
+			self._dict[key] = value

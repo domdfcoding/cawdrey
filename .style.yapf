@@ -1,0 +1,11 @@
+[style]
+based_on_style = pep8
+spaces_before_comment = 2
+split_before_logical_operator = true
+USE_TABS = True
+COLUMN_LIMIT = 120
+CONTINUATION_ALIGN_STYLE = FIXED
+CONTINUATION_INDENT_WIDTH = 1
+INDENT_CLOSING_BRACKETS = True
+BLANK_LINE_BEFORE_NESTED_CLASS_OR_DEF = True
+ALIGN_CLOSING_BRACKET_WITH_VISUAL_INDENT = True

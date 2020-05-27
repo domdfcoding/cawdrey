@@ -26,7 +26,6 @@ Provides frozendict, a simple immutable dictionary.
 #  MA 02110-1301, USA.
 #
 
-
 # this package
 from .base import FrozenBase
 

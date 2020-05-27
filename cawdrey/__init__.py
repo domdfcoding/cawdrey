@@ -27,7 +27,6 @@ Provides several useful custom dictionaries
 #  MA 02110-1301, USA.
 #
 
-
 from .alphadict import alphabetical_dict, AlphaDict
 from .base import FrozenBase, MutableBase
 from .bdict import bdict
@@ -43,14 +42,14 @@ __version__ = "0.1.3"
 __email__ = "dominic@davis-foster.co.uk"
 
 __all__ = [
-		"__version__",
-		"alphabetical_dict",
-		"AlphaDict",
-		"bdict",
-		"FrozenBase",
-		"frozendict",
-		"FrozenOrderedDict",
-		"MutableBase",
-		"NonelessDict",
-		"NonelessOrderedDict",
-		]
+	"__version__",
+	"alphabetical_dict",
+	"AlphaDict",
+	"bdict",
+	"FrozenBase",
+	"frozendict",
+	"FrozenOrderedDict",
+	"MutableBase",
+	"NonelessDict",
+	"NonelessOrderedDict",
+	]
