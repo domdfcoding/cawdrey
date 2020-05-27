@@ -2,9 +2,9 @@ import pytest
 
 from cawdrey import frozendict
 
-
 ################################################################################
 # dict fixtures
+
 
 @pytest.fixture
 def fd_dict():
@@ -32,11 +32,15 @@ def fd_sub_dict():
 def fd_nested_dict():
 	return {
 			"Sulla": ("Marco", "Adele", "Mario", "Giulia"),
-			"Hicks": ("Bill",),
-			"others": (frozendict({
-					"comedians": ["Woody Allen", "George Carlin", "Emo Philips", "Groucho Marx", "Corrado Guzzanti"],
-					"comedies": ["Bananas", "Dogma", "E=mo²", "A Night at the Opera", "Fascisti su Marte"]
-					}))
+			"Hicks": ("Bill", ),
+			"others": (
+					frozendict({
+							"comedians": [
+									"Woody Allen", "George Carlin", "Emo Philips", "Groucho Marx", "Corrado Guzzanti"
+									],
+							"comedies": ["Bananas", "Dogma", "E=mo²", "A Night at the Opera", "Fascisti su Marte"]
+							})
+					)
 			}
 
 
@@ -46,9 +50,9 @@ def math_dict_raw():
 
 math_dict = pytest.fixture(math_dict_raw)
 
-
 ################################################################################
 # frozendict fixtures
+
 
 @pytest.fixture
 def fd(fd_dict):
@@ -112,6 +116,7 @@ def fd_repr(fd_dict):
 
 ################################################################################
 # main tests
+
 
 def test_normalget(fd):
 	assert fd["Sulla"] == "Marco"
@@ -308,17 +313,20 @@ def test_sub(fd, fd_dict, subtrahend):
 	assert fd == newfrozen
 
 
-@pytest.mark.parametrize("other", (
-		fd2_raw(),
-		("frozen", "Sulla", "Hicks"),
-		pytest.param(5, marks=pytest.mark.xfail),
-		))
+@pytest.mark.parametrize(
+		"other", (
+				fd2_raw(),
+				("frozen", "Sulla", "Hicks"),
+				pytest.param(5, marks=pytest.mark.xfail),
+				)
+		)
 def test_bitwise_and(fd_eq, other):
 	assert fd_eq & other == {"Sulla": "Marco", "Hicks": "Bill"}
 
 
 ################################################################################
 # immutability tests
+
 
 def test_normalset(fd):
 	with pytest.raises(TypeError):
