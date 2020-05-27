@@ -56,5 +56,4 @@ class AlphaDict(FrozenOrderedDict):
 		if seq:
 			kwargs = dict(seq)
 
-		print(sorted(kwargs.items()))
 		super().__init__(sorted(kwargs.items()))
