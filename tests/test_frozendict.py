@@ -36,9 +36,19 @@ def fd_nested_dict():
 			"others": (
 					frozendict({
 							"comedians": [
-									"Woody Allen", "George Carlin", "Emo Philips", "Groucho Marx", "Corrado Guzzanti"
+									"Woody Allen",
+									"George Carlin",
+									"Emo Philips",
+									"Groucho Marx",
+									"Corrado Guzzanti",
 									],
-							"comedies": ["Bananas", "Dogma", "E=mo²", "A Night at the Opera", "Fascisti su Marte"]
+							"comedies": [
+									"Bananas",
+									"Dogma",
+									"E=mo²",
+									"A Night at the Opera",
+									"Fascisti su Marte",
+									]
 							})
 					)
 			}
@@ -285,11 +295,13 @@ def test_iter(fd):
 	assert tuple(fd.items()) == tuple(items)
 
 
-@pytest.mark.parametrize("addend", (
-		math_dict_raw(),
-		math_fd_raw(),
-		pytest.param("hell-o", marks=pytest.mark.xfail),
-		))
+@pytest.mark.parametrize(
+		"addend", (
+				math_dict_raw(),
+				math_fd_raw(),
+				pytest.param("hell-o", marks=pytest.mark.xfail),
+				)
+		)
 def test_add(fd, addend):
 	newd = dict(fd)
 	newd.update(addend)
