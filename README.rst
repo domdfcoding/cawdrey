@@ -2,6 +2,12 @@
 Cawdrey
 ==========
 
+.. start short_desc
+
+**Several useful custom dictionaries**
+
+.. end short_desc
+
 .. start shields 
 
 .. list-table::
@@ -18,7 +24,7 @@ Cawdrey
 	  - |conda-version| |conda-platform|
 	* - Other
 	  - |license| |language| |commits-since| |commits-latest| |maintained| 
-	
+
 .. |docs| image:: https://readthedocs.org/projects/cawdrey/badge/?version=latest
 	:target: https://cawdrey.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
@@ -26,7 +32,7 @@ Cawdrey
 .. |travis| image:: https://img.shields.io/travis/domdfcoding/cawdrey/master?logo=travis
 	:target: https://travis-ci.org/domdfcoding/cawdrey
 	:alt: Travis Build Status
-	
+
 .. |requires| image:: https://requires.io/github/domdfcoding/cawdrey/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/cawdrey/requirements/?branch=master
 	:alt: Requirements Status
@@ -83,23 +89,21 @@ Cawdrey
 
 .. end shields
 
-A collection of useful custom dictionaries for Python.
-
 Contents
-##########
+=============
 
-    * ``frozendict``: An immutable dictionary that cannot be changed after creation.
-    * ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
-    * ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
-    * ``bdict``: A dictionary where `key, value` pairs are stored both ways round.
+	* ``frozendict``: An immutable dictionary that cannot be changed after creation.
+	* ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
+	* ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
+	* ``bdict``: A dictionary where `key, value` pairs are stored both ways round.
 
 |
 
 This package also provides two base classes for creating your own custom dictionaries:
 
-    * ``FrozenBase``: An Abstract Base Class for Frozen dictionaries.
+	* ``FrozenBase``: An Abstract Base Class for Frozen dictionaries.
 
-    * ``MutableBase``: An Abstract Base Class for mutable dictionaries.
+	* ``MutableBase``: An Abstract Base Class for mutable dictionaries.
 
 |
 
@@ -110,13 +114,13 @@ If you're looking to unflatten a dictionary, such as to go from this:
 
 .. code-block:: python
 
-    {'foo.bar': 'val'}
+	{'foo.bar': 'val'}
 
 to this:
 
 .. code-block:: python
 
-    {'foo': {'bar': 'val'}}
+	{'foo': {'bar': 'val'}}
 
 check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
 
@@ -133,6 +137,35 @@ There's also `python-benedict`_, which provides a custom dictionary with **keyli
 
 .. _python-benedict: https://github.com/fabiocaccamo/python-benedict
 
+Installation
+===========================
+
+.. start installation
+
+``cawdrey`` can be installed from PyPI or Anaconda.
+
+To install with ``pip``:
+
+.. code-block:: bash
+
+	$ python -m pip install cawdrey
+
+To install with ``conda``:
+
+	* First add the required channels
+
+	.. code-block:: bash
+
+		$ conda config --add channels http://conda.anaconda.org/domdfcoding
+		$ conda config --add channels http://conda.anaconda.org/conda-forge
+
+	* Then install
+
+	.. code-block:: bash
+
+		$ conda install cawdrey
+
+.. end installation
 
 
 
