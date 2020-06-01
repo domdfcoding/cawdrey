@@ -1,7 +1,10 @@
+# stdlib
 from collections import OrderedDict
 
+# 3rd party
 import pytest
 
+# this package
 from cawdrey import FrozenOrderedDict
 
 ITEMS_1 = (

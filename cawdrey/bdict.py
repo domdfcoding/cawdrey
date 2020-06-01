@@ -26,6 +26,7 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 #  MA 02110-1301, USA.
 #
 
+# stdlib
 from collections import UserDict
 
 

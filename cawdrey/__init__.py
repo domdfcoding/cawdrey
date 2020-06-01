@@ -27,12 +27,13 @@ Provides several useful custom dictionaries
 #  MA 02110-1301, USA.
 #
 
-from .alphadict import alphabetical_dict, AlphaDict
+# this package
+from .alphadict import AlphaDict, alphabetical_dict
 from .base import FrozenBase, MutableBase
 from .bdict import bdict
 from .frozendict import frozendict
-from .nonelessdict import NonelessDict, NonelessOrderedDict
 from .frozenordereddict import FrozenOrderedDict
+from .nonelessdict import NonelessDict, NonelessOrderedDict
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "2020 Dominic Davis-Foster"
