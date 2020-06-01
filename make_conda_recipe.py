@@ -8,7 +8,7 @@ import sys
 from docutils.core import publish_file
 from io import StringIO
 
-from __pkginfo__ import *
+from __pkginfo__ import *  # pylint: disable=wildcard-import
 
 recipe_dir = repo_root / "conda"
 
