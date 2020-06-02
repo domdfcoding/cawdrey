@@ -30,9 +30,10 @@ Base Classes
 # stdlib
 from abc import ABC, abstractmethod
 from collections.abc import Mapping, MutableMapping
+from typing import Any, Iterable
 
 # 3rd party
-from domdf_python_tools.doctools import is_documented_by
+from domdf_python_tools.doctools import is_documented_by  # type: ignore # TODO
 
 
 class DictWrapper(ABC):
@@ -40,19 +41,21 @@ class DictWrapper(ABC):
 	Absrtract Mixin class for classes that wrap a dict object or similar
 	"""
 
-	def __getitem__(self, key):
+	_dict: dict
+
+	def __getitem__(self, key: Any) -> Any:
 		return self._dict[key]
 
-	def __contains__(self, key):
+	def __contains__(self, key: Any) -> Any:
 		return key in self._dict
 
-	def __iter__(self):
+	def __iter__(self):  # -> Iterable[Any]:
 		return iter(self._dict)
 
-	def __len__(self):
+	def __len__(self) -> int:
 		return len(self._dict)
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		return f'<{self.__class__.__name__} {self._dict!r}>'
 
 	@abstractmethod
@@ -73,7 +76,7 @@ class FrozenBase(DictWrapper, Mapping):
 	``copy``, ``fromkeys``.
 	"""
 
-	dict_cls = None
+	dict_cls = None  # type: ignore
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):
@@ -96,7 +99,7 @@ class MutableBase(DictWrapper, MutableMapping):
 	``copy``, ``fromkeys``.
 	"""
 
-	dict_cls = None
+	dict_cls = None  # type: ignore
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):

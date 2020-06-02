@@ -41,7 +41,7 @@ class NonelessDict(MutableBase):
 	Use the set_with_strict_none_check function to check only for None
 	"""
 
-	dict_cls = dict
+	dict_cls = dict  # type: ignore
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -52,7 +52,7 @@ class NonelessDict(MutableBase):
 	def copy(self, **add_or_replace):
 		return self.__class__(self, **add_or_replace)
 
-	def __hash__(self):
+	def __hash__(self) -> int:
 		if self._hash is None:
 			h = 0
 			for key, value in self._dict.items():
@@ -72,7 +72,7 @@ class NonelessOrderedDict(MutableBase):
 	Use the set_with_strict_none_check function to check only for None
 	"""
 
-	dict_cls = OrderedDict
+	dict_cls = OrderedDict  # type: ignore
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -88,7 +88,7 @@ class NonelessOrderedDict(MutableBase):
 
 		return self.__class__(new_dict)
 
-	def __hash__(self):
+	def __hash__(self) -> int:
 		if self._hash is None:
 			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 

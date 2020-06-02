@@ -36,7 +36,8 @@ class frozendict(FrozenBase):
 	:py:class:`collections.Mapping` interface. It can be used as a
 	drop-in replacement for dictionaries where immutability is desired.
 	"""
-	dict_cls = dict
+
+	dict_cls = dict  # type: ignore
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -47,7 +48,7 @@ class frozendict(FrozenBase):
 	def copy(self, **add_or_replace):
 		return self.__class__(self, **add_or_replace)
 
-	def __hash__(self):
+	def __hash__(self) -> int:
 		if self._hash is None:
 			h = 0
 			for key, value in self._dict.items():
@@ -55,56 +56,52 @@ class frozendict(FrozenBase):
 			self._hash = h
 		return self._hash
 
-	def sorted(self, *args, by="keys", **kwargs):
+	def sorted(self, *args, by: str = "keys", **kwargs):
 		"""
-		Return a new `frozendict`, with the element insertion sorted.
-		The signature is the same of builtin `sorted()` function, except for
-		the additional parameter `by`, that is "keys" by default and can also
-		be "values" and "items". So the resulting `frozendict` can be sorted
-		by keys, values or items.
+		Return a new :class`~cawdrey.frozendict.frozendict`, with the element
+		insertion sorted. The signature is the same as the builtin
+		:class:`python:sorted` function, except for the additional parameter
+		``by``, that is ``"keys"`` by default and can also be ``"values"`` and
+		``"items"``. So the resulting `frozendict` can be sorted by keys,
+		values or items.
 
-		If you want more complicated sorts, see the documentation of
-		`sorted()`. Take into mind that the parameters passed to the `key`
-		function are the keys of the `frozendict` if `by == "keys"`, and are
-		the items otherwise.
+		If you want more complicated sorts read the documentation of :class:`python:sorted`.
 
-		PS: Note that sort by keys and items are identical. The only
-		difference is when you want to customize the sorting passing a custom
-		`key` function. You *could* achive the same result using
-		`by="values"`, since also sorting by values passes the items to the
-		key function. But this is an implementation detail and you should not
-		rely on it.
+		The the parameters passed to the ``key`` function are the keys of the
+		``frozendict`` if ``by = "keys"``, and are the items otherwise.
+
+		.. note::
+
+			Sorting by keys and items achieves the same effect. The only
+			difference is when you want to customize the sorting passing a
+			custom ``key`` function. You *could* achieve the same result using
+			``by = "values"``, since also sorting by values passes the items to
+			the key function. But this is an implementation detail and you
+			should not rely on it.
 		"""
 
 		if not self:
 			return self
 
-		sort_by_keys = by == "keys"
-		sort_by_values = by == "values"
-
-		if sort_by_keys:
+		if by == "keys":
 			tosort = self.keys()
-		elif sort_by_values:
+		elif by == "values":
 			tosort = self.items()
+			kwargs.setdefault("key", lambda item: item[1])
 		elif by == "items":
 			tosort = self.items()
 		else:
 			raise ValueError(f"Unexpected value for parameter `by`: {by}")
-
-		if sort_by_values:
-			kwargs.setdefault("key", lambda item: item[1])
 
 		it_sorted = sorted(tosort, *args, **kwargs)
 
 		if it_sorted == list(tosort):
 			return self
 
-		if sort_by_keys:
-			res = {k: self[k] for k in it_sorted}
+		if by == "keys":
+			return self.__class__({k: self[k] for k in it_sorted})
 		else:
-			res = it_sorted
-
-		return self.__class__(res)
+			return self.__class__(it_sorted)
 
 	def __add__(self, other, *args, **kwargs):
 		"""
@@ -154,23 +151,22 @@ class frozendict(FrozenBase):
 
 	def __and__(self, other, *args, **kwargs):
 		"""
-		Returns a new `frozendict`, that is the intersection between `self`
-		and `other`.
+		Returns a new ``frozendict``, that is the intersection between ``self``
+		and ``other``.
 
-		If `other` is a `dict`-like object, the intersection will contain
-		only the *items* in common.
+		If ``other`` is a `dict`-like object, the intersection will contain	only
+		the *items* in common.
 
-		If `other` is another iterable, the intersection will contain
-		the items of `self` which keys are in `other`.
+		If ``other`` is another iterable, the intersection will contain the items
+		of ``self`` which keys are in `other`.
 
-		Iterables of pairs are *not* managed differently. This is for
-		consistency.
+		Iterables of pairs are *not* managed differently. This is for consistency.
 
 		Beware! The final order is dictated by the order of `other`. This
-		allows the coder to change the order of the original `frozendict`.
+		allows the coder to change the order of the original ``frozendict``.
 
-		The last two behaviors breaks voluntarly the `dict.items()` API, for
-		consistency and practical reasons.
+		The last two behaviours breaks voluntarily the :meth:`python:dict.items`
+		API, for consistency and practical reasons.
 		"""
 
 		try:

@@ -40,7 +40,7 @@ class FrozenOrderedDict(FrozenBase):
 	It can be used as a drop-in replacement for dictionaries where immutability is desired.
 	"""
 
-	dict_cls = OrderedDict
+	dict_cls = OrderedDict  # type: ignore
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -56,7 +56,7 @@ class FrozenOrderedDict(FrozenBase):
 
 		return self.__class__(new_dict)
 
-	def __hash__(self):
+	def __hash__(self) -> int:
 		if self._hash is None:
 			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 
