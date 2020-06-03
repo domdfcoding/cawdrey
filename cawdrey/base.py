@@ -28,15 +28,17 @@ Base Classes
 #
 
 # stdlib
-from abc import ABC, abstractmethod
-from collections.abc import Mapping, MutableMapping
-from typing import Any, Iterable
+from abc import abstractmethod
+from typing import Any, Mapping, MutableMapping, Optional, Type, TypeVar
 
 # 3rd party
 from domdf_python_tools.doctools import is_documented_by  # type: ignore # TODO
 
+KT = TypeVar('KT')
+VT = TypeVar('VT')
 
-class DictWrapper(ABC):
+
+class DictWrapper(Mapping[KT, VT]):
 	"""
 	Absrtract Mixin class for classes that wrap a dict object or similar
 	"""
@@ -66,7 +68,7 @@ class DictWrapper(ABC):
 		return self.copy()
 
 
-class FrozenBase(DictWrapper, Mapping):
+class FrozenBase(DictWrapper[KT, VT]):
 	"""
 	Abstract Base Class for Frozen dictionaries
 
@@ -76,7 +78,7 @@ class FrozenBase(DictWrapper, Mapping):
 	``copy``, ``fromkeys``.
 	"""
 
-	dict_cls = None  # type: ignore
+	dict_cls: Optional[Type] = None
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):
@@ -89,7 +91,7 @@ class FrozenBase(DictWrapper, Mapping):
 		return cls(dict.fromkeys(*args, **kwargs))
 
 
-class MutableBase(DictWrapper, MutableMapping):
+class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 	"""
 	Abstract Base Class for mutable dictionaries
 

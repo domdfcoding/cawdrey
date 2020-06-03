@@ -31,10 +31,10 @@ from collections import OrderedDict
 from functools import reduce
 
 # this package
-from .base import MutableBase
+from .base import MutableBase, KT, VT
 
 
-class NonelessDict(MutableBase):
+class NonelessDict(MutableBase[KT, VT]):
 	"""
 	A wrapper around dict that will check if a value is None/empty/False,
 	and not add the key in that case.
@@ -60,12 +60,12 @@ class NonelessDict(MutableBase):
 			self._hash = h
 		return self._hash
 
-	def set_with_strict_none_check(self, key, value):
+	def set_with_strict_none_check(self, key, value) -> None:
 		if value is not None:
 			self._dict[key] = value
 
 
-class NonelessOrderedDict(MutableBase):
+class NonelessOrderedDict(MutableBase[KT, VT]):
 	"""
 	A wrapper around OrderedDict that will check if a value is None/empty/False,
 	and not add the key in that case.
@@ -94,6 +94,6 @@ class NonelessOrderedDict(MutableBase):
 
 		return self._hash
 
-	def set_with_strict_none_check(self, key, value):
+	def set_with_strict_none_check(self, key, value) -> None:
 		if value is not None:
 			self._dict[key] = value

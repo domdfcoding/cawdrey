@@ -136,7 +136,6 @@ API Reference
 
 .. autoclass:: cawdrey.frozendict.frozendict
 	:members:
-	:inherited-members:
 	:undoc-members:
 
 Copyright

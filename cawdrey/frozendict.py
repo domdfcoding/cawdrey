@@ -26,18 +26,22 @@ Provides frozendict, a simple immutable dictionary.
 #  MA 02110-1301, USA.
 #
 
+# stdlib
+from typing import AbstractSet, Any, TypeVar
+
 # this package
-from .base import FrozenBase
+from .base import KT, VT, FrozenBase
 
 
-class frozendict(FrozenBase):
+
+class frozendict(FrozenBase[KT, VT]):
 	"""
 	An immutable wrapper around dictionaries that implements the complete
 	:py:class:`collections.Mapping` interface. It can be used as a
 	drop-in replacement for dictionaries where immutability is desired.
 	"""
 
-	dict_cls = dict  # type: ignore
+	dict_cls = dict
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -58,7 +62,7 @@ class frozendict(FrozenBase):
 
 	def sorted(self, *args, by: str = "keys", **kwargs):
 		"""
-		Return a new :class`~cawdrey.frozendict.frozendict`, with the element
+		Return a new :class:`~cawdrey.frozendict.frozendict`, with the element
 		insertion sorted. The signature is the same as the builtin
 		:class:`python:sorted` function, except for the additional parameter
 		``by``, that is ``"keys"`` by default and can also be ``"values"`` and
@@ -82,6 +86,8 @@ class frozendict(FrozenBase):
 
 		if not self:
 			return self
+
+		tosort: AbstractSet[Any]
 
 		if by == "keys":
 			tosort = self.keys()
@@ -121,10 +127,10 @@ class frozendict(FrozenBase):
 
 	def __sub__(self, other, *args, **kwargs):
 		"""
-		The method will create a new `frozendict`, result of the subtraction
+		The method will create a new ``frozendict``, result of the subtraction
 		by `other`.
 
-		If `other` is a `dict`-like, the result will have the items of the
+		If ``other`` is a ``dict``-like, the result will have the items of the
 		`frozendict` that are *not* in common with `other`.
 
 		If `other` is another type of iterable, the result will have the
@@ -179,3 +185,8 @@ class frozendict(FrozenBase):
 			raise TypeError(msg) from None
 
 		return self.__class__(res)
+
+#
+# def foo(bar: frozendict[str, str]):
+# 	pass
+

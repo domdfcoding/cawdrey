@@ -14,5 +14,4 @@ API Reference
 
 .. automodule:: cawdrey.alphadict
     :members:
-    :inherited-members:
     :undoc-members:

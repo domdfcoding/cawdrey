@@ -34,7 +34,6 @@ API Reference
 
 .. autoclass:: cawdrey.frozenordereddict.FrozenOrderedDict
 	:members:
-	:inherited-members:
 	:undoc-members:
 
 

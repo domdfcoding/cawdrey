@@ -3,7 +3,7 @@
 #
 #  alphadict.py
 """
-Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabetically
+Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabetically.
 """
 #
 #  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -28,16 +28,19 @@ Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabeticall
 from collections import OrderedDict
 
 # this package
+from typing import Iterable, Optional
+
 from .frozenordereddict import FrozenOrderedDict
+from .base import KT, VT
 
 
 def alphabetical_dict(**kwargs):
 	return OrderedDict(sorted(kwargs.items()))
 
 
-class AlphaDict(FrozenOrderedDict):
+class AlphaDict(FrozenOrderedDict[KT, VT]):
 
-	def __init__(self, seq=None, **kwargs):
+	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
 		"""
 		Initialize an immutable, Alphabetised dictionary.
 		The signature is the same as regular dictionaries.

@@ -3,7 +3,7 @@
 #
 #  bdict.py
 """
-Provides bdict, a dictionary where keys and values are also stored the other way round
+Provides bdict, a dictionary where keys and values are also stored the other way round.
 """
 #
 #  Copyright (c) 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -28,6 +28,7 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 
 # stdlib
 from collections import UserDict
+from typing import Any, Iterable, Optional
 
 
 class bdict(UserDict):
@@ -52,16 +53,16 @@ class bdict(UserDict):
 	If an attempt is made to add a key or value that already exists in the
 	dictionary a ValueError will be raised
 
-	Keys or values of "None", "True" and "False" will be stored internally as
-	"_None" "_True" and "_False" respectively
+	Keys or values of ``None``, ``True`` and ``False`` will be stored internally as
+	``"_None"``, ``"_True"`` and ``"_False"`` respectively
 
 	Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
 
 	Improved May 2020 suggestions from
-		https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
+	https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
 	"""
 
-	def __init__(self, seq=None, **kwargs):
+	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
 		# if seq and kwargs:
 		# 	raise TypeError(f'expected at most 1 arguments, got {len(kwargs)-1:d}')
 
@@ -109,7 +110,7 @@ class bdict(UserDict):
 		value = self.data.pop(key)
 		self.data.pop(value, None)
 
-	def __getitem__(self, key):
+	def __getitem__(self, key) -> Any:
 		if key is None:
 			key = "_None"
 
@@ -130,7 +131,7 @@ class bdict(UserDict):
 		else:
 			return val
 
-	def __contains__(self, key):
+	def __contains__(self, key) -> bool:
 		if key is None:
 			key = "_None"
 

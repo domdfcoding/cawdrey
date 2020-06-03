@@ -31,10 +31,10 @@ from collections import OrderedDict
 from functools import reduce
 
 # this package
-from .base import FrozenBase
+from .base import FrozenBase, KT, VT
 
 
-class FrozenOrderedDict(FrozenBase):
+class FrozenOrderedDict(FrozenBase[KT, VT]):
 	"""
 	An immutable OrderedDict.
 	It can be used as a drop-in replacement for dictionaries where immutability is desired.

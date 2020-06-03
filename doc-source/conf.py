@@ -3,6 +3,7 @@
 
 # This file is managed by `git_helper`. Don't edit it directly
 
+# stdlib
 import os
 import re
 import sys

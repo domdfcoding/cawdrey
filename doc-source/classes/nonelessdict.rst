@@ -22,7 +22,6 @@ API Reference
 
 .. automodule:: cawdrey.nonelessdict
 	:members:
-	:inherited-members:
 	:undoc-members:
 
 Copyright
