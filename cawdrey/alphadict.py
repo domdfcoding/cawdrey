@@ -26,12 +26,11 @@ Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabeticall
 
 # stdlib
 from collections import OrderedDict
-
-# this package
 from typing import Iterable, Optional
 
-from .frozenordereddict import FrozenOrderedDict
+# this package
 from .base import KT, VT
+from .frozenordereddict import FrozenOrderedDict
 
 
 def alphabetical_dict(**kwargs):

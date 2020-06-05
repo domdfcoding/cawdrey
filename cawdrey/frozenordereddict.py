@@ -31,7 +31,7 @@ from collections import OrderedDict
 from functools import reduce
 
 # this package
-from .base import FrozenBase, KT, VT
+from .base import KT, VT, FrozenBase
 
 
 class FrozenOrderedDict(FrozenBase[KT, VT]):

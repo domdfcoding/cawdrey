@@ -31,7 +31,7 @@ from collections import OrderedDict
 from functools import reduce
 
 # this package
-from .base import MutableBase, KT, VT
+from .base import KT, VT, MutableBase
 
 
 class NonelessDict(MutableBase[KT, VT]):

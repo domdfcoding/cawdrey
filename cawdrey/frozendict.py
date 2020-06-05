@@ -33,7 +33,6 @@ from typing import AbstractSet, Any, TypeVar
 from .base import KT, VT, FrozenBase
 
 
-
 class frozendict(FrozenBase[KT, VT]):
 	"""
 	An immutable wrapper around dictionaries that implements the complete
@@ -185,8 +184,3 @@ class frozendict(FrozenBase[KT, VT]):
 			raise TypeError(msg) from None
 
 		return self.__class__(res)
-
-#
-# def foo(bar: frozendict[str, str]):
-# 	pass
-

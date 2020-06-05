@@ -1,6 +1,8 @@
+# stdlib
 from typing import Optional
 
-from cawdrey import AlphaDict, bdict, frozendict, FrozenOrderedDict, NonelessOrderedDict, NonelessDict
+# this package
+from cawdrey import AlphaDict, FrozenOrderedDict, NonelessDict, NonelessOrderedDict, bdict, frozendict
 
 
 def takes_alphadict(a: AlphaDict[str, int]):
@@ -9,7 +11,6 @@ def takes_alphadict(a: AlphaDict[str, int]):
 	a.values()
 	for k, v in a.items():
 		print(k, v)
-	pass
 
 
 def takes_bdict(b: "bdict[str, str]"):
@@ -18,7 +19,6 @@ def takes_bdict(b: "bdict[str, str]"):
 	b.values()
 	for k, v in b.items():
 		print(k, v)
-	pass
 
 
 def takes_frozendict(f: frozendict[str, int]):
@@ -27,7 +27,6 @@ def takes_frozendict(f: frozendict[str, int]):
 	f.values()
 	for k, v in f.items():
 		print(k, v)
-	pass
 
 
 def takes_frozenordereddict(f: FrozenOrderedDict[str, Optional[int]]):
@@ -36,7 +35,6 @@ def takes_frozenordereddict(f: FrozenOrderedDict[str, Optional[int]]):
 	f.values()
 	for k, v in f.items():
 		print(k, v)
-	pass
 
 
 def takes_nonelessdict(n: NonelessDict[str, int]):
@@ -45,7 +43,6 @@ def takes_nonelessdict(n: NonelessDict[str, int]):
 	n.values()
 	for k, v in n.items():
 		print(k, v)
-	pass
 
 
 def takes_nonelessordereddict(n: NonelessOrderedDict[str, int]):
@@ -54,4 +51,3 @@ def takes_nonelessordereddict(n: NonelessOrderedDict[str, int]):
 	n.values()
 	for k, v in n.items():
 		print(k, v)
-	pass

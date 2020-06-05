@@ -32,7 +32,7 @@ from abc import abstractmethod
 from typing import Any, Mapping, MutableMapping, Optional, Type, TypeVar
 
 # 3rd party
-from domdf_python_tools.doctools import is_documented_by  # type: ignore # TODO
+from domdf_python_tools.doctools import is_documented_by
 
 KT = TypeVar('KT')
 VT = TypeVar('VT')
