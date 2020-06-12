@@ -25,7 +25,7 @@ Cawdrey
 	* - Other
 	  - |license| |language| |commits-since| |commits-latest| |maintained| 
 
-.. |docs| image:: https://readthedocs.org/projects/cawdrey/badge/?version=latest
+.. |docs| image:: https://img.shields.io/readthedocs/cawdrey/latest?logo=read-the-docs
 	:target: https://cawdrey.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
 
@@ -37,19 +37,19 @@ Cawdrey
 	:target: https://requires.io/github/domdfcoding/cawdrey/requirements/?branch=master
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://coveralls.io/repos/github/domdfcoding/cawdrey/badge.svg?branch=master
+.. |coveralls| image:: https://shields.io/coveralls/github/domdfcoding/cawdrey/master?logo=coveralls
 	:target: https://coveralls.io/github/domdfcoding/cawdrey?branch=master
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/cawdrey
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/cawdrey?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/domdfcoding/cawdrey
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/cawdrey.svg
+.. |pypi-version| image:: https://img.shields.io/pypi/v/cawdrey
 	:target: https://pypi.org/project/cawdrey/
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/cawdrey.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/cawdrey
 	:target: https://pypi.org/project/cawdrey/
 	:alt: PyPI - Supported Python Versions
 
@@ -61,7 +61,7 @@ Cawdrey
 	:target: https://pypi.org/project/cawdrey/
 	:alt: PyPI - Wheel
 
-.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/cawdrey
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/cawdrey?logo=anaconda
 	:alt: Conda - Package Version
 	:target: https://anaconda.org/domdfcoding/cawdrey
 

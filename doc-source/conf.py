@@ -27,7 +27,6 @@ github_url = f"https://github.com/domdfcoding/cawdrey"
 rst_prolog = f""".. |pkgname| replace:: cawdrey
 .. |pkgname2| replace:: ``cawdrey``
 .. |browse_github| replace:: `Browse the GitHub Repository <{github_url}>`__
-.. |ghurl| replace:: {github_url}
 """
 
 author = "Dominic Davis-Foster"
@@ -51,6 +50,7 @@ extensions = [
 		"sphinx_tabs.tabs",
 		"sphinx-prompt",
 		"sphinx_autodoc_typehints",
+		"sphinx.ext.autosummary",
 		]
 
 sphinxemoji_style = 'twemoji'
