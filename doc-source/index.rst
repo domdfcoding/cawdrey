@@ -120,7 +120,7 @@ Installation
 
 		.. prompt:: bash
 
-			pip install git+https://github.com//cawdrey@master
+			pip install git+https://github.com/domdfcoding/cawdrey@master
 
 .. end installation
 

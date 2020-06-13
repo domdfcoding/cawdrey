@@ -94,6 +94,7 @@ classifiers = [
 		'Topic :: Software Development :: Libraries :: Python Modules',
 		'Topic :: Utilities',
 		'Programming Language :: Python :: 3.9',
+		'Typing :: Typed',
 
 		]
 
