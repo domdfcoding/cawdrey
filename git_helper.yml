@@ -5,7 +5,7 @@ email: "dominic@davis-foster.co.uk"
 version: "0.1.5"
 username: "domdfcoding"
 license: 'LGPLv3+'
-short_desc: 'Several useful custom dictionaries for Python 📖 🐍'
+short_desc: 'Several useful custom dictionaries for Python 📖	🐍'
 
 conda_channels:
   - domdfcoding

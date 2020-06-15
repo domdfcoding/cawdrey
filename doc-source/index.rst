@@ -4,7 +4,7 @@ Cawdrey
 
 .. start short_desc
 
-**Several useful custom dictionaries for Python 📖 🐍**
+**Several useful custom dictionaries for Python 📖	🐍**
 
 .. end short_desc
 .. start shields 
