@@ -92,18 +92,18 @@ Cawdrey
 Contents
 =============
 
-	* ``frozendict``: An immutable dictionary that cannot be changed after creation.
-	* ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
-	* ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
-	* ``bdict``: A dictionary where `key, value` pairs are stored both ways round.
+* ``frozendict``: An immutable dictionary that cannot be changed after creation.
+* ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
+* ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
+* ``bdict``: A dictionary where `key, value` pairs are stored both ways round.
 
 |
 
 This package also provides two base classes for creating your own custom dictionaries:
 
-	* ``FrozenBase``: An Abstract Base Class for Frozen dictionaries.
+* ``FrozenBase``: An Abstract Base Class for Frozen dictionaries.
 
-	* ``MutableBase``: An Abstract Base Class for mutable dictionaries.
+* ``MutableBase``: An Abstract Base Class for mutable dictionaries.
 
 |
 
@@ -172,4 +172,4 @@ To install with ``conda``:
 And Finally:
 ==============
 
-`Why Cawdrey? <https://en.wikipedia.org/wiki/Robert_Cawdrey>`_
+`Why "Cawdrey"? <https://en.wikipedia.org/wiki/Robert_Cawdrey>`_
