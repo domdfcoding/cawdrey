@@ -98,4 +98,4 @@ classifiers = [
 
 		]
 
-keywords = "ordereddict frozenordereddict orderedfrozendict ordered frozen immutable frozendict dict dictionary map Mapping MappingProxyType developers"
+keywords = "frozenordereddict orderedfrozendict frozen immutable frozendict dict dictionary map Mapping MappingProxyType"

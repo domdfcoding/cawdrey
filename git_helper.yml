@@ -59,10 +59,8 @@ classifiers:
   - "Topic :: Utilities"
 
 keywords:
-  - ordereddict
   - frozenordereddict
   - orderedfrozendict
-  - ordered
   - frozen
   - immutable
   - frozendict
@@ -71,4 +69,4 @@ keywords:
   - map
   - Mapping
   - MappingProxyType
-  - developers
+
