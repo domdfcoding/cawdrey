@@ -15,7 +15,7 @@ Cawdrey
 	:widths: 10 90
 
 	* - Docs
-	  - |docs|
+	  - |docs| |docs_check|
 	* - Tests
 	  - |travis| |actions_windows| |actions_macos|
 	    |coveralls| |codefactor|
@@ -31,6 +31,10 @@ Cawdrey
 .. |docs| image:: https://img.shields.io/readthedocs/cawdrey/latest?logo=read-the-docs
 	:target: https://cawdrey.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
+	
+.. |docs| image:: [Docs Check](https://github.com/domdfcoding/cawdrey/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22Docs+Check%22
+	:alt: Docs Check Status
 
 .. |travis| image:: https://img.shields.io/travis/domdfcoding/cawdrey/master?logo=travis
 	:target: https://travis-ci.org/domdfcoding/cawdrey
