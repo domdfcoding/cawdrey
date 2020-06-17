@@ -16,7 +16,7 @@ Cawdrey
 	* - Docs
 	  - |docs| |docs_check|
 	* - Tests
-	  - |travis| |coveralls| |codefactor|
+	  - |travis| |actions_windows| |actions_macos| |coveralls| |codefactor|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Anaconda
@@ -37,6 +37,14 @@ Cawdrey
 .. |travis| image:: https://img.shields.io/travis/domdfcoding/cawdrey/master?logo=travis
 	:target: https://travis-ci.org/domdfcoding/cawdrey
 	:alt: Travis Build Status
+
+.. |actions_windows| image:: https://github.com/domdfcoding/cawdrey/workflows/Windows%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22Windows+Tests%22
+	:alt: Windows Tests Status
+
+.. |actions_macos| image:: https://github.com/domdfcoding/cawdrey/workflows/macOS%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22macOS+Tests%22
+	:alt: macOS Tests Status
 
 .. |requires| image:: https://requires.io/github/domdfcoding/cawdrey/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/cawdrey/requirements/?branch=master
