@@ -12,6 +12,6 @@ Usage
 API Reference
 ===========================
 
-.. autoclass:: cawdrey.bdict.bdict
+.. autoclass:: cawdrey.bdict
 	:members:
 	:undoc-members:

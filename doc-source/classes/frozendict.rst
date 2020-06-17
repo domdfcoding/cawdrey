@@ -134,7 +134,7 @@ Some other examples:
 API Reference
 ===========================
 
-.. autoclass:: cawdrey.frozendict.frozendict
+.. autoclass:: cawdrey.frozendict
 	:members:
 	:undoc-members:
 
