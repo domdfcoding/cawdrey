@@ -78,7 +78,7 @@ Cawdrey
 	:alt: Conda - Package Version
 	:target: https://anaconda.org/domdfcoding/cawdrey
 
-.. |conda-platform| image:: image:: https://img.shields.io/conda/pn/domdfcoding/cawdrey?label=conda%7Cplatform
+.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/cawdrey?label=conda%7Cplatform
 	:alt: Conda - Platform
 	:target: https://anaconda.org/domdfcoding/cawdrey
 
