@@ -42,7 +42,7 @@ __copyright__ = """
 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 """
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 
 modname = "cawdrey"
 pypi_name = "cawdrey"
@@ -69,7 +69,7 @@ project_urls = {
 repo_root = pathlib.Path(__file__).parent
 
 # Get info from files; set: long_description
-long_description = (repo_root / "README.rst").read_text(encoding="utf-8").replace("0.1.5", __version__) + '\n'
+long_description = (repo_root / "README.rst").read_text(encoding="utf-8").replace("0.1.6", __version__) + '\n'
 conda_description = """Several useful custom dictionaries
 
 
