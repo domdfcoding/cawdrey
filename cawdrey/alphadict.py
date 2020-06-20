@@ -37,23 +37,31 @@ def alphabetical_dict(**kwargs):
 
 
 class AlphaDict(FrozenOrderedDict[KT, VT]):
+	"""
+	Initialize an immutable, Alphabetised dictionary.
+	The signature is the same as regular dictionaries.
+
+	dict() -> new empty AlphaDict
+
+	dict(mapping) -> new AlphaDict initialized from a mapping object's (key, value) pairs
+
+	dict(iterable) -> new AlphaDict initialized as if via:
+
+	.. code-block:: python
+
+		d = {}
+		for k, v in iterable:
+			d[k] = v
+
+	dict(\\*\\*kwargs) -> new AlphaDict initialized with the name=value pairs in the keyword argument list.
+	For example:
+
+	.. code-block::
+
+		dict(one=1, two=2)
+	"""
 
 	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
-		"""
-		Initialize an immutable, Alphabetised dictionary.
-		The signature is the same as regular dictionaries.
-
-		dict() -> new empty AlphaDict
-		dict(mapping) -> new AlphaDict initialized from a mapping object's
-			(key, value) pairs
-		dict(iterable) -> new AlphaDict initialized as if via:
-			d = {}
-			for k, v in iterable:
-				d[k] = v
-		dict(**kwargs) -> new AlphaDict initialized with the name=value pairs
-			in the keyword argument list.  For example:  dict(one=1, two=2)
-		"""
-
 		if seq:
 			kwargs = dict(seq)
 

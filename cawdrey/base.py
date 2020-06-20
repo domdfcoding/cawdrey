@@ -33,8 +33,8 @@ from typing import Any, Mapping, MutableMapping, Optional, Type, TypeVar
 # 3rd party
 from domdf_python_tools.doctools import is_documented_by
 
-KT = TypeVar('KT')
-VT = TypeVar('VT')
+KT = TypeVar("KT")
+VT = TypeVar("VT")
 
 
 class DictWrapper(Mapping[KT, VT]):
@@ -57,7 +57,7 @@ class DictWrapper(Mapping[KT, VT]):
 		return len(self._dict)
 
 	def __repr__(self) -> str:
-		return f'<{self.__class__.__name__} {self._dict!r}>'
+		return f"<{self.__class__.__name__} {self._dict!r}>"
 
 	@abstractmethod
 	def copy(self, *args, **kwargs):

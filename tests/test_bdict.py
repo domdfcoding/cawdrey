@@ -86,15 +86,17 @@ def test_bdict_bool():
 	assert True in new_dict
 	assert True in new_dict
 
-	assert isinstance(new_dict["T"], bool) and new_dict["T"]
-	assert isinstance(new_dict["F"], bool) and not new_dict["F"]
+	assert isinstance(new_dict['T'], bool)
+	assert new_dict['T']
+	assert isinstance(new_dict['F'], bool)
+	assert new_dict['F']
 
-	assert new_dict[True] == "T"
-	assert new_dict[False] == "F"
-	assert new_dict[None] == "N"
+	assert new_dict[True] == 'T'
+	assert new_dict[False] == 'F'
+	assert new_dict[None] == 'N'
 
 	assert "_None" in new_dict
-	assert new_dict["_None"] == "N"
+	assert new_dict["_None"] == 'N'
 
 	# Test for pyMHDAC
 	new_dict_2 = bdict(Unspecified=0, _None=1, GC=2, LC=3, CE=4)

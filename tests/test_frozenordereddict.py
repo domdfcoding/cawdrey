@@ -8,12 +8,12 @@ import pytest  # type: ignore
 from cawdrey import FrozenOrderedDict
 
 ITEMS_1 = (
-		("b", 2),
-		("a", 1),
+		('b', 2),
+		('a', 1),
 		)
 ITEMS_2 = (
-		("d", 4),
-		("c", 3),
+		('d', 4),
+		('c', 3),
 		)
 
 ODICT_1 = OrderedDict(ITEMS_1)
@@ -34,14 +34,14 @@ def test_setitem():
 	fod = FrozenOrderedDict()
 
 	with pytest.raises(TypeError):
-		fod[1] = "b"
+		fod[1] = 'b'  # noqa
 
 
 def test_delitem():
 	fod = FrozenOrderedDict(ITEMS_1)
 
 	with pytest.raises(TypeError):
-		del fod[1]
+		del fod[1]  # noqa
 
 
 def test_copy_no_items():

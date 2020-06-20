@@ -8,12 +8,12 @@ from cawdrey import frozendict
 # dict fixtures
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_dict():
 	return {"Sulla": "Marco", "Hicks": "Bill", frozendict({1: 2}): "frozen"}
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_dict_eq():
 	return {"Hicks": "Bill", "Sulla": "Marco", frozendict({1: 2}): "frozen"}
 
@@ -25,12 +25,12 @@ def fd_dict_2_raw():
 fd_dict_2 = pytest.fixture(fd_dict_2_raw)
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_sub_dict():
 	return {"Hicks": "Bill"}
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_nested_dict():
 	return {
 			"Sulla": ("Marco", "Adele", "Mario", "Giulia"),
@@ -66,17 +66,17 @@ math_dict = pytest.fixture(math_dict_raw)
 # frozendict fixtures
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd(fd_dict):
 	return frozendict(fd_dict)
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_unhashable():
 	return frozendict({1: []})
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_eq(fd_dict_eq):
 	return frozendict(fd_dict_eq)
 
@@ -88,12 +88,12 @@ def fd2_raw():
 fd2 = pytest.fixture(fd2_raw)
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_sub(fd_sub_dict):
 	return frozendict(fd_sub_dict)
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_nested(fd_nested_dict):
 	return frozendict(fd_nested_dict)
 
@@ -106,22 +106,22 @@ def math_items_raw():
 	return tuple(math_dict_raw().items())
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_giulia():
-	return frozendict({'Marco': 'Sulla', 'Giulia': 'Sulla'})
+	return frozendict({"Marco": "Sulla", "Giulia": "Sulla"})
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_items(fd_dict):
 	return tuple(fd_dict.items())
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_empty():
 	return frozendict()
 
 
-@pytest.fixture
+@pytest.fixture()
 def fd_repr(fd_dict):
 	return f"<{frozendict.__name__} {fd_dict!r}>"
 
@@ -298,11 +298,11 @@ def test_iter(fd):
 
 
 @pytest.mark.parametrize(
-		"addend", (
+		"addend", [
 				math_dict_raw(),
 				math_fd_raw(),
 				pytest.param("hell-o", marks=pytest.mark.xfail),
-				)
+				]
 		)
 def test_add(fd, addend):
 	newd = dict(fd)
@@ -313,11 +313,11 @@ def test_add(fd, addend):
 	assert fd == newfrozen
 
 
-@pytest.mark.parametrize("subtrahend", (
+@pytest.mark.parametrize("subtrahend", [
 		math_dict_raw(),
 		math_fd_raw(),
 		math_items_raw(),
-		))
+		])
 def test_sub(fd, fd_dict, subtrahend):
 	fd_copy = fd.copy()
 	newd = {k: v for k, v in fd.items() if (k, v) not in subtrahend}
@@ -328,11 +328,11 @@ def test_sub(fd, fd_dict, subtrahend):
 
 
 @pytest.mark.parametrize(
-		"other", (
+		"other", [
 				fd2_raw(),
 				("frozen", "Sulla", "Hicks"),
 				pytest.param(5, marks=pytest.mark.xfail),
-				)
+				]
 		)
 def test_bitwise_and(fd_eq, other):
 	assert fd_eq & other == {"Sulla": "Marco", "Hicks": "Bill"}
