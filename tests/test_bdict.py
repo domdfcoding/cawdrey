@@ -89,7 +89,7 @@ def test_bdict_bool():
 	assert isinstance(new_dict['T'], bool)
 	assert new_dict['T']
 	assert isinstance(new_dict['F'], bool)
-	assert new_dict['F']
+	assert not new_dict['F']
 
 	assert new_dict[True] == 'T'
 	assert new_dict[False] == 'F'
