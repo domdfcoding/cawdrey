@@ -45,7 +45,7 @@ __copyright__ = """
 
 __version__ = "0.1.6"
 
-modname = "cawdrey"
+modname = "Cawdrey"
 pypi_name = "cawdrey"
 import_name = "cawdrey"
 py_modules = []

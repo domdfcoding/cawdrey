@@ -21,13 +21,13 @@ from __pkginfo__ import __version__
 
 github_url = f"https://github.com/domdfcoding/cawdrey"
 
-rst_prolog = f""".. |pkgname| replace:: cawdrey
-.. |pkgname2| replace:: ``cawdrey``
+rst_prolog = f""".. |pkgname| replace:: Cawdrey
+.. |pkgname2| replace:: ``Cawdrey``
 .. |browse_github| replace:: `Browse the GitHub Repository <{github_url}>`__
 """
 
 author = "Dominic Davis-Foster"
-project = "cawdrey"
+project = "Cawdrey"
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
 copyright = "2019-2020 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
@@ -133,3 +133,5 @@ def setup(app):
 							),
 					]
 			)
+
+html_logo = "../cawdrey.png"

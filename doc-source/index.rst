@@ -148,7 +148,9 @@ check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
 
 .. _indexed: https://github.com/niklasf/indexed.py
 
-There's also `python-benedict`_, which provides a custom dictionary with **keylist/keypath** support, **I/O** shortcuts (``Base64``, ``CSV``, ``JSON``, ``TOML``, ``XML``, ``YAML``, ``pickle``, ``query-string``) and many **utilities**.
+There's also `python-benedict`_, which provides a custom dictionary with **keylist/keypath** support,
+**I/O** shortcuts (``Base64``, ``CSV``, ``JSON``, ``TOML``, ``XML``, ``YAML``, ``pickle``, ``query-string``)
+and many **utilities**.
 
 .. _python-benedict: https://github.com/fabiocaccamo/python-benedict
 
@@ -198,7 +200,7 @@ Installation
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
+	:caption: API Reference
 
 	classes/alphadict
 	classes/bdict
@@ -207,6 +209,11 @@ Installation
 	classes/nonelessdict
 
 	base
+
+.. toctree::
+	:maxdepth: 3
+	:caption: Documentation
+
 	Source
 	Building
 

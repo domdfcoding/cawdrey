@@ -2,7 +2,7 @@
 Building from source
 *********************
 
-To build the ``cawdrey`` package from source using ``setuptools``, run the following command:
+To build the ``Cawdrey`` package from source using ``setuptools``, run the following command:
 
 .. code-block:: bash
 

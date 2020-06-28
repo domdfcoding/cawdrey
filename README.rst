@@ -156,7 +156,7 @@ Installation
 
 .. start installation
 
-``cawdrey`` can be installed from PyPI or Anaconda.
+``Cawdrey`` can be installed from PyPI or Anaconda.
 
 To install with ``pip``:
 

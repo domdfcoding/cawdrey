@@ -1,4 +1,7 @@
-modname: cawdrey
+modname: Cawdrey
+pypi_name: cawdrey
+repo_name: cawdrey
+import_name: cawdrey
 copyright_years: "2019-2020"
 author: "Dominic Davis-Foster"
 email: "dominic@davis-foster.co.uk"
@@ -70,3 +73,5 @@ keywords:
   - Mapping
   - MappingProxyType
 
+sphinx_conf_epilogue:
+  - html_logo = "../cawdrey.png"
