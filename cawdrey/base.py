@@ -39,7 +39,7 @@ VT = TypeVar("VT")
 
 class DictWrapper(Mapping[KT, VT]):
 	"""
-	Absrtract Mixin class for classes that wrap a dict object or similar
+	Abstract Mixin class for classes that wrap a dict object or similar
 	"""
 
 	_dict: dict
