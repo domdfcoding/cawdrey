@@ -107,4 +107,3 @@ from cawdrey.level_dict import TypedLevelDict
 class MyDict(TypedLevelDict[str, int]):
 	key_type = str
 	value_type = int
-

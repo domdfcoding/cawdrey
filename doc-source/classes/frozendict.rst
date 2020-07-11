@@ -160,4 +160,3 @@ Also based on https://github.com/Marco-Sulla/python-frozendict
 Copyright (c) Marco Sulla
 
 Licensed under the `GNU Lesser General Public License Version 3 <https://www.gnu.org/licenses/lgpl-3.0.en.html>`_
-
