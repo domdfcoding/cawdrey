@@ -33,11 +33,21 @@ from .frozenordereddict import FrozenOrderedDict
 
 
 def alphabetical_dict(**kwargs):
+	"""
+	Returns an :class:`~collections.OrderedDict` with the keys sorted alphabetically.
+
+	:param kwargs:
+	:type kwargs:
+
+	:return:
+	:rtype:
+	"""
+
 	return OrderedDict(sorted(kwargs.items()))
 
 
 class AlphaDict(FrozenOrderedDict[KT, VT]):
-	"""
+	r"""
 	Initialize an immutable, Alphabetised dictionary.
 	The signature is the same as regular dictionaries.
 
@@ -53,7 +63,7 @@ class AlphaDict(FrozenOrderedDict[KT, VT]):
 		for k, v in iterable:
 			d[k] = v
 
-	dict(\\*\\*kwargs) -> new AlphaDict initialized with the name=value pairs in the keyword argument list.
+	dict(\*\*kwargs) -> new AlphaDict initialized with the name=value pairs in the keyword argument list.
 	For example:
 
 	.. code-block::

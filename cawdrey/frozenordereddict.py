@@ -48,6 +48,18 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 		super().__init__(*args, **kwargs)
 
 	def copy(self, *args, **kwargs):
+		"""
+		Return a copy of the :class:`~cawdrey.frozenordereddict.FrozenOrderedDict`.
+
+		:param args:
+		:type args:
+		:param kwargs:
+		:type kwargs:
+
+		:return:
+		:rtype:
+		"""
+
 		new_dict = self._dict.copy()
 
 		if args or kwargs:
