@@ -5,6 +5,7 @@ Benchmark script
 Requires https://github.com/MagicStack/immutables
 """
 #  Copyright (c) Marco Sulla
+#  From https://github.com/Marco-Sulla/python-frozendict
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published by
@@ -94,22 +95,22 @@ statements = (
 for n in dictionary_sizes:
 	print("#" * 80)
 	d = dict()
-	
+
 	for i in range(n - 1):
 		d[getUuid()] = getUuid()
-	
+
 	d['12323f29-c31f-478c-9b15-e7acc5354df9'] = getUuid()
-	
+
 	h = immutables.Map(d)
 	fd = frozendict(d)
-	
+
 	for statement in statements:
 		print("/"*80)
-		
+
 		for x in (d, h, fd):
 			if statement["name"] == "hash(d)" and isinstance(x, dict):
 				continue
-			
+
 			if statement["size_affected"]:
 				iterations = int(statement["iterations"] * max_size / n)
 			else:
@@ -121,7 +122,7 @@ for n in dictionary_sizes:
 					globals={"x": x, "getUuid": getUuid, "d": d},
 					number=iterations
 					)
-			
+
 			print("Dictionary size: {: >4}; Type: {: >10}; Statement: {: <25} time: {:.3f}; iterations: {: >8}".format(
 					n,
 					type(x).__name__,
