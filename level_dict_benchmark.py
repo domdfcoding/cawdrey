@@ -3,6 +3,7 @@ from cawdrey.level_dict import LevelDict
 
 import json
 
+
 def benchmark(dict_class="dict"):
 	if dict_class == "level":
 		data = LevelDict("test_dict.ld")
@@ -46,7 +47,6 @@ def benchmark(dict_class="dict"):
 		data.db.close()
 		data = LevelDict("test_dict.ld")
 
-
 	# Loop up the key that was added last to the dictionary.
 	for i in range(1000):
 		if "cat" not in data:
@@ -78,6 +78,7 @@ def benchmark(dict_class="dict"):
 	#
 	# print(f"{time.time() - start_time:f}")
 
+
 # print("Normal Dict")
 # benchmark("dict")
 #
@@ -99,7 +100,6 @@ def benchmark(dict_class="dict"):
 # for i in range(10000000):
 # 	float("123.456")
 # print(f"{time.time() - start_time:f}")
-
 
 from cawdrey.level_dict import TypedLevelDict
 
