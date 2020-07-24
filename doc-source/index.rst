@@ -218,8 +218,8 @@ Installation
 	:maxdepth: 3
 	:caption: Documentation
 
+	contributing
 	Source
-	Building
 
 .. start links
 

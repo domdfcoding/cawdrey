@@ -32,13 +32,14 @@ from typing import Any, Iterable, Optional
 
 class bdict(UserDict):
 	"""
-	Returns a new dictionary initialized from an optional positional argument
+	Returns a new dictionary initialized from an optional positional argument,
 	and a possibly empty set of keyword arguments.
 
 	Each key:value pair is entered into the dictionary in both directions,
 	so you can perform lookups with either the key or the value.
 
 	If no positional argument is given, an empty dictionary is created.
+
 	If a positional argument is given and it is a mapping object, a dictionary
 	is created with the same key-value pairs as the mapping object.
 	Otherwise, the positional argument must be an iterable object.
@@ -52,7 +53,7 @@ class bdict(UserDict):
 	If an attempt is made to add a key or value that already exists in the
 	dictionary a ValueError will be raised
 
-	Keys or values of ``None``, ``True`` and ``False`` will be stored internally as
+	Keys or values of :py:obj:`None`, :py:obj:`True` and :py:obj:`False` will be stored internally as
 	``"_None"``, ``"_True"`` and ``"_False"`` respectively
 
 	Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
