@@ -49,6 +49,8 @@ extensions = [
 		"sphinx.ext.autosummary",
 		"autodocsumm",
 		"sphinx_copybutton",
+		"sphinxcontrib.default_values",
+		"sphinxcontrib.toctree_plus",
 		# "sphinx_gitstamp",
 		]
 
