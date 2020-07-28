@@ -58,7 +58,7 @@ class bdict(UserDict):
 
 	Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
 
-	Improved May 2020 suggestions from
+	Improved May 2020 with suggestions from
 	https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
 	"""
 

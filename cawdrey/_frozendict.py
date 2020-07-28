@@ -60,7 +60,7 @@ class frozendict(FrozenBase[KT, VT]):
 
 	def sorted(self, *args, by: str = "keys", **kwargs):
 		"""
-		Return a new :class:`~cawdrey.frozendict.frozendict`, with the element
+		Return a new :class:`~cawdrey.frozendict`, with the element
 		insertion sorted. The signature is the same as the builtin
 		:class:`python:sorted` function, except for the additional parameter
 		``by``, that is ``"keys"`` by default and can also be ``"values"`` and

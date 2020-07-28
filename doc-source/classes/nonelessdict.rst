@@ -5,11 +5,9 @@ NonelessDict
 About
 ========
 
-:class:`~cawdrey.nonelessdict.NonelessDict` is a wrapper around dict that will check if a value is ``None``/empty/``False``, and not add the key in that case.
+:class:`~cawdrey.nonelessdict.NonelessDict` is a wrapper around dict that will check if a value is :py:obj:`None`/empty/:py:obj:`False`, and not add the key in that case.
 
 The class has a method :meth:`~cawdrey.nonelessdict.NonelessDict.set_with_strict_none_check` that can be used to set a value and check only for ``None`` values.
-
-|
 
 :class:`~cawdrey.nonelessdict.NonelessOrderedDict` is based :class:`~cawdrey.nonelessdict.NonelessDict` and :class:`~python:collections.OrderedDict`, so the order of key insertion is preserved.
 
@@ -17,21 +15,24 @@ The class has a method :meth:`~cawdrey.nonelessdict.NonelessDict.set_with_strict
 Usage
 ========
 
+.. TODO::
+
 API Reference
 ===========================
 
 .. automodule:: cawdrey.nonelessdict
 	:members:
 	:undoc-members:
+	:special-members:
+	:inherited-members:
+	:exclude-members: __dict__
 
 Copyright
 =========
 
-Based on https://github.com/slezica/python-frozendict and https://github.com/jerr0328/python-helpfuldicts .
-
-Copyright (c) 2012 Santiago Lezica
-
-Licensed under the MIT License:
+| Based on https://github.com/slezica/python-frozendict and https://github.com/jerr0328/python-helpfuldicts .
+| Copyright (c) 2012 Santiago Lezica
+| Licensed under the MIT License:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

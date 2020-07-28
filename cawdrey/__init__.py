@@ -29,8 +29,8 @@ Provides several useful custom dictionaries
 # this package
 from .alphadict import AlphaDict, alphabetical_dict
 from .base import FrozenBase, MutableBase
-from .bdict import bdict
-from .frozendict import frozendict
+from ._bdict import bdict
+from ._frozendict import frozendict
 from .frozenordereddict import FrozenOrderedDict
 from .nonelessdict import NonelessDict, NonelessOrderedDict
 

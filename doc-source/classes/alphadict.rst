@@ -12,6 +12,9 @@ Usage
 API Reference
 ===========================
 
-.. automodule:: cawdrey.alphadict
-    :members:
-    :undoc-members:
+.. autoclass:: cawdrey.AlphaDict
+	:members:
+	:undoc-members:
+	:special-members:
+	:inherited-members:
+	:exclude-members: __dict__

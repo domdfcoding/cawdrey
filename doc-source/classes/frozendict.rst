@@ -5,19 +5,19 @@ frozendict
 About
 ========
 
-:class:`~cawdrey.frozendict.frozendict` is an immutable wrapper around dictionaries that implements the
+:class:`~cawdrey.frozendict` is an immutable wrapper around dictionaries that implements the
 complete mapping interface. It can be used as a drop-in replacement for
 dictionaries where immutability is desired.
 
 Of course, this is ``python``, and you can still poke around the object's
 internals if you want.
 
-The :class:`~cawdrey.frozendict.frozendict` constructor mimics ``dict``, and all of the expected
+The :class:`~cawdrey.frozendict` constructor mimics :class:`dict`, and all of the expected
 interfaces (``iter``, ``len``, ``repr``, ``hash``, ``getitem``) are provided.
-Note that a :class:`~cawdrey.frozendict.frozendict` does not guarantee the immutability of its values, so
-the utility of ``hash`` method is restricted by usage.
+Note that a :class:`~cawdrey.frozendict` does not guarantee the immutability of its values, so
+the utility of the ``hash`` method is restricted by usage.
 
-The only difference is that the ``copy()`` method of :class:`~cawdrey.frozendict.frozendict` takes
+The only difference is that the ``copy()`` method of :class:`~cawdrey.frozendict` takes
 variable keyword arguments, which will be present as key/value pairs in the new,
 immutable copy.
 
@@ -26,7 +26,7 @@ Usage
 
 .. code-block:: python
 
-	>>> from frozendict import frozendict
+	>>> from cawdrey import frozendict
 	>>>
 	>>> fd = frozendict({ 'hello': 'World' })
 	>>>
@@ -40,9 +40,9 @@ Usage
 	<frozendict {'hello': 'World', 'another': 'key/value'}>
 	>>>
 
-In addition, :class:`~cawdrey.frozendict.frozendict` supports the `+` and `-` operands. If you add a
-`dict`-like object, a new :class:`~cawdrey.frozendict.frozendict` will be returned, equal to the old
-:class:`~cawdrey.frozendict.frozendict` updated with the other object. Example:
+In addition, :class:`~cawdrey.frozendict` supports the `+` and `-` operands. If you add a
+`dict`-like object, a new :class:`~cawdrey.frozendict` will be returned, equal to the old
+:class:`~cawdrey.frozendict` updated with the other object. Example:
 
 .. code-block:: python
 
@@ -50,7 +50,7 @@ In addition, :class:`~cawdrey.frozendict.frozendict` supports the `+` and `-` op
 	<frozendict {'Sulla': 'Marò', 2: 3, 4: 7}>
 	>>>
 
-You can also subtract an iterable from a :class:`~cawdrey.frozendict.frozendict`. A new :class:`~cawdrey.frozendict.frozendict`
+You can also subtract an iterable from a :class:`~cawdrey.frozendict`. A new :class:`~cawdrey.frozendict`
 will be returned, without the keys that are in the iterable. Examples:
 
 .. code-block::
@@ -66,7 +66,7 @@ Some other examples:
 
 .. code-block:: python
 
-	>>> from frozendict import frozendict
+	>>> from cawdrey import frozendict
 	>>> fd = frozendict({"Sulla": "Marco", "Hicks": "Bill"})
 	>>> print(fd)
 	<frozendict {'Sulla': 'Marco', 'Hicks': 'Bill'}>
@@ -137,15 +137,16 @@ API Reference
 .. autoclass:: cawdrey.frozendict
 	:members:
 	:undoc-members:
+	:special-members:
+	:inherited-members:
+	:exclude-members: __dict__
 
 Copyright
 =========
 
-Based on https://github.com/slezica/python-frozendict and https://github.com/mredolatti/python-frozendict .
-
-Copyright (c) 2012 Santiago Lezica
-
-Licensed under the MIT License:
+| Based on https://github.com/slezica/python-frozendict and https://github.com/mredolatti/python-frozendict .
+| Copyright (c) 2012 Santiago Lezica
+| Licensed under the MIT License:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -153,10 +154,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-|
-
-Also based on https://github.com/Marco-Sulla/python-frozendict
-
-Copyright (c) Marco Sulla
-
-Licensed under the `GNU Lesser General Public License Version 3 <https://www.gnu.org/licenses/lgpl-3.0.en.html>`_
+| Also based on https://github.com/Marco-Sulla/python-frozendict
+| Copyright (c) Marco Sulla
+| Licensed under the `GNU Lesser General Public License Version 3 <https://www.gnu.org/licenses/lgpl-3.0.en.html>`_

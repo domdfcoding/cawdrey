@@ -75,3 +75,6 @@ keywords:
 
 sphinx_conf_epilogue:
   - html_logo = "../cawdrey.png"
+
+exclude_files:
+  - conf

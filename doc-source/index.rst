@@ -116,7 +116,6 @@ Contents
 * ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
 * ``bdict``: A dictionary where `key, value` pairs are stored both ways round.
 
-|
 
 This package also provides two base classes for creating your own custom dictionaries:
 
@@ -124,7 +123,6 @@ This package also provides two base classes for creating your own custom diction
 
 * ``MutableBase``: An Abstract Base Class for mutable dictionaries.
 
-|
 
 Other Dictionary Packages
 ------------------------------
@@ -205,14 +203,12 @@ Installation
 .. toctree::
 	:maxdepth: 3
 	:caption: API Reference
+	:glob:
 
-	classes/alphadict
-	classes/bdict
-	classes/frozendict
-	classes/frozenordereddict
-	classes/nonelessdict
+	classes/*
 
 	base
+	docs
 
 .. toctree::
 	:maxdepth: 3
