@@ -44,9 +44,9 @@ modname = "Cawdrey"
 pypi_name = "cawdrey"
 import_name = "cawdrey"
 __license__ = "GNU Lesser General Public License v3 or later (LGPLv3+)"
-short_desc = "Several useful custom dictionaries for Python 📖 🐍"
-__author__ = author = "Dominic Davis-Foster"
-author_email = "dominic@davis-foster.co.uk"
+short_desc = 'Several useful custom dictionaries for Python 📖\u2002🐍'
+__author__ = author = 'Dominic Davis-Foster'
+author_email = 'dominic@davis-foster.co.uk'
 github_username = "domdfcoding"
 web = github_url = "https://github.com/domdfcoding/cawdrey"
 repo_root = pathlib.Path(__file__).parent
