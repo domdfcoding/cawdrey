@@ -34,6 +34,8 @@ import plyvel  # type: ignore
 # this package
 from cawdrey.base import KT, VT
 
+__all__ = ["LevelDict", "JsonLevelDict", "TypedLevelDict"]
+
 
 class LevelDict(MutableMapping[KT, VT]):
 	"""

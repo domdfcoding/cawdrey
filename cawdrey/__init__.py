@@ -27,19 +27,18 @@ Provides several useful custom dictionaries
 #
 
 # this package
-from .alphadict import AlphaDict, alphabetical_dict
-from .base import FrozenBase, MutableBase
 from ._bdict import bdict
 from ._frozendict import frozendict
+from .alphadict import AlphaDict, alphabetical_dict
+from .base import FrozenBase, MutableBase
 from .frozenordereddict import FrozenOrderedDict
 from .nonelessdict import NonelessDict, NonelessOrderedDict
 
-__author__ = "Dominic Davis-Foster"
-__copyright__ = "2020 Dominic Davis-Foster"
-
-__license__ = "LGPLv3+"
-__version__ = "0.1.7"
-__email__ = "dominic@davis-foster.co.uk"
+__author__: str = "Dominic Davis-Foster"
+__copyright__: str = "2020 Dominic Davis-Foster"
+__license__: str = "LGPLv3+"
+__version__: str = "0.1.7"
+__email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = [
 		"__version__",

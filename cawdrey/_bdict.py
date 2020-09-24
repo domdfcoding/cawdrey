@@ -29,6 +29,8 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 from collections import UserDict
 from typing import Any, Iterable, Optional
 
+__all__ = ["bdict"]
+
 
 class bdict(UserDict):
 	"""

@@ -32,6 +32,8 @@ from functools import reduce
 # this package
 from .base import KT, VT, FrozenBase
 
+__all__ = ["FrozenOrderedDict"]
+
 
 class FrozenOrderedDict(FrozenBase[KT, VT]):
 	"""

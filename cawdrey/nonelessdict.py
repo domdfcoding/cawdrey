@@ -2,7 +2,7 @@
 #
 #  nonelessdict.py
 """
-Provides frozendict, a simple immutable dictionary.
+Provides NonelessDict.
 """
 #
 #  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -31,6 +31,8 @@ from functools import reduce
 
 # this package
 from .base import KT, VT, MutableBase
+
+__all__ = ["NonelessDict", "NonelessOrderedDict"]
 
 
 class NonelessDict(MutableBase[KT, VT]):

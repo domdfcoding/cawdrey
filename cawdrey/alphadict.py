@@ -31,6 +31,8 @@ from typing import Iterable, Optional
 from .base import KT, VT
 from .frozenordereddict import FrozenOrderedDict
 
+__all__ = ["alphabetical_dict", "AlphaDict"]
+
 
 def alphabetical_dict(**kwargs):
 	"""

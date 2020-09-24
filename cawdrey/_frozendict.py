@@ -26,10 +26,12 @@ Provides frozendict, a simple immutable dictionary.
 #
 
 # stdlib
-from typing import AbstractSet, Any, TypeVar
+from typing import AbstractSet, Any
 
 # this package
 from .base import KT, VT, FrozenBase
+
+__all__ = ["frozendict"]
 
 
 class frozendict(FrozenBase[KT, VT]):
