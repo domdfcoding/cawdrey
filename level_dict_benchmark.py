@@ -1,7 +1,9 @@
-import time
-from cawdrey.level_dict import LevelDict
-
+# stdlib
 import json
+import time
+
+# this package
+from cawdrey.level_dict import LevelDict
 
 
 def benchmark(dict_class="dict"):
@@ -101,6 +103,7 @@ def benchmark(dict_class="dict"):
 # 	float("123.456")
 # print(f"{time.time() - start_time:f}")
 
+# this package
 from cawdrey.level_dict import TypedLevelDict
 
 

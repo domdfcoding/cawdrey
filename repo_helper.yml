@@ -33,14 +33,7 @@ travis_pypi_secure: "dumMBMVtBP9QB27XlJVgGbib8S5mWEeufn4lHBphwRT2Sr4yKgUaWdqCEpv
 
 travis_site: org
 
-# directory that contains tests
-tests_dir: "tests"
-
-# Additional arguments for setup.py
-#additional_setup_args:
-#  foo: bar
-
-conda_description: "Several useful custom dictionaries"
+conda_description: "Several useful custom dictionaries for Python."
 
 classifiers:
   - 'Development Status :: 3 - Alpha'
@@ -49,15 +42,7 @@ classifiers:
 #  - "Development Status :: 6 - Mature"
 #  - "Development Status :: 7 - Inactive"
   - 'Intended Audience :: Developers'
-  - "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)"
   - 'Operating System :: OS Independent'
-  - 'Programming Language :: Python'
-  - 'Programming Language :: Python :: 3.6'
-  - 'Programming Language :: Python :: 3.7'
-  - 'Programming Language :: Python :: 3.8'
-  - "Programming Language :: Python :: 3 :: Only"
-  - "Programming Language :: Python :: Implementation :: CPython"
-  - "Programming Language :: Python :: Implementation :: PyPy"
   - 'Topic :: Software Development :: Libraries :: Python Modules'
   - "Topic :: Utilities"
 

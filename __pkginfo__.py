@@ -55,7 +55,7 @@ extras_require = {'all': []}
 
 
 
-conda_description = """Several useful custom dictionaries
+conda_description = """Several useful custom dictionaries for Python.
 
 
 Before installing please ensure you have added the following channels: domdfcoding, conda-forge"""

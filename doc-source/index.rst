@@ -26,52 +26,53 @@ Cawdrey
 	* - Other
 	  - |license| |language| |requires| |pre_commit|
 
-.. |docs| image:: https://img.shields.io/readthedocs/cawdrey/latest?logo=read-the-docs
-	:target: https://cawdrey.readthedocs.io/en/latest/?badge=latest
-	:alt: Documentation Status
+.. |docs| rtfd-shield::
+	:project: cawdrey
+	:alt: Documentation Build Status
 
-.. |docs_check| image:: https://github.com/domdfcoding/cawdrey/workflows/Docs%20Check/badge.svg
-	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22Docs+Check%22
+.. |docs_check| actions-shield::
+	:workflow: Docs Check
 	:alt: Docs Check Status
 
-.. |travis| image:: https://img.shields.io/travis/domdfcoding/cawdrey/master?logo=travis
-	:target: https://travis-ci.org/domdfcoding/cawdrey
+.. |travis| travis-shield::
+	:travis-site: org
 	:alt: Travis Build Status
 
-.. |actions_windows| image:: https://github.com/domdfcoding/cawdrey/workflows/Windows%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22Windows+Tests%22
+.. |actions_windows| actions-shield::
+	:workflow: Windows Tests
 	:alt: Windows Tests Status
 
-.. |actions_macos| image:: https://github.com/domdfcoding/cawdrey/workflows/macOS%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22macOS+Tests%22
+.. |actions_macos| actions-shield::
+	:workflow: macOS Tests
 	:alt: macOS Tests Status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/cawdrey/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/cawdrey/requirements/?branch=master
+.. |requires| requires-io-shield::
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/cawdrey/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/cawdrey?branch=master
+.. |coveralls| coveralls-shield::
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/cawdrey?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/domdfcoding/cawdrey
+.. |codefactor| codefactor-shield::
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/cawdrey
-	:target: https://pypi.org/project/cawdrey/
+.. |pypi-version| pypi-shield::
+	:project: cawdrey
+	:version:
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/cawdrey?logo=python&logoColor=white
-	:target: https://pypi.org/project/cawdrey/
+.. |supported-versions| pypi-shield::
+	:project: cawdrey
+	:py-versions:
 	:alt: PyPI - Supported Python Versions
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/cawdrey
-	:target: https://pypi.org/project/cawdrey/
+.. |supported-implementations| pypi-shield::
+	:project: cawdrey
+	:implementations:
 	:alt: PyPI - Supported Implementations
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/cawdrey
-	:target: https://pypi.org/project/cawdrey/
+.. |wheel| pypi-shield::
+	:project: cawdrey
+	:wheel:
 	:alt: PyPI - Wheel
 
 .. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/cawdrey?logo=anaconda
@@ -82,26 +83,26 @@ Cawdrey
 	:target: https://anaconda.org/domdfcoding/cawdrey
 	:alt: Conda - Platform
 
-.. |license| image:: https://img.shields.io/github/license/domdfcoding/cawdrey
-	:target: https://github.com/domdfcoding/cawdrey/blob/master/LICENSE
+.. |license| github-shield::
+	:license:
 	:alt: License
 
-.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/cawdrey
+.. |language| github-shield::
+	:top-language:
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/cawdrey/v0.1.7
-	:target: https://github.com/domdfcoding/cawdrey/pulse
+.. |commits-since| github-shield::
+	:commits-since: v0.1.7
 	:alt: GitHub commits since tagged version
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/cawdrey
-	:target: https://github.com/domdfcoding/cawdrey/commit/master
+.. |commits-latest| github-shield::
+	:last-commit:
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2020
+.. |maintained| maintained-shield:: 2020
 	:alt: Maintenance
 
-.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-	:target: https://github.com/pre-commit/pre-commit
+.. |pre_commit| pre-commit-shield::
 	:alt: pre-commit
 
 .. end shields
@@ -163,34 +164,11 @@ Installation
 
 .. start installation
 
-.. tabs::
-
-	.. tab:: from PyPI
-
-		.. prompt:: bash
-
-			python3 -m pip install cawdrey --user
-
-	.. tab:: from Anaconda
-
-		First add the required channels
-
-		.. prompt:: bash
-
-			conda config --add channels http://conda.anaconda.org/domdfcoding
-			conda config --add channels http://conda.anaconda.org/conda-forge
-
-		Then install
-
-		.. prompt:: bash
-
-			conda install cawdrey
-
-	.. tab:: from GitHub
-
-		.. prompt:: bash
-
-			python3 -m pip install git+https://github.com/domdfcoding/cawdrey@master --user
+.. installation:: cawdrey
+	:pypi:
+	:github:
+	:anaconda:
+	:conda-channels: domdfcoding, conda-forge
 
 .. end installation
 

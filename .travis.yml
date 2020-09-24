@@ -2,7 +2,7 @@
 ---
 
 language: python
-dist: xenial
+dist: focal
 cache: pip
 python:
   - '3.6'
@@ -11,9 +11,12 @@ python:
   - '3.9-dev'
   - 'pypy3'
 
+arch:
+  - amd64
+  - arm64
 install:
 
-  - pip install pip  --upgrade
+  - pip install --upgrade pip
   - pip install tox tox-travis
   - pip install coveralls coverage_pyver_pragma
 
@@ -30,7 +33,25 @@ stages:
 
 
 jobs:
+  allow_failures:
+    - arch: arm64
+
+  exclude:
+    - python: '3.7'
+      arch: arm64
+    - python: '3.8'
+      arch: arm64
+    - python: '3.9-dev'
+      arch: arm64
+    - python: 'pypy3'
+      arch: arm64
+
+
   include:
+    - stage: test
+      dist: bionic
+      python: 3.8
+
     - stage: deploy_pypi
       python: "3.6"
       script: skip
@@ -56,7 +77,5 @@ jobs:
         - chmod +x .ci/travis_deploy_conda.sh
       script: skip
       deploy:
-        on:
-          repo: domdfcoding/cawdrey
         provider: script
         script: .ci/travis_deploy_conda.sh || return 1;
