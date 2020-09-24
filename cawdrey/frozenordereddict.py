@@ -28,11 +28,14 @@ Provides FrozenOrderedDict, an immutable ordered dictionary.
 import operator
 from collections import OrderedDict
 from functools import reduce
+from typing import AbstractSet, Optional, Tuple, TypeVar, Union, ValuesView, overload
 
 # this package
 from .base import KT, VT, FrozenBase
 
 __all__ = ["FrozenOrderedDict"]
+
+T = TypeVar('T')
 
 
 class FrozenOrderedDict(FrozenBase[KT, VT]):
@@ -54,12 +57,7 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 		Return a copy of the :class:`~cawdrey.FrozenOrderedDict`.
 
 		:param args:
-		:type args:
 		:param kwargs:
-		:type kwargs:
-
-		:return:
-		:rtype:
 		"""
 
 		new_dict = self._dict.copy()
@@ -70,7 +68,68 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 		return self.__class__(new_dict)
 
 	def __hash__(self) -> int:
+		"""
+		Return :func:`hash(self) <hash>`.
+		"""
+
 		if self._hash is None:
 			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 
 		return self._hash
+
+	@overload
+	def get(self, k: KT) -> Optional[VT]:
+		...  # pragma: no cover
+
+	@overload
+	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]:
+		...  # pragma: no cover
+
+	def get(self, k, default=None):
+		"""
+		Return the value for ``k`` if ``k`` is in the dictionary, else ``default``.
+
+		:param k: The key to return the value for.
+		:param default: The value to return if ``key`` is not in the dictionary.
+		"""
+
+		return super().get(k, default)
+
+	def items(self) -> AbstractSet[Tuple[KT, VT]]:
+		"""
+		Returns a set-like object providing a view on the :class:`~.FrozenOrderedDict`\'s items.
+		"""
+
+		return super().items()
+
+	def keys(self) -> AbstractSet[KT]:
+		"""
+		Returns a set-like object providing a view on the :class:`~.FrozenOrderedDict`\'s keys.
+		"""
+
+		return super().keys()
+
+	def values(self) -> ValuesView[VT]:
+		"""
+		Returns an object providing a view on the :class:`~.FrozenOrderedDict`\'s values.
+		"""
+
+		return super().values()
+
+	def __contains__(self, key: object) -> bool:
+		"""
+		Return ``key in self``.
+
+		:param key:
+		"""
+
+		return super().__contains__(key)
+
+	def __getitem__(self, key: KT) -> VT:
+		"""
+		Return ``self[key]``.
+
+		:param key:
+		"""
+
+		return super().__getitem__(key)

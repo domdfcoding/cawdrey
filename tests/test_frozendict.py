@@ -1,3 +1,6 @@
+# stdlib
+from typing import List, Tuple
+
 # 3rd party
 import pytest
 
@@ -207,7 +210,7 @@ def test_sorted_items(fd2, fd_dict_2):
 def test_sorted_values(fd, fd_dict):
 	fd_sorted = fd.sorted(by="values")
 
-	res = []
+	res: List[Tuple] = []
 
 	for k, v in fd_dict.items():
 		if not res:
@@ -307,7 +310,7 @@ def test_iter(fd):
 def test_add(fd, addend):
 	newd = dict(fd)
 	newd.update(addend)
-	newfrozen = frozendict(newd)
+	newfrozen: frozendict = frozendict(newd)
 	assert fd + addend == newfrozen
 	fd += addend
 	assert fd == newfrozen
@@ -321,7 +324,7 @@ def test_add(fd, addend):
 def test_sub(fd, fd_dict, subtrahend):
 	fd_copy = fd.copy()
 	newd = {k: v for k, v in fd.items() if (k, v) not in subtrahend}
-	newfrozen = frozendict(newd)
+	newfrozen: frozendict = frozendict(newd)
 	assert fd - subtrahend == newfrozen
 	fd -= subtrahend
 	assert fd == newfrozen

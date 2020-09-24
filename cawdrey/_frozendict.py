@@ -53,6 +53,10 @@ class frozendict(FrozenBase[KT, VT]):
 		return self.__class__(self, **add_or_replace)
 
 	def __hash__(self) -> int:
+		"""
+		Return :func:`hash(self) <hash>`.
+		"""
+
 		if self._hash is None:
 			h = 0
 			for key, value in self._dict.items():

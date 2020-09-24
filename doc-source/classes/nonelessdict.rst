@@ -9,23 +9,15 @@ About
 
 The class has a method :meth:`~cawdrey.nonelessdict.NonelessDict.set_with_strict_none_check` that can be used to set a value and check only for ``None`` values.
 
-:class:`~cawdrey.nonelessdict.NonelessOrderedDict` is based :class:`~cawdrey.nonelessdict.NonelessDict` and :class:`~python:collections.OrderedDict`, so the order of key insertion is preserved.
+:class:`~cawdrey.nonelessdict.NonelessOrderedDict` is based on :class:`~cawdrey.nonelessdict.NonelessDict` and :class:`~python:collections.OrderedDict`, so the order of key insertion is preserved.
 
-
-Usage
-========
-
-.. TODO::
 
 API Reference
 ===========================
 
 .. automodule:: cawdrey.nonelessdict
-	:members:
-	:undoc-members:
-	:special-members:
 	:inherited-members:
-	:exclude-members: __dict__
+	:exclude-members: dict_cls
 
 Copyright
 =========

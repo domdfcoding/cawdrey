@@ -3,6 +3,7 @@ import re
 
 # 3rd party
 import pytest
+from domdf_python_tools.testing import not_pypy, only_pypy
 
 # this package
 from cawdrey.utils import search_dict
@@ -51,7 +52,18 @@ class TestSearchDict:
 					([12.34, "abc", 1234], AttributeError, ".* object has no attribute 'items'"),
 					((12.34, "abc", 1234), AttributeError, ".* object has no attribute 'items'"),
 					({12.34, "abc", 1234}, AttributeError, ".* object has no attribute 'items'"),
-					({12.34: "abc"}, TypeError, "expected string or bytes-like object"),
+					pytest.param(
+							{12.34: "abc"},
+							TypeError,
+							"expected string or bytes-like object",
+							marks=not_pypy(),
+							),
+					pytest.param(
+							{12.34: "abc"},
+							TypeError,
+							"can't use a string pattern on a bytes-like object",
+							marks=only_pypy(),
+							),
 					]
 			)
 	def test_errors_dict(self, dictionary, expects, match):

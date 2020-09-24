@@ -6,7 +6,7 @@ from cawdrey import bdict
 
 
 def test_bdict():
-	new_dict = bdict(Alice=27, Bob=30, Dom=23)
+	new_dict: bdict = bdict(Alice=27, Bob=30, Dom=23)
 
 	assert new_dict[23] == "Dom"
 	assert new_dict["Alice"] == 27
@@ -42,7 +42,7 @@ def test_bdict():
 def test_bdict_from_dict():
 	original_dict = {"Alice": 27, "Bob": 30, "Dom": 23}
 
-	new_dict = bdict(original_dict)
+	new_dict: bdict = bdict(original_dict)
 
 	assert new_dict[23] == "Dom"
 	assert new_dict["Alice"] == 27
@@ -51,34 +51,34 @@ def test_bdict_from_dict():
 def test_bdict_booleans():
 	original_dict = {"True": True, "False": False, "None": None}
 
-	new_dict = bdict(original_dict)
+	new_dict: bdict = bdict(original_dict)
 
 	assert new_dict[True] == "True"
 	assert new_dict["True"]
 
-	original_dict = {True: True, False: False, None: None}
+	original_dict2 = {True: True, False: False, None: None}
 
-	new_dict = bdict(original_dict)
+	new_dict2: bdict = bdict(original_dict2)
 
-	assert new_dict[True]
+	assert new_dict2[True]
 
 
 def test_bdict_from_zip():
-	new_dict = bdict(zip(["Alice", "Bob", "Dom"], [27, 30, 23]))
+	new_dict: bdict = bdict(zip(["Alice", "Bob", "Dom"], [27, 30, 23]))
 
 	assert new_dict[23] == "Dom"
 	assert new_dict["Alice"] == 27
 
 
 def test_bdict_from_list():
-	new_dict = bdict([("Alice", 27), ("Bob", 30), ("Dom", 23)])
+	new_dict: bdict = bdict([("Alice", 27), ("Bob", 30), ("Dom", 23)])
 
 	assert new_dict[23] == "Dom"
 	assert new_dict["Alice"] == 27
 
 
 def test_bdict_bool():
-	new_dict = bdict(N=None, T=True, F=False)
+	new_dict: bdict = bdict(N=None, T=True, F=False)
 
 	print(new_dict)
 
@@ -99,7 +99,7 @@ def test_bdict_bool():
 	assert new_dict["_None"] == 'N'
 
 	# Test for pyMHDAC
-	new_dict_2 = bdict(Unspecified=0, _None=1, GC=2, LC=3, CE=4)
+	new_dict_2: bdict = bdict(Unspecified=0, _None=1, GC=2, LC=3, CE=4)
 
 	assert None in new_dict_2
 

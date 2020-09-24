@@ -33,11 +33,8 @@ API Reference
 ===========================
 
 .. autoclass:: cawdrey.FrozenOrderedDict
-	:members:
-	:undoc-members:
-	:special-members:
 	:inherited-members:
-	:exclude-members: __dict__
+	:exclude-members: dict_cls
 
 
 Copyright

@@ -27,7 +27,10 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 
 # stdlib
 from collections import UserDict
-from typing import Any, Iterable, Optional
+from typing import AbstractSet, Any, Iterable, Optional, Tuple, TypeVar, Union, ValuesView, overload
+
+# this package
+from cawdrey.base import KT, VT, T
 
 __all__ = ["bdict"]
 
@@ -37,7 +40,7 @@ class bdict(UserDict):
 	Returns a new dictionary initialized from an optional positional argument,
 	and a possibly empty set of keyword arguments.
 
-	Each key:value pair is entered into the dictionary in both directions,
+	Each ``key: value`` pair is entered into the dictionary in both directions,
 	so you can perform lookups with either the key or the value.
 
 	If no positional argument is given, an empty dictionary is created.
@@ -53,7 +56,7 @@ class bdict(UserDict):
 	added to the dictionary created from the positional argument.
 
 	If an attempt is made to add a key or value that already exists in the
-	dictionary a ValueError will be raised
+	dictionary a :exc:`ValueError` will be raised.
 
 	Keys or values of :py:obj:`None`, :py:obj:`True` and :py:obj:`False` will be stored internally as
 	``"_None"``, ``"_True"`` and ``"_False"`` respectively
@@ -77,6 +80,13 @@ class bdict(UserDict):
 		# 		self.__setitem__(key, value)
 
 	def __setitem__(self, key, val):
+		"""
+		Set ``self[key]`` to ``value``.
+
+		:param key:
+		:param val:
+		"""
+
 		if key in self:
 			del self[self[key]]
 		if val in self:
@@ -108,11 +118,23 @@ class bdict(UserDict):
 		self.data[key] = val
 		self.data[val] = key
 
-	def __delitem__(self, key):
+	def __delitem__(self, key: KT):
+		"""
+		Delete ``self[key]``.
+
+		:param key:
+		"""
+
 		value = self.data.pop(key)
 		self.data.pop(value, None)
 
-	def __getitem__(self, key) -> Any:
+	def __getitem__(self, key: KT) -> VT:
+		"""
+		Return ``self[key]``.
+
+		:param key:
+		"""
+
 		if key is None:
 			key = "_None"
 
@@ -133,7 +155,13 @@ class bdict(UserDict):
 		else:
 			return val
 
-	def __contains__(self, key) -> bool:
+	def __contains__(self, key: object) -> bool:
+		"""
+		Return ``key in self``.
+
+		:param key:
+		"""
+
 		if key is None:
 			key = "_None"
 
@@ -144,3 +172,49 @@ class bdict(UserDict):
 				key = "_False"
 
 		return super().__contains__(key)
+
+	@overload
+	def get(self, k: KT) -> Optional[VT]:
+		...  # pragma: no cover
+
+	@overload
+	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]:
+		...  # pragma: no cover
+
+	def get(self, k, default=None):
+		"""
+		Return the value for ``k`` if ``k`` is in the dictionary, else ``default``.
+
+		:param k: The key to return the value for.
+		:param default: The value to return if ``key`` is not in the dictionary.
+		"""
+
+		return super().get(k, default)
+
+	def items(self) -> AbstractSet[Tuple[KT, VT]]:
+		"""
+		Returns a set-like object providing a view on the :class:`~.bdict`\'s items.
+		"""
+
+		return super().items()
+
+	def keys(self) -> AbstractSet[KT]:
+		"""
+		Returns a set-like object providing a view on the :class:`~.bdict`\'s keys.
+		"""
+
+		return super().keys()
+
+	def values(self) -> ValuesView[VT]:
+		"""
+		Returns an object providing a view on the :class:`~.bdict`\'s values.
+		"""
+
+		return super().values()
+
+	def clear(self) -> None:
+		"""
+		Removes all items from the :class:`~.bdict`.
+		"""
+
+		return super().clear()

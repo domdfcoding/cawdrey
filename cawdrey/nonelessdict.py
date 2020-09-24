@@ -37,9 +37,11 @@ __all__ = ["NonelessDict", "NonelessOrderedDict"]
 
 class NonelessDict(MutableBase[KT, VT]):
 	"""
-	A wrapper around dict that will check if a value is None/empty/False,
-	and not add the key in that case.
-	Use the set_with_strict_none_check function to check only for None
+	A wrapper around dict that will check if a value is
+	:py:obj:`None`/empty/:py:obj:`False`, and not add the key in that case.
+
+	Use the :meth:`~.NonelessDict.set_with_strict_none_check` method to check only
+	for :py:obj:`None`.
 	"""
 
 	dict_cls = dict  # type: ignore
@@ -54,6 +56,10 @@ class NonelessDict(MutableBase[KT, VT]):
 		return self.__class__(self, **add_or_replace)
 
 	def __hash__(self) -> int:
+		"""
+		Return :func:`hash(self) <hash>`.
+		"""
+
 		if self._hash is None:
 			h = 0
 			for key, value in self._dict.items():
@@ -62,6 +68,12 @@ class NonelessDict(MutableBase[KT, VT]):
 		return self._hash
 
 	def set_with_strict_none_check(self, key, value) -> None:
+		"""
+
+		:param key:
+		:param value:
+		"""
+
 		if value is not None:
 			self._dict[key] = value
 
@@ -90,6 +102,10 @@ class NonelessOrderedDict(MutableBase[KT, VT]):
 		return self.__class__(new_dict)
 
 	def __hash__(self) -> int:
+		"""
+		Return :func:`hash(self) <hash>`.
+		"""
+
 		if self._hash is None:
 			self._hash = reduce(operator.xor, map(hash, self.items()), 0)
 

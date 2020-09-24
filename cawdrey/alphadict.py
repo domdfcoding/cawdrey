@@ -27,6 +27,9 @@ Provides AlphaDict, a frozen OrderedDict where the keys are stored alphabeticall
 from collections import OrderedDict
 from typing import Iterable, Optional
 
+# 3rd party
+from domdf_python_tools.doctools import prettify_docstrings
+
 # this package
 from .base import KT, VT
 from .frozenordereddict import FrozenOrderedDict
@@ -48,30 +51,31 @@ def alphabetical_dict(**kwargs):
 	return OrderedDict(sorted(kwargs.items()))
 
 
+@prettify_docstrings
 class AlphaDict(FrozenOrderedDict[KT, VT]):
 	r"""
-	Initialize an immutable, Alphabetised dictionary.
+	Initialize an immutable, alphabetised dictionary.
+
 	The signature is the same as regular dictionaries.
 
-	dict() -> new empty AlphaDict
+	| ``AlphaDict()`` -> new empty AlphaDict
+	| ``AlphaDict(mapping)`` -> new AlphaDict initialized from a mapping object's (key, value) pairs
+	| ``AlphaDict(iterable)`` -> new AlphaDict initialized as if via:
 
-	dict(mapping) -> new AlphaDict initialized from a mapping object's (key, value) pairs
+		.. code-block:: python
 
-	dict(iterable) -> new AlphaDict initialized as if via:
+			d = {}
+			for k, v in iterable:
+				d[k] = v
 
-	.. code-block:: python
+	| ``AlphaDict(**kwargs)`` -> new AlphaDict initialized with the ``name=value`` pairs in the keyword argument list.
 
-		d = {}
-		for k, v in iterable:
-			d[k] = v
+		For example:
 
-	dict(\*\*kwargs) -> new AlphaDict initialized with the name=value pairs in the keyword argument list.
-	For example:
+		.. code-block::
 
-	.. code-block::
-
-		dict(one=1, two=2)
-	"""
+			AlphaDict(one=1, two=2)
+		"""
 
 	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
 		if seq:
