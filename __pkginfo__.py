@@ -39,7 +39,7 @@ __copyright__ = """
 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 """
 
-__version__ = "0.1.7"
+__version__ = "0.2.0"
 modname = "Cawdrey"
 pypi_name = "cawdrey"
 import_name = "cawdrey"
