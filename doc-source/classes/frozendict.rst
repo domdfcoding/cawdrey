@@ -5,19 +5,19 @@ frozendict
 About
 ========
 
-:class:`~cawdrey.frozendict` is an immutable wrapper around dictionaries that implements the
+:class:`~cawdrey._frozendict.frozendict` is an immutable wrapper around dictionaries that implements the
 complete mapping interface. It can be used as a drop-in replacement for
 dictionaries where immutability is desired.
 
 Of course, this is ``python``, and you can still poke around the object's
 internals if you want.
 
-The :class:`~cawdrey.frozendict` constructor mimics :class:`dict`, and all of the expected
+The :class:`~cawdrey._frozendict.frozendict` constructor mimics :class:`dict`, and all of the expected
 interfaces (``iter``, ``len``, ``repr``, ``hash``, ``getitem``) are provided.
-Note that a :class:`~cawdrey.frozendict` does not guarantee the immutability of its values, so
+Note that a :class:`~cawdrey._frozendict.frozendict` does not guarantee the immutability of its values, so
 the utility of the ``hash`` method is restricted by usage.
 
-The only difference is that the ``copy()`` method of :class:`~cawdrey.frozendict` takes
+The only difference is that the ``copy()`` method of :class:`~cawdrey._frozendict.frozendict` takes
 variable keyword arguments, which will be present as key/value pairs in the new,
 immutable copy.
 
@@ -40,9 +40,9 @@ Usage
 	<frozendict {'hello': 'World', 'another': 'key/value'}>
 	>>>
 
-In addition, :class:`~cawdrey.frozendict` supports the `+` and `-` operands. If you add a
-`dict`-like object, a new :class:`~cawdrey.frozendict` will be returned, equal to the old
-:class:`~cawdrey.frozendict` updated with the other object. Example:
+In addition, :class:`~cawdrey._frozendict.frozendict` supports the `+` and `-` operands. If you add a
+`dict`-like object, a new :class:`~cawdrey._frozendict.frozendict` will be returned, equal to the old
+:class:`~cawdrey._frozendict.frozendict` updated with the other object. Example:
 
 .. code-block:: python
 
@@ -50,7 +50,7 @@ In addition, :class:`~cawdrey.frozendict` supports the `+` and `-` operands. If 
 	<frozendict {'Sulla': 'Marò', 2: 3, 4: 7}>
 	>>>
 
-You can also subtract an iterable from a :class:`~cawdrey.frozendict`. A new :class:`~cawdrey.frozendict`
+You can also subtract an iterable from a :class:`~cawdrey._frozendict.frozendict`. A new :class:`~cawdrey._frozendict.frozendict`
 will be returned, without the keys that are in the iterable. Examples:
 
 .. code-block::
@@ -134,7 +134,7 @@ Some other examples:
 API Reference
 ===========================
 
-.. autoclass:: cawdrey.frozendict
+.. autoclass:: cawdrey._frozendict.frozendict
 	:inherited-members:
 	:exclude-members: dict_cls
 

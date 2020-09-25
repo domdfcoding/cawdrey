@@ -5,25 +5,23 @@ FrozenOrderedDict
 About
 ========
 
-:class:`~cawdrey.FrozenOrderedDict` is a immutable wrapper around an OrderedDict.
-
-:class:`~cawdrey.FrozenOrderedDict` is similar to :class:`~cawdrey.frozendict`, and with regards to immutability it
-solves the same problems:
+:class:`~cawdrey.frozenordereddict.FrozenOrderedDict` is a immutable wrapper around an :class:`~collections.OrderedDict`.
+It is similar to :class:`~cawdrey._frozendict.frozendict`, and with regards to immutability it solves the same problems:
 
 	- Because dictionaries are mutable, they are not hashable and cannot be used in sets or as dictionary keys.
 	- Nasty bugs can and do occur when mutable data structures are passed around.
 
-It can be initialized just like a :class:`~python:dict` or :class:`~python:collections.OrderedDict`.
-Once instantiated, an instance of :class:`~cawdrey.FrozenOrderedDict` cannot be altered,
+It can be initialized just like a :class:`dict` or :class:`~python:collections.OrderedDict`.
+Once instantiated, an instance of :class:`~cawdrey.frozenordereddict.FrozenOrderedDict` cannot be altered,
 since it does not implement the :class:`~collections.abc.MutableMapping` interface.
 
-It does implement the :class:`~collections.abc.Mapping` interface, so can be used just like a
-normal dictionary in most cases.
+:class:`~cawdrey.frozenordereddict.FrozenOrderedDict` implements the
+:class:`~collections.abc.Mapping` interface, so can be used just like a normal dictionary in most cases.
 
-In order to modify the contents of a :class:`~cawdrey.FrozenOrderedDict`, a new
+In order to modify the contents of a :class:`~cawdrey.frozenordereddict.FrozenOrderedDict`, a new
 instance must be created. The easiest way to do that is by
 calling the `.copy()` method. It will return a new instance of
-:class:`~cawdrey.FrozenOrderedDict` initialized using the following steps:
+:class:`~cawdrey.frozenordereddict.FrozenOrderedDict` initialized using the following steps:
 
 	1. A copy of the wrapped :class:`~python:collections.OrderedDict` instance will be created.
 	2. If any arguments or keyword arguments are passed to the `.copy()` method, they will be used to create another :class:`~python:collections.OrderedDict` instance, which will then be used to update the copy made in step #1.
@@ -32,7 +30,7 @@ calling the `.copy()` method. It will return a new instance of
 API Reference
 ===========================
 
-.. autoclass:: cawdrey.FrozenOrderedDict
+.. autoclass:: cawdrey.frozenordereddict.FrozenOrderedDict
 	:inherited-members:
 	:exclude-members: dict_cls
 

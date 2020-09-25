@@ -54,7 +54,7 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 
 	def copy(self, *args, **kwargs):
 		"""
-		Return a copy of the :class:`~cawdrey.FrozenOrderedDict`.
+		Return a copy of the :class:`~cawdrey.frozenordereddict.FrozenOrderedDict`.
 
 		:param args:
 		:param kwargs:
