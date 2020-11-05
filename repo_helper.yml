@@ -1,3 +1,4 @@
+---
 modname: Cawdrey
 pypi_name: cawdrey
 repo_name: cawdrey
@@ -11,8 +12,8 @@ license: 'LGPLv3+'
 short_desc: 'Several useful custom dictionaries for Python 📖 🐍'
 
 conda_channels:
-  - domdfcoding
-  - conda-forge
+ - domdfcoding
+ - conda-forge
 
 python_deploy_version: 3.6
 
@@ -22,12 +23,12 @@ python_deploy_version: 3.6
 
 # Versions to run tests for
 python_versions:
-  - '3.6'
-  - '3.7'
-  - "3.8"
-  - 3.9
-  - "3.10-dev"
-  - "pypy3"
+ - '3.6'
+ - '3.7'
+ - "3.8"
+ - 3.9
+ - "3.10-dev"
+ - "pypy3"
 
 # travis secure password for PyPI
 travis_pypi_secure: "dumMBMVtBP9QB27XlJVgGbib8S5mWEeufn4lHBphwRT2Sr4yKgUaWdqCEpvJU3FwXeDCEGbaLkkRxL/wlmzzgNrTRl/xpSaXi8qjMPdxXfn8FGjaFfdqZEhYLdBrX100vDxcNehQpHi9sfLRsE4ttdHkn8YtamOp1KKPQOQpuZn5vvig602Ik9q7Lscm3jbhbWtomAqY1o7x95Tdj8RmpGX3c+76+eKnFHgGDaD4LiZTT4V1lNi84GkXaiEsDebPvPT2ki1xaeOhUyI4SeJrywGKPLqKYO1/BXdKWwX0HgUtav5KXdAqmLL8hH0ysrxKkKybkMXmPr63NU7pSTwYVWf2FTZe+QarUCQoToFtRNEPNf3/Serwx8TP6f8AraibZeeGrwK4CDvCl9qVQCsMr5xcB8WDPgLUCbF06Wrvb9umy6m5TAlX02YGnFjjBkciUjUpAsoi0JslaXQXSYWVj/PzEHMYGEuITn8TZpbIRChQhLoj9hE5gpTJxkHPsidoUjg0S5v9oC7+XVjpGyaOVsWMIiy2gSNIYNSyLo1aXf7Rx2ZNQvQRrqP8KMcHtUiltUn1X56AeVOHrB36PuM0oHHV6oNsTL8xCccHyuIb2FthH7RukQox6hHDm3nPEh+seuFM6fu5cJLF2MEDrDOClZXVOLpYus4BqYRCI5Wgv/k="
@@ -37,27 +38,22 @@ travis_site: org
 conda_description: "Several useful custom dictionaries for Python."
 
 classifiers:
-  - 'Development Status :: 3 - Alpha'
-#  - "Development Status :: 4 - Beta"
-#  - "Development Status :: 5 - Production/Stable"
-#  - "Development Status :: 6 - Mature"
-#  - "Development Status :: 7 - Inactive"
-  - 'Intended Audience :: Developers'
-  - 'Operating System :: OS Independent'
-  - 'Topic :: Software Development :: Libraries :: Python Modules'
-  - "Topic :: Utilities"
-
+ - 'Development Status :: 3 - Alpha'
+ - 'Intended Audience :: Developers'
+ - 'Operating System :: OS Independent'
+ - 'Topic :: Software Development :: Libraries :: Python Modules'
+ - "Topic :: Utilities"
 keywords:
-  - frozenordereddict
-  - orderedfrozendict
-  - frozen
-  - immutable
-  - frozendict
-  - dict
-  - dictionary
-  - map
-  - Mapping
-  - MappingProxyType
+ - frozenordereddict
+ - orderedfrozendict
+ - frozen
+ - immutable
+ - frozendict
+ - dict
+ - dictionary
+ - map
+ - Mapping
+ - MappingProxyType
 
 sphinx_conf_epilogue:
-  - html_logo = "../cawdrey.png"
+ - html_logo = "../cawdrey.png"
