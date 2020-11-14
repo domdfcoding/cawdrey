@@ -18,7 +18,7 @@ def benchmark(dict_class="dict"):
 	for i in range(50000):
 		data["cat" + str(i)] = str(i)
 		data["ca" + str(i)] = str(i)
-		data["c" + str(i)] = str(i)
+		data['c' + str(i)] = str(i)
 
 	# Add tested key last.
 	data["cat"] = "100"
@@ -37,7 +37,7 @@ def benchmark(dict_class="dict"):
 	start_time = time.time()
 
 	if dict_class == "dict":
-		with open("test_dict.json", "w") as fp:
+		with open("test_dict.json", 'w') as fp:
 			json.dump(data, fp)
 
 		del data

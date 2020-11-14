@@ -95,7 +95,10 @@ class JsonLevelDict(MutableMapping[KT, VT]):
 	"""
 
 	def __init__(self, path):
-		"""Constructor for LevelDict"""
+		"""
+		Constructor for LevelDict.
+		"""
+
 		self.path = path
 		self.db = plyvel.DB(self.path, create_if_missing=True, error_if_exists=False)
 
@@ -147,7 +150,10 @@ class TypedLevelDict(MutableMapping[KT, VT]):
 	value_type = str
 
 	def __init__(self, path):
-		"""Constructor for LevelDict"""
+		"""
+		Constructor for LevelDict.
+		"""
+
 		self.path = path
 		self.db = plyvel.DB(self.path, create_if_missing=True, error_if_exists=False)
 

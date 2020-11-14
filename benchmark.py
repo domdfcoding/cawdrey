@@ -126,19 +126,19 @@ statements = (
 		)
 
 for n in dictionary_sizes:
-	print("#" * 80)
+	print('#' * 80)
 	d = dict()
 
 	for i in range(n - 1):
 		d[getUuid()] = getUuid()
 
-	d['12323f29-c31f-478c-9b15-e7acc5354df9'] = getUuid()
+	d["12323f29-c31f-478c-9b15-e7acc5354df9"] = getUuid()
 
 	h = immutables.Map(d)
 	fd = frozendict(d)
 
 	for statement in statements:
-		print("/" * 80)
+		print('/' * 80)
 
 		for x in (d, h, fd):
 			if statement["name"] == "hash(d)" and isinstance(x, dict):
@@ -152,7 +152,7 @@ for n in dictionary_sizes:
 			t = timeit.timeit(
 					stmt=statement["code"],
 					setup=statement["setup"],
-					globals={"x": x, "getUuid": getUuid, "d": d},
+					globals={'x': x, "getUuid": getUuid, 'd': d},
 					number=iterations
 					)
 
