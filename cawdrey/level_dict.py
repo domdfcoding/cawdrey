@@ -29,7 +29,7 @@ import json
 from typing import Any, MutableMapping
 
 # 3rd party
-import plyvel  # type: ignore
+import plyvel  # type: ignore  # nodep
 
 # this package
 from cawdrey.base import KT, VT
