@@ -191,7 +191,7 @@ class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 	``copy``, ``fromkeys``.
 	"""
 
-	dict_cls = None  # type: ignore
+	dict_cls = None
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):

@@ -44,7 +44,7 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 	It can be used as a drop-in replacement for dictionaries where immutability is desired.
 	"""
 
-	dict_cls = OrderedDict  # type: ignore
+	dict_cls = OrderedDict
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
