@@ -39,14 +39,10 @@ __all__ = ["LevelDict", "JsonLevelDict", "TypedLevelDict"]
 
 class LevelDict(MutableMapping[KT, VT]):
 	"""
-	Dict Wrapper around the Google LevelDB Database. Keys and values must be strings
+	Dict Wrapper around the Google LevelDB Database. Keys and values must be strings.
 	"""
 
 	def __init__(self, path):
-		"""
-		Constructor for LevelDict
-		"""
-
 		self.path = path
 		self.db = plyvel.DB(self.path, create_if_missing=True, error_if_exists=False)
 

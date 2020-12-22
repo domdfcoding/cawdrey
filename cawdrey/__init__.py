@@ -2,7 +2,7 @@
 #
 #  __init__.py
 """
-Provides several useful custom dictionaries
+Provides several useful custom dictionaries.
 """
 #
 #  Copyright (c) 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>

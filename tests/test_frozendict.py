@@ -237,8 +237,8 @@ def test_sorted_empty(fd_empty):
 
 
 def test_sorted_bad_by(fd):
-	with pytest.raises(ValueError):
-		fd_sorted = fd.sorted(by="value")
+	with pytest.raises(ValueError, match="Unexpected value for parameter `by`: value"):
+		fd.sorted(by="value")
 
 
 def test_unhashable_value(fd_unhashable):

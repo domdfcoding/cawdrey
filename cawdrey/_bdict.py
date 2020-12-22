@@ -60,12 +60,12 @@ class bdict(UserDict):
 
 	Keys or values of :py:obj:`None`, :py:obj:`True` and :py:obj:`False` will be stored internally as
 	``"_None"``, ``"_True"`` and ``"_False"`` respectively
+	"""  # noqa: D400
 
-	Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
+	# Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
 
-	Improved May 2020 with suggestions from
-	https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
-	"""
+	# Improved May 2020 with suggestions from
+	# https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
 
 	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
 		# if seq and kwargs:
@@ -192,21 +192,21 @@ class bdict(UserDict):
 		return super().get(k, default)
 
 	def items(self) -> AbstractSet[Tuple[KT, VT]]:
-		"""
+		r"""
 		Returns a set-like object providing a view on the :class:`~.bdict`\'s items.
 		"""
 
 		return super().items()
 
 	def keys(self) -> AbstractSet[KT]:
-		"""
+		r"""
 		Returns a set-like object providing a view on the :class:`~.bdict`\'s keys.
 		"""
 
 		return super().keys()
 
 	def values(self) -> ValuesView[VT]:
-		"""
+		r"""
 		Returns an object providing a view on the :class:`~.bdict`\'s values.
 		"""
 
