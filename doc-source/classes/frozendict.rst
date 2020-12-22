@@ -40,8 +40,8 @@ Usage
 	<frozendict {'hello': 'World', 'another': 'key/value'}>
 	>>>
 
-In addition, :class:`~cawdrey._frozendict.frozendict` supports the `+` and `-` operands. If you add a
-`dict`-like object, a new :class:`~cawdrey._frozendict.frozendict` will be returned, equal to the old
+In addition, :class:`~cawdrey._frozendict.frozendict` supports the ``+`` and ``-`` operands. If you add a
+:class:`dict`-like object, a new :class:`~cawdrey._frozendict.frozendict` will be returned, equal to the old
 :class:`~cawdrey._frozendict.frozendict` updated with the other object. Example:
 
 .. code-block:: python
