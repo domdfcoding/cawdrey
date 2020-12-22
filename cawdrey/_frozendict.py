@@ -28,18 +28,22 @@ Provides frozendict, a simple immutable dictionary.
 # stdlib
 from typing import AbstractSet, Any
 
+# 3rd party
+from domdf_python_tools.doctools import prettify_docstrings
+
 # this package
-from .base import KT, VT, FrozenBase
+from .base import _D, KT, VT, FrozenBase
 
 __all__ = ["frozendict"]
 
 
+@prettify_docstrings
 class frozendict(FrozenBase[KT, VT]):
 	"""
 	An immutable wrapper around dictionaries that implements the complete
 	:py:class:`collections.Mapping` interface. It can be used as a
 	drop-in replacement for dictionaries where immutability is desired.
-	"""
+	"""  # noqa: D400
 
 	dict_cls = dict
 
@@ -49,14 +53,14 @@ class frozendict(FrozenBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self, **add_or_replace):
-		return self.__class__(self, **add_or_replace)
+	def copy(self: _D, *args, **kwargs) -> _D:
+		"""
+		Return a copy of the dictionary.
+		"""
+
+		return self.__class__(self, *args, **kwargs)  # type: ignore
 
 	def __hash__(self) -> int:
-		"""
-		Return :func:`hash(self) <hash>`.
-		"""
-
 		if self._hash is None:
 			h = 0
 			for key, value in self._dict.items():
@@ -64,7 +68,7 @@ class frozendict(FrozenBase[KT, VT]):
 			self._hash = h
 		return self._hash
 
-	def sorted(self, *args, by: str = "keys", **kwargs):
+	def sorted(self, *args, by: str = "keys", **kwargs):  # noqa: A003  # pylint: disable=redefined-builtin
 		"""
 		Return a new :class:`~cawdrey._frozendict.frozendict`, with the element
 		insertion sorted. The signature is the same as the builtin
@@ -86,7 +90,7 @@ class frozendict(FrozenBase[KT, VT]):
 			``by = "values"``, since also sorting by values passes the items to
 			the key function. But this is an implementation detail and you
 			should not rely on it.
-		"""
+		"""  # noqa: D400
 
 		if not self:
 			return self
@@ -117,7 +121,7 @@ class frozendict(FrozenBase[KT, VT]):
 		"""
 		If you add a dict-like object, a new frozendict will be returned, equal
 		to the old frozendict updated with the other object.
-		"""
+		"""  # noqa: D400
 
 		tmp = dict(self)
 
@@ -131,14 +135,13 @@ class frozendict(FrozenBase[KT, VT]):
 
 	def __sub__(self, other, *args, **kwargs):
 		"""
-		The method will create a new ``frozendict``, result of the subtraction
-		by `other`.
+		The method will create a new :class:`~.frozendict`, result of the subtraction by `other`.
 
-		If ``other`` is a ``dict``-like, the result will have the items of the
-		`frozendict` that are *not* in common with `other`.
+		If ``other`` is a :class:`dict`-like, the result will have the items of the
+		:class:`~.frozendict` that are *not* in common with `other`.
 
-		If `other` is another type of iterable, the result will have the
-		items of `frozendict` without the keys that are in `other`.
+		If ``other`` is another type of iterable, the result will have the
+		items of :class:`~.frozendict` without the keys that are in ``other``.
 		"""
 
 		try:
@@ -177,7 +180,7 @@ class frozendict(FrozenBase[KT, VT]):
 
 		The last two behaviours breaks voluntarily the :meth:`python:dict.items`
 		API, for consistency and practical reasons.
-		"""
+		"""  # noqa: D400
 
 		try:
 			try:

@@ -75,7 +75,7 @@ class AlphaDict(FrozenOrderedDict[KT, VT]):
 		.. code-block::
 
 			AlphaDict(one=1, two=2)
-		"""
+	"""
 
 	def __init__(self, seq: Optional[Iterable] = None, **kwargs):
 		if seq:
