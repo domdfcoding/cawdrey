@@ -4,7 +4,8 @@ Benchmark script
 
 Requires https://github.com/MagicStack/immutables
 """
-#  Copyright (c) Marco Sulla
+#
+#  Copyright © Marco Sulla
 #  From https://github.com/Marco-Sulla/python-frozendict
 #
 #  This program is free software; you can redistribute it and/or modify

@@ -3,44 +3,35 @@ modname: Cawdrey
 pypi_name: cawdrey
 repo_name: cawdrey
 import_name: cawdrey
-copyright_years: "2019-2020"
+copyright_years: "2019-2021"
 author: "Dominic Davis-Foster"
 email: "dominic@davis-foster.co.uk"
 version: "0.2.1"
 username: "domdfcoding"
 license: 'LGPLv3+'
 short_desc: 'Several useful custom dictionaries for Python 📖 🐍'
+conda_description: "Several useful custom dictionaries for Python."
 
 conda_channels:
- - domdfcoding
  - conda-forge
 
 python_deploy_version: 3.6
 
-# Additional lines for .gitignore
-#additional_ignore:
-#  -
-
 # Versions to run tests for
 python_versions:
- - '3.6'
- - '3.7'
- - "3.8"
+ - 3.6
+ - 3.7
+ - 3.8
  - 3.9
- - "3.10-dev"
- - "pypy3"
-
-# travis secure password for PyPI
-
-
-conda_description: "Several useful custom dictionaries for Python."
+ - 3.10-dev
+ - pypy3
 
 classifiers:
- - 'Development Status :: 3 - Alpha'
- - 'Intended Audience :: Developers'
- - 'Operating System :: OS Independent'
- - 'Topic :: Software Development :: Libraries :: Python Modules'
+ - "Development Status :: 4 - Beta"
+ - "Intended Audience :: Developers"
+ - "Topic :: Software Development :: Libraries :: Python Modules"
  - "Topic :: Utilities"
+
 keywords:
  - frozenordereddict
  - orderedfrozendict
@@ -52,6 +43,7 @@ keywords:
  - map
  - Mapping
  - MappingProxyType
+ - Counter
 
 sphinx_conf_epilogue:
  - html_logo = "../cawdrey.png"

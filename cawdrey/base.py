@@ -5,10 +5,10 @@
 Base Classes.
 """
 #
-#  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
-#  Copyright (c) 2015 Warren Smith
-#  Copyright (c) Marco Sulla
-#  Copyright (c) 2012 Santiago Lezica
+#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2015 Warren Smith
+#  Copyright © Marco Sulla
+#  Copyright © 2012 Santiago Lezica
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published by

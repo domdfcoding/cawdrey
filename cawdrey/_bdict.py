@@ -5,7 +5,7 @@
 Provides bdict, a dictionary where keys and values are also stored the other way round.
 """
 #
-#  Copyright (c) 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #  Improved May 2020 with suggestions from
 #      https://treyhunner.com/2019/04/why-you-shouldnt-inherit-from-list-and-dict-in-python/
 #
