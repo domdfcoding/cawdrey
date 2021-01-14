@@ -36,7 +36,7 @@ from cawdrey.base import KT
 
 __all__ = ["Tally"]
 
-_F = TypeVar("_F", bound=Real)
+_F = TypeVar("_F", float, int, Real)
 
 if sys.version_info < (3, 8):  # pragma: no cover (py38+)
 	Percentage = Dict[KT, float]
