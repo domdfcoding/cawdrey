@@ -63,7 +63,7 @@ class SupportsMostCommon(Protocol[KT]):
 
 		raise NotImplementedError
 
-	def most_common(self, n: Optional[int] = None) -> List[Tuple[KT, float]]:
+	def most_common(self, n: Optional[int] = None) -> Union[List[Tuple[KT, float]], List[Tuple[KT, int]]]:
 		"""
 		List the ``n`` most common elements and their counts from the most common to the least.
 		If ``n`` is :py:obj:`None` then list all element counts.

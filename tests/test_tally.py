@@ -7,7 +7,7 @@ import pytest
 from pytest_regressions.data_regression import DataRegressionFixture
 
 # this package
-from cawdrey.tally import Tally
+from cawdrey.tally import SupportsMostCommon, Tally
 
 
 class CounterRegressionFixture(DataRegressionFixture):
@@ -60,3 +60,15 @@ def test_get_percentage():
 	assert tally.get_percentage("chicken") is None
 	assert tally.get_percentage("chicken", 0.0) == 0.0
 	assert tally.get_percentage("chicken", 0.1) == 0.1
+
+
+def mypy_check(percent: bool = False) -> SupportsMostCommon[str]:
+	tally: Tally[str] = Tally("abracadabra")
+
+	data: SupportsMostCommon[str]
+	if percent:
+		data = tally.as_percentage()
+	else:
+		data = tally
+
+	return data
