@@ -24,27 +24,59 @@ Subclass of :class:`collections.Counter` with additional methods.
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #
+#  most_common method based on CPython.
+#  Licensed under the Python Software Foundation License Version 2.
+#  Copyright © 2001-2020 Python Software Foundation. All rights reserved.
+#  Copyright © 2000 BeOpen.com. All rights reserved.
+#  Copyright © 1995-2000 Corporation for National Research Initiatives. All rights reserved.
+#  Copyright © 1991-1995 Stichting Mathematisch Centrum. All rights reserved.
+#
 
 # stdlib
-import collections
-import sys
+import heapq
 from numbers import Real
-from typing import Counter, Dict, Optional, TypeVar, Union, overload
+from operator import itemgetter
+from typing import Counter, Dict, Iterable, List, Optional, Tuple, TypeVar, Union, overload
+
+# 3rd party
+from typing_extensions import Protocol, runtime_checkable
 
 # this package
 from cawdrey.base import KT
 
-__all__ = ["Tally"]
+__all__ = ["_F", "SupportsMostCommon", "Tally", "Percentage"]
 
 _F = TypeVar("_F", float, int, Real)
 
-if sys.version_info < (3, 8):  # pragma: no cover (py38+)
-	Percentage = Dict[KT, float]
-else:  # pragma: no cover (<py38)
-	# stdlib
-	from typing import OrderedDict
 
-	Percentage = OrderedDict[KT, float]
+@runtime_checkable
+class SupportsMostCommon(Protocol[KT]):
+	"""
+	:class:`typing.Protocol` for classes which support a :class:`collections.Counter`-like
+	:meth:`collections.Counter.most_common` method.
+	"""  # noqa: D400
+
+	def items(self) -> Iterable[Tuple[KT, float]]:
+		"""
+		Returns an iterator over the mapping’s items (as ``(key, value)`` pairs).
+		"""
+
+		raise NotImplementedError
+
+	def most_common(self, n: Optional[int] = None) -> List[Tuple[KT, float]]:
+		"""
+		List the ``n`` most common elements and their counts from the most common to the least.
+		If ``n`` is :py:obj:`None` then list all element counts.
+
+		.. code-block:: python
+
+			>>> Counter('abracadabra').most_common(3)
+			[('a', 5), ('b', 2), ('r', 2)]
+
+		:param n:
+		"""
+
+		raise NotImplementedError
 
 
 class Tally(Counter[KT]):
@@ -54,7 +86,7 @@ class Tally(Counter[KT]):
 	.. versionadded:: 0.3.0
 	"""
 
-	def as_percentage(self) -> Percentage:
+	def as_percentage(self) -> "Percentage[KT]":
 		"""
 		Returns the :class:`~.Tally` as a :class:`collections.OrderedDict`
 		comprising the count for each element as a percentage of the sum of all elements.
@@ -69,7 +101,7 @@ class Tally(Counter[KT]):
 		# CC BY-SA 3.0
 
 		total = self.total
-		return collections.OrderedDict((i, count / total) for i, count in self.most_common())
+		return Percentage((i, count / total) for i, count in self.most_common())
 
 	@property
 	def total(self) -> int:
@@ -101,3 +133,46 @@ class Tally(Counter[KT]):
 			return default
 		else:
 			return value / self.total
+
+	def most_common(self, n: Optional[int] = None) -> List[Tuple[KT, int]]:
+		"""
+		List the ``n`` most common elements and their counts from the most common to the least.
+		If ``n`` is :py:obj:`None` then list all element counts.
+
+		.. code-block:: python
+
+			>>> Tally('abracadabra').most_common(3)
+			[('a', 5), ('b', 2), ('r', 2)]
+
+		:param n:
+		"""
+
+		return super().most_common(n)
+
+
+class Percentage(Dict[KT, float]):
+	"""
+	Provides a dictionary interface, but with :class:`collections.Counter`'s
+	:meth:`collections.Counter.most_common` method.
+
+	Represents the return type of :meth:`cawdrey.tally.Tally.as_percentage()`.
+	"""  # noqa
+
+	def most_common(self, n: Optional[int] = None) -> List[Tuple[KT, float]]:
+		"""
+		List the ``n`` most common elements and their counts from the most common to the least.
+		If ``n`` is :py:obj:`None` then list all element counts.
+
+		.. code-block:: python
+
+			>>> Tally('abracadabra').as_percentage().most_common(3)
+			[('a', 0.45454545454545453), ('b', 0.18181818181818182), ('r', 0.18181818181818182)]
+
+		:param n:
+		"""
+
+		# Emulate Bag.sortedByCount from Smalltalk
+		if n is None:
+			return sorted(self.items(), key=itemgetter(1), reverse=True)
+
+		return heapq.nlargest(n, self.items(), key=itemgetter(1))

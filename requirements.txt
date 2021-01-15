@@ -1,1 +1,2 @@
 domdf-python-tools>=0.9.1
+typing-extensions>=3.7.4.3
