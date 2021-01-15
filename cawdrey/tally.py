@@ -59,7 +59,7 @@ class SupportsMostCommon(Protocol[KT]):
 	def items(self) -> Iterable[Tuple[KT, float]]:
 		"""
 		Returns an iterator over the mapping’s items (as ``(key, value)`` pairs).
-		"""
+		"""  # noqa: D402
 
 		raise NotImplementedError
 
