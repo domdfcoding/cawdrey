@@ -174,12 +174,10 @@ class bdict(UserDict):
 		return super().__contains__(key)
 
 	@overload
-	def get(self, k: KT) -> Optional[VT]:
-		...  # pragma: no cover
+	def get(self, k: KT) -> Optional[VT]: ...  # pragma: no cover
 
 	@overload
-	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]:
-		...  # pragma: no cover
+	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
 	def get(self, k, default=None):
 		"""

@@ -108,12 +108,10 @@ class DictWrapper(Mapping[KT, VT]):
 		return self.copy()
 
 	@overload
-	def get(self, k: KT) -> Optional[VT]:
-		...  # pragma: no cover
+	def get(self, k: KT) -> Optional[VT]: ...  # pragma: no cover
 
 	@overload
-	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]:
-		...  # pragma: no cover
+	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
 	def get(self, k, default=None):
 		"""
@@ -169,13 +167,11 @@ class FrozenBase(DictWrapper[KT, VT]):
 
 	@classmethod
 	@overload
-	def fromkeys(cls, iterable: Iterable[KT]) -> "FrozenBase[KT, Any]":
-		...  # pragma: no cover
+	def fromkeys(cls, iterable: Iterable[KT]) -> "FrozenBase[KT, Any]": ...  # pragma: no cover
 
 	@classmethod
 	@overload
-	def fromkeys(cls, iterable: Iterable[KT], value: VT) -> "FrozenBase[KT, VT]":
-		...  # pragma: no cover
+	def fromkeys(cls, iterable: Iterable[KT], value: VT) -> "FrozenBase[KT, VT]": ...  # pragma: no cover
 
 	@classmethod
 	@is_documented_by(dict.fromkeys)
@@ -208,13 +204,11 @@ class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 
 	@classmethod
 	@overload
-	def fromkeys(cls, iterable: Iterable[KT]) -> "MutableBase[KT, Any]":
-		...  # pragma: no cover
+	def fromkeys(cls, iterable: Iterable[KT]) -> "MutableBase[KT, Any]": ...  # pragma: no cover
 
 	@classmethod
 	@overload
-	def fromkeys(cls, iterable: Iterable[KT], value: VT) -> "MutableBase[KT, VT]":
-		...  # pragma: no cover
+	def fromkeys(cls, iterable: Iterable[KT], value: VT) -> "MutableBase[KT, VT]": ...  # pragma: no cover
 
 	@classmethod
 	@is_documented_by(dict.fromkeys)

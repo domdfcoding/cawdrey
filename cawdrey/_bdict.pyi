@@ -1,9 +1,8 @@
 # stdlib
 from collections import UserDict
-
-# this package
 from typing import Iterable, Optional
 
+# this package
 from cawdrey.base import KT, VT
 
 

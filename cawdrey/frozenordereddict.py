@@ -78,12 +78,10 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 		return self._hash
 
 	@overload
-	def get(self, k: KT) -> Optional[VT]:
-		...  # pragma: no cover
+	def get(self, k: KT) -> Optional[VT]: ...  # pragma: no cover
 
 	@overload
-	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]:
-		...  # pragma: no cover
+	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
 	def get(self, k, default=None):
 		"""
