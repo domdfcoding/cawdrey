@@ -112,12 +112,10 @@ class Tally(Counter[KT]):
 		return sum(self.values())
 
 	@overload
-	def get_percentage(self, item: KT) -> Optional[float]:
-		...  # pragma: no cover
+	def get_percentage(self, item: KT) -> Optional[float]: ...  # pragma: no cover
 
 	@overload
-	def get_percentage(self, item: KT, default: _F) -> Union[_F, float]:
-		...  # pragma: no cover
+	def get_percentage(self, item: KT, default: _F) -> Union[_F, float]: ...  # pragma: no cover
 
 	def get_percentage(self, item: KT, default: Optional[_F] = None) -> Union[None, _F, float]:
 		"""
