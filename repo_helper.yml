@@ -47,3 +47,5 @@ keywords:
 
 sphinx_conf_epilogue:
  - html_logo = "../cawdrey.png"
+
+min_coverage: 85
