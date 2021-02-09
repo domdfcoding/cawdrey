@@ -1,3 +1,4 @@
+# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
 ---
 modname: Cawdrey
 pypi_name: cawdrey
@@ -19,12 +20,13 @@ python_deploy_version: 3.6
 
 # Versions to run tests for
 python_versions:
- - 3.6
- - 3.7
- - 3.8
- - 3.9
+ - '3.6'
+ - '3.7'
+ - '3.8'
+ - '3.9'
  - 3.10-dev
  - pypy3
+ - rustpython
 
 classifiers:
  - "Development Status :: 4 - Beta"
