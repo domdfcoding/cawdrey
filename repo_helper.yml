@@ -26,7 +26,6 @@ python_versions:
  - '3.9'
  - 3.10-dev
  - pypy3
- - rustpython
 
 classifiers:
  - "Development Status :: 4 - Beta"
