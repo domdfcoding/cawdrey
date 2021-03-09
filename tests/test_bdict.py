@@ -14,7 +14,7 @@ def test_bdict():
 	# test deleting key
 	del new_dict["Alice"]
 	with pytest.raises(KeyError):
-		new_dict["Alice"]
+		new_dict["Alice"]  # pylint: disable=pointless-statement
 
 	# test booleans
 	new_dict["True"] = True

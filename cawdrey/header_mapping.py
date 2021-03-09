@@ -217,7 +217,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 
 	def get_all(self, k: str, default=None):
 		"""
-		return a list of all the values for the named field.
+		Return a list of all the values for the named field.
 
 		These will be sorted in the order they appeared in the original message,
 		and may contain duplicates.

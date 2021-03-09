@@ -139,7 +139,7 @@ def test_normalget(fd):
 
 def test_keyerror(fd):
 	with pytest.raises(KeyError):
-		fd["Bim"]
+		fd["Bim"]  # pylint: disable=pointless-statement
 
 
 def test_len(fd, fd_dict):
@@ -389,4 +389,4 @@ def test_delvar(fd):
 	del fd
 
 	with pytest.raises(NameError):
-		fd
+		fd  # pylint: disable=pointless-statement

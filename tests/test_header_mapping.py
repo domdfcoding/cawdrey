@@ -39,7 +39,7 @@ def test_headermapping():
 	assert 42 not in h
 
 	with pytest.raises(KeyError, match="bar"):
-		h["bar"]
+		h["bar"]  # pylint: disable=pointless-statement
 
 	# len
 	assert len(h) == 3
