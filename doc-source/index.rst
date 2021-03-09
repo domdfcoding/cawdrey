@@ -127,17 +127,19 @@ Cawdrey
 Contents
 ----------
 
-* ``frozendict``: An immutable dictionary that cannot be changed after creation.
-* ``FrozenOrderedDict``: An immutable ``OrderedDict`` where the order of keys is preserved, but that cannot be changed after creation.
-* ``AlphaDict``: A ``FrozenOrderedDict`` where the keys are stored in alphabetical order.
-* ``bdict``: A dictionary where ``key, value`` pairs are stored both ways round.
+* :class:`~.frozendict`: An immutable dictionary that cannot be changed after creation.
+* :class:`~.FrozenOrderedDict`: An immutable :class:`~collections.OrderedDict` where the order of keys is preserved, but that cannot be changed after creation.
+* :class:`~.AlphaDict`: A :class:`~.FrozenOrderedDict` where the keys are stored in alphabetical order.
+* :class:`~.bdict`: A dictionary where ``key, value`` pairs are stored both ways round.
+* :class:`~.Tally`: A subclass of :class:`collections.Counter` with additional methods.
+* :class:`~.HeaderMapping`: A :class:`collections.abc.MutableMapping` which supports duplicate, case-insentive keys.
 
 
 This package also provides two base classes for creating your own custom dictionaries:
 
-* ``FrozenBase``: An Abstract Base Class for Frozen dictionaries.
+* :class:`~.FrozenBase`: An Abstract Base Class for frozen dictionaries.
 
-* ``MutableBase``: An Abstract Base Class for mutable dictionaries.
+* :class:`~.MutableBase`: An Abstract Base Class for mutable dictionaries.
 
 
 Other Dictionary Packages
