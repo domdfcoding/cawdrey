@@ -7,7 +7,7 @@ import_name: cawdrey
 copyright_years: "2019-2021"
 author: "Dominic Davis-Foster"
 email: "dominic@davis-foster.co.uk"
-version: "0.4.1"
+version: "0.4.2"
 username: "domdfcoding"
 license: 'LGPLv3+'
 short_desc: 'Several useful custom dictionaries for Python 📖 🐍'
