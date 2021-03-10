@@ -1,5 +1,8 @@
 # stdlib
 import re
+from collections import ChainMap, Counter, OrderedDict, defaultdict
+from types import MappingProxyType
+from typing import Dict, Mapping
 
 # 3rd party
 import pytest
@@ -7,6 +10,33 @@ from domdf_python_tools.testing import not_pypy, only_pypy
 
 # this package
 from cawdrey.utils import search_dict
+
+
+class DictSubclass(dict):
+	pass
+
+
+class TypingDictSubclass(Dict):
+	pass
+
+
+class CustomMapping(Mapping):
+
+	def __init__(self, *args, **kwargs):
+		self._dict = dict(*args, **kwargs)
+
+	def __getitem__(self, item):
+		return self._dict[item]
+
+	def __iter__(self):
+		yield from self._dict
+
+	def __len__(self):
+		return len(self._dict)
+
+
+_custom_type_example = dict(pear="pyrus", grapefruit="citrus")
+_custom_type_output = {"pear": "pyrus"}
 
 
 class TestSearchDict:
@@ -42,6 +72,43 @@ class TestSearchDict:
 			)
 	def test_success(self, regex, expects):
 		assert search_dict(self.example_dict, regex) == expects
+
+	@pytest.mark.parametrize(
+			"regex, mapping, expects",
+			[
+					pytest.param(
+							"pear", DictSubclass(_custom_type_example), _custom_type_output, id="DictSubclass"
+							),
+					pytest.param(
+							"pear",
+							TypingDictSubclass(_custom_type_example),
+							_custom_type_output,
+							id="TypingDictSubclass"
+							),
+					pytest.param(
+							"pear", CustomMapping(_custom_type_example), _custom_type_output, id="CustomMapping"
+							),
+					pytest.param("pear", OrderedDict(_custom_type_example), _custom_type_output, id="OrderedDict"),
+					pytest.param("pear", Counter(pear=1, grapefruit=2), {"pear": 1}, id="Counter"),
+					pytest.param(
+							"pear", defaultdict(str, _custom_type_example), _custom_type_output, id="defaultdict"
+							),
+					pytest.param(
+							"pear",
+							MappingProxyType(_custom_type_example),
+							_custom_type_output,
+							id="MappingProxyType"
+							),
+					pytest.param(
+							"pear",
+							ChainMap(dict(pear="pyrus"), dict(grapefruit="citrus")),
+							_custom_type_output,
+							id="ChainMap"
+							),
+					]
+			)
+	def test_custom_types(self, regex, mapping, expects):
+		assert search_dict(mapping, regex) == expects
 
 	@pytest.mark.parametrize(
 			"dictionary, expects, match",

@@ -25,12 +25,12 @@ General utility functions.
 
 # stdlib
 import re
-from typing import Any, Dict, Pattern, Union
+from typing import Any, Dict, Mapping, Pattern, Union
 
 __all__ = ["search_dict"]
 
 
-def search_dict(dictionary: Dict[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
+def search_dict(dictionary: Mapping[str, Any], regex: Union[str, Pattern]) -> Dict[str, Any]:
 	"""
 	Return the subset of the dictionary whose keys match the regex.
 
