@@ -30,6 +30,7 @@ def test_headermapping():
 	assert h.items() == [("foo", "bar"), ("Foo", "bar"), ("Foo", "baz")]
 	assert h.get_all("foo") == ["bar", "bar", "baz"]
 	assert list(iter(h)) == ["foo", "Foo", "Foo"]
+	assert repr(h) == "<HeaderMapping({'foo': 'bar', 'Foo': 'bar', 'Foo': 'baz'})>"
 
 	# getitem
 	assert h["foo"] == "bar"
@@ -50,6 +51,7 @@ def test_headermapping():
 
 	del h["Foo"]
 	assert dict(h) == {"bar": "baz"}
+	assert repr(h) == "<HeaderMapping({'bar': 'baz'})>"
 
 	assert "Foo" not in h
 	assert "foo" not in h

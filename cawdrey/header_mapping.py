@@ -35,6 +35,9 @@
 # stdlib
 from typing import Iterator, List, MutableMapping, Optional, Tuple, TypeVar, Union, cast, overload
 
+# 3rd party
+from domdf_python_tools.stringlist import DelimitedList
+
 # this package
 from cawdrey.base import VT
 
@@ -240,3 +243,15 @@ class HeaderMapping(MutableMapping[str, VT]):
 			return default
 
 		return values
+
+	def __repr__(self) -> str:
+		"""
+		Return a string representation of the :class:`~.HeaderMapping`.
+
+		.. versionadded:: 0.4.1
+		"""
+
+		items = DelimitedList([f"{k!r}: {v!r}" for k, v in self.items()])
+		as_dict = f"{{{items:, }}}"
+
+		return f"<{self.__class__.__name__}({as_dict})>"
