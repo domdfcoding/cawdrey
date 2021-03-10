@@ -18,7 +18,6 @@ conda_channels:
 
 min_coverage: 85
 docs_fail_on_warning: true
-use_whey: true
 python_deploy_version: 3.6
 
 # Versions to run tests for
