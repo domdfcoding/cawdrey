@@ -38,6 +38,7 @@ known_third_party = [
     "domdf_python_tools",
     "github",
     "immutables",
+    "importlib_metadata",
     "pytest",
     "pytest_cov",
     "pytest_randomly",
