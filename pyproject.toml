@@ -5,25 +5,27 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cawdrey"
 version = "0.4.2"
-description = "Several useful custom dictionaries for Python 📖\u2002🐍"
+description = "Several useful custom dictionaries for Python 📖 🐍"
 readme = "README.rst"
 keywords = [
-    "frozenordereddict",
-    "orderedfrozendict",
-    "frozen",
-    "immutable",
-    "frozendict",
-    "dict",
-    "dictionary",
-    "map",
+    "Counter",
     "Mapping",
     "MappingProxyType",
-    "Counter",
+    "dict",
+    "dictionary",
+    "frozen",
+    "frozendict",
+    "frozenordereddict",
+    "immutable",
+    "map",
+    "orderedfrozendict",
 ]
 dynamic = [ "requires-python", "classifiers", "dependencies",]
+
 [[project.authors]]
-email = "dominic@davis-foster.co.uk"
 name = "Dominic Davis-Foster"
+email = "dominic@davis-foster.co.uk"
+
 
 [project.license]
 file = "LICENSE"
@@ -34,15 +36,83 @@ Homepage = "https://github.com/domdfcoding/cawdrey"
 "Source Code" = "https://github.com/domdfcoding/cawdrey"
 Documentation = "https://cawdrey.readthedocs.io/en/latest"
 
-[tool.whey]
-base-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Utilities",
-    "Typing :: Typed",
-]
-python-versions = [ "3.6", "3.7", "3.8", "3.9",]
-python-implementations = [ "CPython", "PyPy",]
-platforms = [ "Windows", "macOS", "Linux",]
+[tool.mkrecipe]
+conda-channels = [ "conda-forge", "domdfcoding",]
+extras = "all"
 license-key = "LGPL-3.0-or-later"
+
+[tool.sphinx-pyproject]
+github_username = "domdfcoding"
+github_repository = "cawdrey"
+author = "Dominic Davis-Foster"
+project = "Cawdrey"
+copyright = "2019-2021 Dominic Davis-Foster"
+language = "en"
+package_root = "cawdrey"
+extensions = [
+    "sphinx_toolbox",
+    "sphinx_toolbox.more_autodoc",
+    "sphinx_toolbox.more_autosummary",
+    "sphinx_toolbox.documentation_summary",
+    "sphinx_toolbox.tweaks.param_dash",
+    "sphinx_toolbox.tweaks.latex_layout",
+    "sphinx_toolbox.tweaks.latex_toc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinxcontrib.extras_require",
+    "sphinx.ext.todo",
+    "sphinxemoji.sphinxemoji",
+    "notfound.extension",
+    "sphinx_copybutton",
+    "sphinxcontrib.default_values",
+    "sphinxcontrib.toctree_plus",
+    "sphinx_debuginfo",
+    "seed_intersphinx_mapping",
+]
+sphinxemoji_style = "twemoji"
+gitstamp_fmt = "%d %b %Y"
+templates_path = [ "_templates",]
+html_static_path = [ "_static",]
+source_suffix = ".rst"
+master_doc = "index"
+suppress_warnings = [ "image.nonlocal_uri",]
+pygments_style = "default"
+html_theme = "domdf_sphinx_theme"
+html_theme_path = [ "../..",]
+html_show_sourcelink = true
+toctree_plus_types = [
+    "class",
+    "confval",
+    "data",
+    "directive",
+    "enum",
+    "exception",
+    "flag",
+    "function",
+    "namedtuple",
+    "protocol",
+    "role",
+    "typeddict",
+]
+add_module_names = false
+hide_none_rtype = true
+all_typevars = true
+overloads_location = "bottom"
+autodoc_exclude_members = [
+    "__dict__",
+    "__class__",
+    "__dir__",
+    "__weakref__",
+    "__module__",
+    "__annotations__",
+    "__orig_bases__",
+    "__parameters__",
+    "__subclasshook__",
+    "__init_subclass__",
+    "__attrs_attrs__",
+    "__init__",
+    "__new__",
+    "__getnewargs__",
+    "__abstractmethods__",
+    "__hash__",
+]
