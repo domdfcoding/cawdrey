@@ -9,14 +9,14 @@ description = "Several useful custom dictionaries for Python 📖 🐍"
 readme = "README.rst"
 keywords = [
     "Counter",
-    "Mapping",
-    "MappingProxyType",
     "dict",
     "dictionary",
     "frozen",
     "frozendict",
     "frozenordereddict",
     "immutable",
+    "Mapping",
+    "MappingProxyType",
     "map",
     "orderedfrozendict",
 ]
