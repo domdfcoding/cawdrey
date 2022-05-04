@@ -7,21 +7,20 @@ name = "cawdrey"
 version = "0.4.2"
 description = "Several useful custom dictionaries for Python 📖 🐍"
 readme = "README.rst"
+requires-python = ">=3.6.1"
 keywords = [
     "Counter",
-    "Mapping",
-    "MappingProxyType",
     "dict",
     "dictionary",
     "frozen",
     "frozendict",
     "frozenordereddict",
     "immutable",
+    "Mapping",
+    "MappingProxyType",
     "map",
     "orderedfrozendict",
 ]
-dynamic = [ "dependencies",]
-requires-python = ">=3.6.1"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -39,6 +38,7 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
+dynamic = [ "dependencies",]
 
 [[project.authors]]
 name = "Dominic Davis-Foster"
