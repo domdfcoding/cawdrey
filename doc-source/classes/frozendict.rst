@@ -135,7 +135,6 @@ API Reference
 ===========================
 
 .. autoclass:: cawdrey._frozendict.frozendict
-	:inherited-members:
 	:exclude-members: dict_cls
 
 Copyright

@@ -31,7 +31,6 @@ API Reference
 ===========================
 
 .. autoclass:: cawdrey.frozenordereddict.FrozenOrderedDict
-	:inherited-members:
 	:exclude-members: dict_cls
 
 

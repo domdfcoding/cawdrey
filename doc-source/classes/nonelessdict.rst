@@ -16,7 +16,6 @@ API Reference
 ===========================
 
 .. automodule:: cawdrey.nonelessdict
-	:inherited-members:
 	:exclude-members: dict_cls
 
 Copyright
