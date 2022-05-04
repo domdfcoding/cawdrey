@@ -123,14 +123,14 @@ class DictWrapper(Mapping[KT, VT]):
 
 		return super().get(k, default)
 
-	def items(self) -> AbstractSet[Tuple[KT, VT]]:
+	def items(self) -> AbstractSet[Tuple[KT, VT]]:  # type: ignore[override]
 		r"""
 		Returns a set-like object providing a view on the :class:`~.bdict`\'s items.
 		"""
 
 		return super().items()
 
-	def keys(self) -> AbstractSet[KT]:
+	def keys(self) -> AbstractSet[KT]:  # type: ignore[override]
 		r"""
 		Returns a set-like object providing a view on the :class:`~.bdict`\'s keys.
 		"""
@@ -175,7 +175,7 @@ class FrozenBase(DictWrapper[KT, VT]):
 
 	@classmethod
 	@is_documented_by(dict.fromkeys)
-	def fromkeys(cls, iterable: Iterable[KT], value: VT = None) -> "FrozenBase[KT, VT]":  # noqa: D102
+	def fromkeys(cls, iterable: Iterable[KT], value: Optional[VT] = None) -> "FrozenBase[KT, VT]":  # noqa: D102
 		return cls(dict.fromkeys(iterable, value))
 
 
@@ -212,5 +212,5 @@ class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 
 	@classmethod
 	@is_documented_by(dict.fromkeys)
-	def fromkeys(cls, iterable: Iterable[KT], value: VT = None) -> "MutableBase[KT, VT]":  # noqa: D102
+	def fromkeys(cls, iterable: Iterable[KT], value: Optional[VT] = None) -> "MutableBase[KT, VT]":  # noqa: D102
 		return cls(dict.fromkeys(iterable, value))

@@ -93,14 +93,14 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 
 		return super().get(k, default)
 
-	def items(self) -> AbstractSet[Tuple[KT, VT]]:
+	def items(self) -> AbstractSet[Tuple[KT, VT]]:  # type: ignore[override]
 		r"""
 		Returns a set-like object providing a view on the :class:`~.FrozenOrderedDict`\'s items.
 		"""
 
 		return super().items()
 
-	def keys(self) -> AbstractSet[KT]:
+	def keys(self) -> AbstractSet[KT]:  # type: ignore[override]
 		r"""
 		Returns a set-like object providing a view on the :class:`~.FrozenOrderedDict`\'s keys.
 		"""

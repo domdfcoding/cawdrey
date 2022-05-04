@@ -113,7 +113,7 @@ class frozendict(FrozenBase[KT, VT]):
 			return self
 
 		if by == "keys":
-			return self.__class__({k: self[k] for k in it_sorted})
+			return self.__class__({k: self[k] for k in it_sorted})  # type: ignore[index]
 		else:
 			return self.__class__(it_sorted)
 
