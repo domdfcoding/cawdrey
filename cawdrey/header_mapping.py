@@ -7,7 +7,7 @@
 .. versionadded:: 0.4.0
 """
 #
-#  Copyright © 2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2021-2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published by
@@ -33,17 +33,15 @@
 #
 
 # stdlib
-from typing import Iterator, List, MutableMapping, Optional, Tuple, TypeVar, Union, cast, overload
+from typing import Iterator, List, MutableMapping, Optional, Tuple, Union, cast, overload
 
 # 3rd party
 from domdf_python_tools.stringlist import DelimitedList
 
 # this package
-from cawdrey.base import VT
+from cawdrey.base import VT, T
 
 __all__ = ["HeaderMapping"]
-
-_T = TypeVar("_T")
 
 
 class HeaderMapping(MutableMapping[str, VT]):
@@ -187,7 +185,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 	def get(self, k: str) -> Optional[VT]: ...
 
 	@overload
-	def get(self, k: str, default: Union[VT, _T]) -> Union[VT, _T]: ...
+	def get(self, k: str, default: Union[VT, T]) -> Union[VT, T]: ...
 
 	def get(self, k: str, default=None):
 		"""
@@ -216,7 +214,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 	def get_all(self, k: str) -> Optional[List[VT]]: ...
 
 	@overload
-	def get_all(self, k: str, default: Union[VT, _T]) -> Union[List[VT], _T]: ...
+	def get_all(self, k: str, default: Union[VT, T]) -> Union[List[VT], T]: ...
 
 	def get_all(self, k: str, default=None):
 		"""

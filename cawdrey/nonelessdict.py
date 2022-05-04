@@ -2,10 +2,10 @@
 #
 #  nonelessdict.py
 """
-Provides NonelessDict.
+Provides dictionaries that cannot contain :py:obj:`None`.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020,2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #  Copyright © Jeremy Mayeres
 #
 #  This program is free software; you can redistribute it and/or modify

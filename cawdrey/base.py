@@ -5,7 +5,7 @@
 Base Classes.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020,2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #  Copyright © 2015 Warren Smith
 #  Copyright © Marco Sulla
 #  Copyright © 2012 Santiago Lezica
@@ -47,10 +47,14 @@ from typing import (
 # 3rd party
 from domdf_python_tools.doctools import is_documented_by, prettify_docstrings
 
-__all__ = ["DictWrapper", "FrozenBase", "MutableBase"]
+__all__ = ["DictWrapper", "FrozenBase", "MutableBase", "KT", "VT", 'T', "_D"]
 
+#: :class:`typing.TypeVar` used for annotating key types in mappings.
 KT = TypeVar("KT")
+
+#: :class:`typing.TypeVar` used for annotating value types in mappings.
 VT = TypeVar("VT")
+
 T = TypeVar('T')
 _D = TypeVar("_D", bound="DictWrapper")
 
@@ -125,14 +129,14 @@ class DictWrapper(Mapping[KT, VT]):
 
 	def items(self) -> AbstractSet[Tuple[KT, VT]]:  # type: ignore[override]
 		r"""
-		Returns a set-like object providing a view on the :class:`~.bdict`\'s items.
+		Returns a set-like object providing a view on the dictionary's items.
 		"""
 
 		return super().items()
 
 	def keys(self) -> AbstractSet[KT]:  # type: ignore[override]
 		r"""
-		Returns a set-like object providing a view on the :class:`~.bdict`\'s keys.
+		Returns a set-like object providing a view on the dictionary's keys.
 		"""
 
 		return super().keys()

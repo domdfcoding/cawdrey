@@ -73,3 +73,5 @@ def setup(app):
 
 
 html_logo = "../cawdrey.png"
+nitpicky = True
+no_unbound_typevars = False

@@ -191,6 +191,11 @@ Installation
 .. end installation
 
 
+Contents
+------------
+
+.. html-section::
+
 .. toctree::
 	:hidden:
 
@@ -198,7 +203,6 @@ Installation
 
 .. toctree::
 	:maxdepth: 3
-	:caption: API Reference
 	:glob:
 
 	classes/*
@@ -206,12 +210,9 @@ Installation
 	base
 	docs
 
-.. toctree::
-	:maxdepth: 3
-	:caption: Documentation
-
 	contributing
 	Source
+	license
 
 .. sidebar-links::
 	:caption: Links

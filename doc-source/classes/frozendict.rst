@@ -24,7 +24,7 @@ immutable copy.
 Usage
 ========
 
-.. code-block:: python
+.. code-block:: python3
 
 	>>> from cawdrey import frozendict
 	>>>
@@ -44,7 +44,7 @@ In addition, :class:`~cawdrey._frozendict.frozendict` supports the ``+`` and ``-
 :class:`dict`-like object, a new :class:`~cawdrey._frozendict.frozendict` will be returned, equal to the old
 :class:`~cawdrey._frozendict.frozendict` updated with the other object. Example:
 
-.. code-block:: python
+.. code-block:: python3
 
 	>>> frozendict({"Sulla": "Marco", 2: 3}) + {"Sulla": "Marò", 4: 7}
 	<frozendict {'Sulla': 'Marò', 2: 3, 4: 7}>
@@ -64,7 +64,7 @@ will be returned, without the keys that are in the iterable. Examples:
 
 Some other examples:
 
-.. code-block:: python
+.. code-block:: python3
 
 	>>> from cawdrey import frozendict
 	>>> fd = frozendict({"Sulla": "Marco", "Hicks": "Bill"})

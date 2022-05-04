@@ -5,7 +5,7 @@
 Provides frozendict, a simple immutable dictionary.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020,2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #  Copyright © Marco Sulla
 #  Copyright © 2012 Santiago Lezica
 #
@@ -41,7 +41,7 @@ __all__ = ["frozendict"]
 class frozendict(FrozenBase[KT, VT]):
 	"""
 	An immutable wrapper around dictionaries that implements the complete
-	:py:class:`collections.Mapping` interface. It can be used as a
+	:py:class:`collections.abc.Mapping` interface. It can be used as a
 	drop-in replacement for dictionaries where immutability is desired.
 	"""  # noqa: D400
 
@@ -72,12 +72,12 @@ class frozendict(FrozenBase[KT, VT]):
 		"""
 		Return a new :class:`~cawdrey._frozendict.frozendict`, with the element
 		insertion sorted. The signature is the same as the builtin
-		:class:`python:sorted` function, except for the additional parameter
+		:class:`sorted` function, except for the additional parameter
 		``by``, that is ``'keys'`` by default and can also be ``'values'`` and
 		``'items'``. So the resulting :class:`~cawdrey._frozendict.frozendict` can be sorted by keys,
 		values or items.
 
-		If you want more complicated sorts read the documentation of :class:`python:sorted`.
+		If you want more complicated sorts read the documentation of :class:`sorted`.
 
 		The the parameters passed to the ``key`` function are the keys of the
 		``frozendict`` if ``by = "keys"``, and are the items otherwise.
@@ -178,7 +178,7 @@ class frozendict(FrozenBase[KT, VT]):
 		Beware! The final order is dictated by the order of `other`. This
 		allows the coder to change the order of the original ``frozendict``.
 
-		The last two behaviours breaks voluntarily the :meth:`python:dict.items`
+		The last two behaviours breaks voluntarily the :meth:`dict.items`
 		API, for consistency and practical reasons.
 		"""  # noqa: D400
 

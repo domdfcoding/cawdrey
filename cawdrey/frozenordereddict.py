@@ -5,7 +5,7 @@
 Provides FrozenOrderedDict, an immutable ordered dictionary.
 """
 #
-#  Copyright © 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright © 2020,2022 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #  Copyright © 2015 Warren Smith
 #
 #  This program is free software; you can redistribute it and/or modify
@@ -28,14 +28,12 @@ Provides FrozenOrderedDict, an immutable ordered dictionary.
 import operator
 from collections import OrderedDict
 from functools import reduce
-from typing import AbstractSet, Optional, Tuple, TypeVar, Union, ValuesView, overload
+from typing import AbstractSet, Optional, Tuple, Union, ValuesView, overload
 
 # this package
-from .base import KT, VT, FrozenBase
+from .base import KT, VT, FrozenBase, T
 
 __all__ = ["FrozenOrderedDict"]
-
-T = TypeVar('T')
 
 
 class FrozenOrderedDict(FrozenBase[KT, VT]):
