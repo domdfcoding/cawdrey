@@ -6,7 +6,7 @@ from typing import Dict, Mapping
 
 # 3rd party
 import pytest
-from domdf_python_tools.testing import not_pypy, only_pypy
+from coincidence import not_pypy, only_pypy
 
 # this package
 from cawdrey.utils import search_dict
