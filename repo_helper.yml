@@ -12,6 +12,7 @@ username: "domdfcoding"
 license: 'LGPLv3+'
 short_desc: 'Several useful custom dictionaries for Python 📖 🐍'
 conda_description: "Several useful custom dictionaries for Python."
+use_whey: true
 
 conda_channels:
  - conda-forge
