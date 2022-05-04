@@ -11,8 +11,7 @@ from setuptools import setup
 
 sys.path.append('.')
 
-# this package
-from __pkginfo__ import *  # pylint: disable=wildcard-import
+extras_require = {}
 
 repo_root = pathlib.Path(__file__).parent
 install_requires = (repo_root / "requirements.txt").read_text(encoding="UTF-8").split('\n')
@@ -21,8 +20,8 @@ setup(
 		description="Several useful custom dictionaries for Python 📖 🐍",
 		extras_require=extras_require,
 		install_requires=install_requires,
+		name="cawdrey",
 		py_modules=[],
-		version=__version__,
 		)
 
 shutil.rmtree("cawdrey.egg-info", ignore_errors=True)

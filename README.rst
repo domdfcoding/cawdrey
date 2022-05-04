@@ -57,8 +57,8 @@ Cawdrey
 	:target: https://github.com/domdfcoding/cawdrey/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/cawdrey/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/cawdrey/requirements/?branch=master
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/cawdrey/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/cawdrey/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/cawdrey/master?logo=coveralls
@@ -108,7 +108,7 @@ Cawdrey
 	:target: https://github.com/domdfcoding/cawdrey/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2021
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/cawdrey
@@ -140,13 +140,13 @@ If you're looking to unflatten a dictionary, such as to go from this:
 
 .. code-block:: python
 
-	{'foo.bar': 'val'}
+	{"foo.bar": "val"}
 
 to this:
 
 .. code-block:: python
 
-	{'foo': {'bar': 'val'}}
+	{"foo": {"bar": "val"}}
 
 check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
 
