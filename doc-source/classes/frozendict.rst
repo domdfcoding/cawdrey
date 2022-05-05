@@ -9,7 +9,7 @@ About
 complete mapping interface. It can be used as a drop-in replacement for
 dictionaries where immutability is desired.
 
-Of course, this is ``python``, and you can still poke around the object's
+Of course this is Python, and you can still poke around the object's
 internals if you want.
 
 The :class:`~cawdrey._frozendict.frozendict` constructor mimics :class:`dict`, and all of the expected
@@ -17,7 +17,7 @@ interfaces (``iter``, ``len``, ``repr``, ``hash``, ``getitem``) are provided.
 Note that a :class:`~cawdrey._frozendict.frozendict` does not guarantee the immutability of its values, so
 the utility of the ``hash`` method is restricted by usage.
 
-The only difference is that the ``copy()`` method of :class:`~cawdrey._frozendict.frozendict` takes
+The only difference is that the :meth:`~.frozendict.copy` method of :class:`~cawdrey._frozendict.frozendict` takes
 variable keyword arguments, which will be present as key/value pairs in the new,
 immutable copy.
 
@@ -133,6 +133,8 @@ Some other examples:
 
 API Reference
 ===========================
+
+.. autosummary-widths:: 4/10
 
 .. autoclass:: cawdrey._frozendict.frozendict
 	:exclude-members: dict_cls

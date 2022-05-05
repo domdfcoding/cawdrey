@@ -4,7 +4,7 @@ modname: Cawdrey
 pypi_name: cawdrey
 repo_name: cawdrey
 import_name: cawdrey
-copyright_years: "2019-2021"
+copyright_years: "2019-2022"
 author: "Dominic Davis-Foster"
 email: "dominic@davis-foster.co.uk"
 version: "0.4.2"
@@ -19,7 +19,7 @@ conda_channels:
 
 min_coverage: 85
 docs_fail_on_warning: true
-python_deploy_version: 3.6
+python_deploy_version: 3.8
 standalone_contrib_guide: true
 
 # Versions to run tests for
@@ -55,3 +55,8 @@ sphinx_conf_epilogue:
  - html_logo = "../cawdrey.png"
  - nitpicky = True
  - no_unbound_typevars = False
+
+extra_sphinx_extensions:
+ - local_extension
+ - sphinx_toolbox.more_autosummary.column_widths
+ - sphinx_toolbox_experimental.succinct_seealso

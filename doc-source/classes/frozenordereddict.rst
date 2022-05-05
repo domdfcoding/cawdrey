@@ -16,7 +16,7 @@ Once instantiated, an instance of :class:`~cawdrey.frozenordereddict.FrozenOrder
 since it does not implement the :class:`~collections.abc.MutableMapping` interface.
 
 :class:`~cawdrey.frozenordereddict.FrozenOrderedDict` implements the
-:class:`~collections.abc.Mapping` interface, so can be used just like a normal dictionary in most cases.
+:class:`~collections.abc.Mapping` interface, so can be used like a normal dictionary in most cases.
 
 In order to modify the contents of a :class:`~cawdrey.frozenordereddict.FrozenOrderedDict`, a new
 instance must be created. The easiest way to do that is by
@@ -29,6 +29,8 @@ calling the ``.copy()`` method. It will return a new instance of
 
 API Reference
 ===========================
+
+.. autosummary-widths:: 25/100
 
 .. autoclass:: cawdrey.frozenordereddict.FrozenOrderedDict
 	:exclude-members: dict_cls

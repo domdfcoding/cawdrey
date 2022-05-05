@@ -63,6 +63,8 @@ _D = TypeVar("_D", bound="DictWrapper")
 class DictWrapper(Mapping[KT, VT]):
 	"""
 	Abstract Mixin class for classes that wrap a dict object or similar.
+
+	.. latex:vspace:: 15px
 	"""
 
 	_dict: dict
@@ -137,6 +139,10 @@ class DictWrapper(Mapping[KT, VT]):
 	def keys(self) -> AbstractSet[KT]:  # type: ignore[override]
 		r"""
 		Returns a set-like object providing a view on the dictionary's keys.
+
+		:rtype:
+
+		.. latex:clearpage::
 		"""
 
 		return super().keys()

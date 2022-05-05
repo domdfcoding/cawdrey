@@ -28,7 +28,7 @@ Provides dictionaries that cannot contain :py:obj:`None`.
 import operator
 from collections import OrderedDict
 from functools import reduce
-from typing import Optional
+from typing import Optional, TypeVar
 
 # 3rd party
 from domdf_python_tools.doctools import prettify_docstrings
@@ -36,7 +36,10 @@ from domdf_python_tools.doctools import prettify_docstrings
 # this package
 from .base import KT, VT, MutableBase
 
-__all__ = ["NonelessDict", "NonelessOrderedDict"]
+__all__ = ["NonelessDict", "NonelessOrderedDict", "_ND", "_NOD"]
+
+_ND = TypeVar("_ND", bound="NonelessDict")
+_NOD = TypeVar("_NOD", bound="NonelessOrderedDict")
 
 
 @prettify_docstrings
@@ -47,6 +50,8 @@ class NonelessDict(MutableBase[KT, VT]):
 
 	Use the :meth:`~.NonelessDict.set_with_strict_none_check` method to check only
 	for :py:obj:`None`.
+
+	.. autosummary-widths:: 1/2
 	"""  # noqa: D400
 
 	dict_cls = dict  # type: ignore
@@ -57,7 +62,7 @@ class NonelessDict(MutableBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self, **add_or_replace):
+	def copy(self: _ND, **add_or_replace: VT) -> _ND:  # type: ignore[override]
 		"""
 		Return a copy of the dictionary.
 		"""
@@ -104,7 +109,7 @@ class NonelessOrderedDict(MutableBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self, *args, **kwargs):
+	def copy(self: _NOD, *args, **kwargs) -> _NOD:
 		"""
 		Return a copy of the dictionary.
 		"""

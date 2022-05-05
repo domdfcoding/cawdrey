@@ -14,5 +14,7 @@ you may inherit from this class.
 API Reference
 ===========================
 
+.. autosummary-widths:: 35/100
+
 .. automodule:: cawdrey.base
 	:no-docstring:

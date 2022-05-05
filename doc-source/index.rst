@@ -125,8 +125,8 @@ Cawdrey
 
 
 
-Contents
-----------
+Highlights
+-----------
 
 * :class:`~.frozendict`: An immutable dictionary that cannot be changed after creation.
 * :class:`~.FrozenOrderedDict`: An immutable :class:`~collections.OrderedDict` where the order of keys is preserved, but that cannot be changed after creation.

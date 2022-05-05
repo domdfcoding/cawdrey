@@ -24,28 +24,28 @@ Provides :class:`~.AlphaDict`, a frozen :class:`OrderedDict` where the keys are 
 #
 
 # stdlib
-from collections import OrderedDict
-from typing import Iterable, Optional
+from typing import Iterable, Optional, TYPE_CHECKING
 
 # 3rd party
 from domdf_python_tools.doctools import prettify_docstrings
 
 # this package
-from .base import KT, VT
+from .base import KT, VT, T
 from .frozenordereddict import FrozenOrderedDict
+
+if TYPE_CHECKING:
+	from typing import OrderedDict
+else:
+	from collections import OrderedDict
 
 __all__ = ["alphabetical_dict", "AlphaDict"]
 
 
-def alphabetical_dict(**kwargs):
+def alphabetical_dict(**kwargs: T) -> "OrderedDict[str, T]":
 	"""
 	Returns an :class:`~collections.OrderedDict` with the keys sorted alphabetically.
 
 	:param kwargs:
-	:type kwargs:
-
-	:return:
-	:rtype:
 	"""
 
 	return OrderedDict(sorted(kwargs.items()))
@@ -58,9 +58,9 @@ class AlphaDict(FrozenOrderedDict[KT, VT]):
 
 	The signature is the same as regular dictionaries.
 
-	| ``AlphaDict()`` -> new empty AlphaDict
-	| ``AlphaDict(mapping)`` -> new AlphaDict initialized from a mapping object's (key, value) pairs
-	| ``AlphaDict(iterable)`` -> new AlphaDict initialized as if via:
+	* ``AlphaDict()`` -> new empty AlphaDict
+	* ``AlphaDict(mapping)`` -> new AlphaDict initialized from a mapping object's (key, value) pairs
+	* ``AlphaDict(iterable)`` -> new AlphaDict initialized as if via:
 
 		.. code-block:: python
 
@@ -68,7 +68,7 @@ class AlphaDict(FrozenOrderedDict[KT, VT]):
 			for k, v in iterable:
 				d[k] = v
 
-	| ``AlphaDict(**kwargs)`` -> new AlphaDict initialized with the ``name=value`` pairs in the keyword argument list.
+	* ``AlphaDict(**kwargs)`` -> new AlphaDict initialized with the ``name=value`` pairs in the keyword argument list.
 
 		For example:
 

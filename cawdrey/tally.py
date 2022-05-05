@@ -84,6 +84,7 @@ class Tally(Counter[KT]):
 	Subclass of :class:`collections.Counter` with additional methods.
 
 	.. versionadded:: 0.3.0
+	.. autosummary-widths:: 4/10
 	"""
 
 	def as_percentage(self) -> "Percentage[KT]":
@@ -123,6 +124,10 @@ class Tally(Counter[KT]):
 
 		:param item:
 		:param default: A default percentage (as a :class:`float`) to return if ``item`` is not in the dictionary.
+
+		:rtype:
+
+		.. latex:clearpage::
 		"""
 
 		value = self.get(item)

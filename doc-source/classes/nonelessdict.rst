@@ -15,6 +15,8 @@ The class has a method :meth:`~cawdrey.nonelessdict.NonelessDict.set_with_strict
 API Reference
 ===========================
 
+.. autosummary-widths:: 45/100
+
 .. automodule:: cawdrey.nonelessdict
 	:exclude-members: dict_cls
 	:no-docstring:

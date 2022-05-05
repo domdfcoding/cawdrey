@@ -127,6 +127,10 @@ class HeaderMapping(MutableMapping[str, VT]):
 		Returns whether ``name`` is in the :class:`~.HeaderMapping`.
 
 		:param name:
+
+		:rtype:
+
+		.. latex:clearpage::
 		"""
 
 		if not isinstance(name, str):
