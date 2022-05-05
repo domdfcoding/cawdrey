@@ -24,7 +24,7 @@ Provides :class:`~.AlphaDict`, a frozen :class:`OrderedDict` where the keys are 
 #
 
 # stdlib
-from typing import Iterable, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Iterable, Optional
 
 # 3rd party
 from domdf_python_tools.doctools import prettify_docstrings
@@ -34,8 +34,10 @@ from .base import KT, VT, T
 from .frozenordereddict import FrozenOrderedDict
 
 if TYPE_CHECKING:
+	# stdlib
 	from typing import OrderedDict
 else:
+	# stdlib
 	from collections import OrderedDict
 
 __all__ = ["alphabetical_dict", "AlphaDict"]
