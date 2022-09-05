@@ -59,8 +59,8 @@ Cawdrey
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/cawdrey/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/domdfcoding/cawdrey/
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/domdfcoding/cawdrey/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/domdfcoding/cawdrey/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
