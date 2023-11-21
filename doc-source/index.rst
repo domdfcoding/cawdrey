@@ -165,7 +165,7 @@ check out `unflatten`_, `flattery`_ or `morph`_  to accomplish that.
 .. _flattery: https://github.com/acg/python-flattery
 
 
-`indexed`_ provides an OrederedDict where the values can be accessed by their index as well as by their keys.
+`indexed`_ provides an OrderedDict where the values can be accessed by their index as well as by their keys.
 
 .. _indexed: https://github.com/niklasf/indexed.py
 
