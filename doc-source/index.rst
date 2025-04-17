@@ -89,12 +89,12 @@ Cawdrey
 		:wheel:
 		:alt: PyPI - Wheel
 
-	.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/cawdrey?logo=anaconda
-		:target: https://anaconda.org/domdfcoding/cawdrey
+	.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/Cawdrey?logo=anaconda
+		:target: https://anaconda.org/domdfcoding/Cawdrey
 		:alt: Conda - Package Version
 
-	.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/cawdrey?label=conda%7Cplatform
-		:target: https://anaconda.org/domdfcoding/cawdrey
+	.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/Cawdrey?label=conda%7Cplatform
+		:target: https://anaconda.org/domdfcoding/Cawdrey
 		:alt: Conda - Platform
 
 	.. |license| github-shield::
