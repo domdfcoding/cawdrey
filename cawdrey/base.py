@@ -172,7 +172,8 @@ class FrozenBase(DictWrapper[KT, VT]):
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):
-		self._dict = self.dict_cls(*args, **kwargs)  # type: ignore
+		assert self.dict_cls is not None
+		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
 
 	@classmethod
@@ -199,11 +200,12 @@ class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 	Custom subclasses must implement at a minimum ``__init__``, ``copy``, ``fromkeys``.
 	"""
 
-	dict_cls = None
+	dict_cls: Optional[Type] = None
 
 	@abstractmethod
 	def __init__(self, *args, **kwargs):
-		self._dict = self.dict_cls(*args, **kwargs)  # type: ignore
+		assert self.dict_cls is not None
+		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
 
 	def __setitem__(self, key: KT, value: VT):

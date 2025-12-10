@@ -34,14 +34,14 @@ def test_setitem():
 	fod: FrozenOrderedDict[int, str] = FrozenOrderedDict()
 
 	with pytest.raises(TypeError):
-		fod[1] = 'b'  # type: ignore
+		fod[1] = 'b'  # type: ignore[index]
 
 
 def test_delitem():
 	fod: FrozenOrderedDict[str, int] = FrozenOrderedDict(ITEMS_1)
 
 	with pytest.raises(TypeError):
-		del fod[1]  # type: ignore
+		del fod[1]  # type: ignore[attr-defined]
 
 
 def test_copy_no_items():
@@ -61,7 +61,7 @@ def test_copy_tuple_items():
 	fod2 = fod1.copy(ITEMS_2)
 
 	assert id(fod1) != id(fod2)
-	assert list(fod1) + list(ITEMS_2) == list(fod2)  # type: ignore
+	assert list(fod1) + list(ITEMS_2) == list(fod2)
 
 
 @pytest.mark.xfail
@@ -70,7 +70,7 @@ def test_copy_ordereddict_items():
 	fod2 = fod1.copy(ODICT_2)
 
 	assert id(fod1) != id(fod2)
-	assert list(fod1) + list(ITEMS_2) == list(fod2)  # type: ignore
+	assert list(fod1) + list(ITEMS_2) == list(fod2)
 
 
 def test_copy_kwargs():

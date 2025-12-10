@@ -152,7 +152,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 		for field, value in self._headers:
 			yield field
 
-	def keys(self) -> List[str]:  # type: ignore
+	def keys(self) -> List[str]:  # type: ignore[override]
 		"""
 		Return a list of all the message's header field names.
 
@@ -163,7 +163,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 
 		return [k for k, v in self._headers]
 
-	def values(self) -> List[VT]:  # type: ignore
+	def values(self) -> List[VT]:  # type: ignore[override]
 		"""
 		Return a list of all the message's header values.
 
@@ -174,7 +174,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 
 		return [v for k, v in self._headers]
 
-	def items(self) -> List[Tuple[str, VT]]:  # type: ignore
+	def items(self) -> List[Tuple[str, VT]]:  # type: ignore[override]
 		"""
 		Get all the message's header fields and values.
 

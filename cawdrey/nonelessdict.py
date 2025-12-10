@@ -54,7 +54,8 @@ class NonelessDict(MutableBase[KT, VT]):
 	.. autosummary-widths:: 1/2
 	"""  # noqa: D400
 
-	dict_cls = dict  # type: ignore
+	dict_cls = dict
+	_hash: int
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):
@@ -101,7 +102,8 @@ class NonelessOrderedDict(MutableBase[KT, VT]):
 	Use the set_with_strict_none_check function to check only for None
 	"""  # noqa: D400
 
-	dict_cls = OrderedDict  # type: ignore
+	dict_cls = OrderedDict
+	_hash: int
 
 	def __init__(self, *args, **kwargs):
 		if hasattr(self, "_dict"):

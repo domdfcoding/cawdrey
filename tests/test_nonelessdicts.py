@@ -21,7 +21,7 @@ def testNoneNotAdded():
 
 def testEmptyNotAdded():
 	noneless: NonelessDict[str, Union[str, int]] = NonelessDict(hello="world", key=42)
-	noneless["empty"] = []  # type: ignore
+	noneless["empty"] = []  # type: ignore[assignment]
 	assert "empty" not in noneless
 	normal = dict(noneless)
 	assert "empty" not in normal
@@ -29,7 +29,7 @@ def testEmptyNotAdded():
 
 def testStrictNoneAddsEmpty():
 	noneless: NonelessDict[str, Union[str, int]] = NonelessDict(hello="world", key=42)
-	noneless.set_with_strict_none_check("empty", [])  # type: ignore
+	noneless.set_with_strict_none_check("empty", [])  # type: ignore[arg-type]
 	assert "empty" in noneless
 	assert noneless["empty"] == []
 

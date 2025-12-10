@@ -58,7 +58,7 @@ class frozendict(FrozenBase[KT, VT]):
 		Return a copy of the dictionary.
 		"""
 
-		return self.__class__(self, *args, **kwargs)  # type: ignore
+		return self.__class__(self, *args, **kwargs)  # type: ignore[call-arg]
 
 	def __hash__(self) -> int:
 		if self._hash is None:
