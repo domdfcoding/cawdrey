@@ -19,7 +19,6 @@ conda_channels:
 
 min_coverage: 85
 docs_fail_on_warning: true
-python_deploy_version: 3.8
 standalone_contrib_guide: true
 
 # Versions to run tests for
