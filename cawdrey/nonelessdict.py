@@ -43,7 +43,7 @@ _NOD = TypeVar("_NOD", bound="NonelessOrderedDict")
 
 
 @prettify_docstrings
-class NonelessDict(MutableBase[KT, VT]):
+class NonelessDict(MutableBase[KT, VT]):  # noqa: PRM002
 	"""
 	A wrapper around dict that will check if a value is
 	:py:obj:`None`/empty/:py:obj:`False`, and not add the key in that case.
@@ -63,7 +63,7 @@ class NonelessDict(MutableBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self: _ND, **add_or_replace: VT) -> _ND:  # type: ignore[override]
+	def copy(self: _ND, **add_or_replace: VT) -> _ND:  # type: ignore[override]  # noqa: PRM002
 		"""
 		Return a copy of the dictionary.
 		"""
@@ -89,13 +89,13 @@ class NonelessDict(MutableBase[KT, VT]):
 		if value is not None:
 			self._dict[key] = value
 
-	def __setitem__(self, key: KT, value: Optional[VT]):
+	def __setitem__(self, key: KT, value: Optional[VT]) -> None:
 		if value:
-			return super().__setitem__(key, value)
+			super().__setitem__(key, value)
 
 
 @prettify_docstrings
-class NonelessOrderedDict(MutableBase[KT, VT]):
+class NonelessOrderedDict(MutableBase[KT, VT]):  # noqa: PRM002
 	"""
 	A wrapper around OrderedDict that will check if a value is None/empty/False,
 	and not add the key in that case.
@@ -111,7 +111,7 @@ class NonelessOrderedDict(MutableBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self: _NOD, *args, **kwargs) -> _NOD:
+	def copy(self: _NOD, *args, **kwargs) -> _NOD:  # noqa: PRM002
 		"""
 		Return a copy of the dictionary.
 		"""
@@ -140,6 +140,6 @@ class NonelessOrderedDict(MutableBase[KT, VT]):
 		if value is not None:
 			self._dict[key] = value
 
-	def __setitem__(self, key: KT, value: Optional[VT]):
+	def __setitem__(self, key: KT, value: Optional[VT]) -> None:
 		if value:
-			return super().__setitem__(key, value)
+			super().__setitem__(key, value)

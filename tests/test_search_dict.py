@@ -2,7 +2,7 @@
 import re
 from collections import ChainMap, Counter, OrderedDict, defaultdict
 from types import MappingProxyType
-from typing import Dict, Mapping
+from typing import Any, Dict, Mapping, Type, Union
 
 # 3rd party
 import pytest
@@ -25,13 +25,13 @@ class CustomMapping(Mapping):
 	def __init__(self, *args, **kwargs):
 		self._dict = dict(*args, **kwargs)
 
-	def __getitem__(self, item):
+	def __getitem__(self, item):  # noqa: MAN001,MAN002
 		return self._dict[item]
 
-	def __iter__(self):
+	def __iter__(self):  # noqa: MAN002
 		yield from self._dict
 
-	def __len__(self):
+	def __len__(self) -> int:
 		return len(self._dict)
 
 
@@ -70,44 +70,53 @@ class TestSearchDict:
 					(re.compile(".*fruit$"), {"grapefruit": "citrus"}),
 					]
 			)
-	def test_success(self, regex, expects):
+	def test_success(self, regex: Union[str, re.Pattern], expects: dict):
 		assert search_dict(self.example_dict, regex) == expects
 
 	@pytest.mark.parametrize(
 			"regex, mapping, expects",
 			[
 					pytest.param(
-							"pear", DictSubclass(_custom_type_example), _custom_type_output, id="DictSubclass"
+							"pear",
+							DictSubclass(_custom_type_example),
+							_custom_type_output,
+							id="DictSubclass",
 							),
 					pytest.param(
 							"pear",
 							TypingDictSubclass(_custom_type_example),
 							_custom_type_output,
-							id="TypingDictSubclass"
+							id="TypingDictSubclass",
 							),
 					pytest.param(
-							"pear", CustomMapping(_custom_type_example), _custom_type_output, id="CustomMapping"
+							"pear",
+							CustomMapping(_custom_type_example),
+							_custom_type_output,
+							id="CustomMapping",
 							),
 					pytest.param("pear", OrderedDict(_custom_type_example), _custom_type_output, id="OrderedDict"),
 					pytest.param("pear", Counter(pear=1, grapefruit=2), {"pear": 1}, id="Counter"),
 					pytest.param(
-							"pear", defaultdict(str, _custom_type_example), _custom_type_output, id="defaultdict"
+							"pear",
+							defaultdict(str, _custom_type_example),
+							_custom_type_output,
+							id="defaultdict",
 							),
 					pytest.param(
 							"pear",
 							MappingProxyType(_custom_type_example),
 							_custom_type_output,
-							id="MappingProxyType"
+							id="MappingProxyType",
 							),
 					pytest.param(
 							"pear",
 							ChainMap(dict(pear="pyrus"), dict(grapefruit="citrus")),
 							_custom_type_output,
-							id="ChainMap"
+							id="ChainMap",
 							),
 					]
 			)
-	def test_custom_types(self, regex, mapping, expects):
+	def test_custom_types(self, regex: str, mapping: Mapping, expects: dict):
 		assert search_dict(mapping, regex) == expects
 
 	@pytest.mark.parametrize(
@@ -133,7 +142,7 @@ class TestSearchDict:
 							),
 					]
 			)
-	def test_errors_dict(self, dictionary, expects, match):
+	def test_errors_dict(self, dictionary: dict, expects: Type[Exception], match: str):
 		with pytest.raises(expects, match=match):
 			search_dict(dictionary, '')
 
@@ -148,6 +157,6 @@ class TestSearchDict:
 					({12.34: "abc"}, TypeError, "unhashable type: 'dict'"),
 					]
 			)
-	def test_errors_regex(self, regex, expects, match):
+	def test_errors_regex(self, regex: Any, expects: Type[Exception], match: str):
 		with pytest.raises(expects, match=match):
 			search_dict(self.example_dict, regex)

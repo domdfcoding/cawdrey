@@ -105,7 +105,7 @@ class DictWrapper(Mapping[KT, VT]):
 		return f"<{self.__class__.__name__} {self._dict!r}>"
 
 	@abstractmethod
-	def copy(self: _D, *args, **kwargs: VT) -> _D:
+	def copy(self: _D, *args, **kwargs: VT) -> _D:  # noqa: PRM002
 		"""
 		Return a copy of the dictionary.
 		"""
@@ -119,7 +119,7 @@ class DictWrapper(Mapping[KT, VT]):
 	@overload
 	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
-	def get(self, k, default=None):
+	def get(self, k, default=None):  # noqa: MAN001,MAN002
 		"""
 		Return the value for ``k`` if ``k`` is in the dictionary, else ``default``.
 
@@ -159,7 +159,7 @@ _T = TypeVar("_T")
 _S = TypeVar("_S")
 
 
-class FrozenBase(DictWrapper[KT, VT]):
+class FrozenBase(DictWrapper[KT, VT]):  # noqa: PRM002
 	"""
 	Abstract Base Class for Frozen dictionaries.
 
@@ -191,7 +191,7 @@ class FrozenBase(DictWrapper[KT, VT]):
 
 
 @prettify_docstrings
-class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
+class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):  # noqa: PRM002
 	"""
 	Abstract Base Class for mutable dictionaries.
 
@@ -208,10 +208,10 @@ class MutableBase(DictWrapper[KT, VT], MutableMapping[KT, VT]):
 		self._dict = self.dict_cls(*args, **kwargs)
 		self._hash = None
 
-	def __setitem__(self, key: KT, value: VT):
+	def __setitem__(self, key: KT, value: VT) -> None:
 		self._dict[key] = value
 
-	def __delitem__(self, key: KT):
+	def __delitem__(self, key: KT) -> None:
 		del self._dict[key]
 
 	@classmethod

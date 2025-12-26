@@ -5,7 +5,7 @@ from typing import Optional
 from cawdrey import AlphaDict, FrozenOrderedDict, NonelessDict, NonelessOrderedDict, bdict, frozendict
 
 
-def takes_alphadict(a: AlphaDict[str, int]):
+def takes_alphadict(a: AlphaDict[str, int]) -> None:
 	a.keys()
 	a.items()
 	a.values()
@@ -13,7 +13,7 @@ def takes_alphadict(a: AlphaDict[str, int]):
 		print(k, v)
 
 
-def takes_bdict(b: "bdict[str, str]"):
+def takes_bdict(b: "bdict[str, str]") -> None:
 	b.keys()
 	b.items()
 	b.values()
@@ -21,7 +21,7 @@ def takes_bdict(b: "bdict[str, str]"):
 		print(k, v)
 
 
-def takes_frozendict(f: frozendict[str, int]):
+def takes_frozendict(f: frozendict[str, int]) -> None:
 	f.keys()
 	f.items()
 	f.values()
@@ -29,7 +29,7 @@ def takes_frozendict(f: frozendict[str, int]):
 		print(k, v)
 
 
-def takes_frozenordereddict(f: FrozenOrderedDict[str, Optional[int]]):
+def takes_frozenordereddict(f: FrozenOrderedDict[str, Optional[int]]) -> None:
 	f.keys()
 	f.items()
 	f.values()
@@ -37,7 +37,7 @@ def takes_frozenordereddict(f: FrozenOrderedDict[str, Optional[int]]):
 		print(k, v)
 
 
-def takes_nonelessdict(n: NonelessDict[str, int]):
+def takes_nonelessdict(n: NonelessDict[str, int]) -> None:
 	n.keys()
 	n.items()
 	n.values()
@@ -45,7 +45,7 @@ def takes_nonelessdict(n: NonelessDict[str, int]):
 		print(k, v)
 
 
-def takes_nonelessordereddict(n: NonelessOrderedDict[str, int]):
+def takes_nonelessordereddict(n: NonelessOrderedDict[str, int]) -> None:
 	n.keys()
 	n.items()
 	n.values()

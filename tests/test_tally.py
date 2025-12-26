@@ -22,7 +22,7 @@ class CounterRegressionFixture(DataRegressionFixture):
 
 
 @pytest.fixture()
-def counter_regression(datadir, original_datadir, request):
+def counter_regression(datadir, original_datadir, request) -> CounterRegressionFixture:  # noqa: MAN001
 	return CounterRegressionFixture(datadir, original_datadir, request)
 
 
@@ -40,7 +40,7 @@ data = [
 		]
 
 
-def test_as_percentage(counter_regression):
+def test_as_percentage(counter_regression: CounterRegressionFixture):
 	tally = Tally(data)
 	percentage = tally.as_percentage()
 	counter_regression.check(percentage)

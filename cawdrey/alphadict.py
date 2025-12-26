@@ -44,10 +44,10 @@ __all__ = ["alphabetical_dict", "AlphaDict"]
 
 
 def alphabetical_dict(**kwargs: T) -> "OrderedDict[str, T]":
-	"""
+	r"""
 	Returns an :class:`~collections.OrderedDict` with the keys sorted alphabetically.
 
-	:param kwargs:
+	:param \*\*kwargs: Keyword arguments to construct dict from.
 	"""
 
 	return OrderedDict(sorted(kwargs.items()))
@@ -77,6 +77,9 @@ class AlphaDict(FrozenOrderedDict[KT, VT]):
 		.. code-block::
 
 			AlphaDict(one=1, two=2)
+
+	:param seq: Iterable to construct dict from.
+	:param \*\*kwargs: Keyword arguments to construct dict from.
 	"""
 
 	def __init__(self, seq: Optional[Iterable] = None, **kwargs):

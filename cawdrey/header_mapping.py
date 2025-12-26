@@ -191,7 +191,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 	@overload
 	def get(self, k: str, default: Union[VT, T]) -> Union[VT, T]: ...
 
-	def get(self, k: str, default=None):
+	def get(self, k: str, default=None):  # noqa: MAN001,MAN002
 		"""
 		Get a header value.
 
@@ -220,7 +220,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 	@overload
 	def get_all(self, k: str, default: Union[VT, T]) -> Union[List[VT], T]: ...
 
-	def get_all(self, k: str, default=None):
+	def get_all(self, k: str, default=None):  # noqa: MAN001,MAN002
 		"""
 		Return a list of all the values for the named field.
 

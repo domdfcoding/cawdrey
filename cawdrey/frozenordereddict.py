@@ -36,7 +36,7 @@ from .base import KT, VT, FrozenBase, T
 __all__ = ["FrozenOrderedDict"]
 
 
-class FrozenOrderedDict(FrozenBase[KT, VT]):
+class FrozenOrderedDict(FrozenBase[KT, VT]):  # noqa: PRM002
 	"""
 	An immutable OrderedDict.
 	It can be used as a drop-in replacement for dictionaries where immutability is desired.
@@ -50,12 +50,12 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self, *args, **kwargs):
-		"""
+	def copy(self, *args, **kwargs) -> "FrozenOrderedDict":
+		r"""
 		Return a copy of the :class:`~cawdrey.frozenordereddict.FrozenOrderedDict`.
 
-		:param args:
-		:param kwargs:
+		:param \*args:
+		:param \*\*kwargs:
 		"""
 
 		new_dict = self._dict.copy()
@@ -81,7 +81,7 @@ class FrozenOrderedDict(FrozenBase[KT, VT]):
 	@overload
 	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
-	def get(self, k, default=None):
+	def get(self, k, default=None):  # noqa: MAN001,MAN002
 		"""
 		Return the value for ``k`` if ``k`` is in the dictionary, else ``default``.
 

@@ -1,5 +1,5 @@
 # stdlib
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 # 3rd party
 import pytest
@@ -12,16 +12,16 @@ from cawdrey import frozendict
 
 
 @pytest.fixture()
-def fd_dict():
+def fd_dict() -> dict:
 	return {"Sulla": "Marco", "Hicks": "Bill", frozendict({1: 2}): "frozen"}
 
 
 @pytest.fixture()
-def fd_dict_eq():
+def fd_dict_eq() -> dict:
 	return {"Hicks": "Bill", "Sulla": "Marco", frozendict({1: 2}): "frozen"}
 
 
-def fd_dict_2_raw():
+def fd_dict_2_raw() -> dict:
 	return {"Sulla": "Marco", "Hicks": "Bill", "frozen": frozendict({1: 2})}
 
 
@@ -29,12 +29,12 @@ fd_dict_2 = pytest.fixture(fd_dict_2_raw)
 
 
 @pytest.fixture()
-def fd_sub_dict():
+def fd_sub_dict() -> dict:
 	return {"Hicks": "Bill"}
 
 
 @pytest.fixture()
-def fd_nested_dict():
+def fd_nested_dict() -> dict:
 	return {
 			"Sulla": ("Marco", "Adele", "Mario", "Giulia"),
 			"Hicks": ("Bill", ),
@@ -59,7 +59,7 @@ def fd_nested_dict():
 			}
 
 
-def math_dict_raw():
+def math_dict_raw() -> dict:
 	return {"Sulla": "Marò", 5: 7}
 
 
@@ -70,21 +70,21 @@ math_dict = pytest.fixture(math_dict_raw)
 
 
 @pytest.fixture()
-def fd(fd_dict):
+def fd(fd_dict: dict) -> frozendict:
 	return frozendict(fd_dict)
 
 
 @pytest.fixture()
-def fd_unhashable():
+def fd_unhashable() -> frozendict:
 	return frozendict({1: []})
 
 
 @pytest.fixture()
-def fd_eq(fd_dict_eq):
+def fd_eq(fd_dict_eq: dict) -> frozendict:
 	return frozendict(fd_dict_eq)
 
 
-def fd2_raw():
+def fd2_raw() -> frozendict:
 	return frozendict(fd_dict_2_raw())
 
 
@@ -92,40 +92,40 @@ fd2 = pytest.fixture(fd2_raw)
 
 
 @pytest.fixture()
-def fd_sub(fd_sub_dict):
+def fd_sub(fd_sub_dict: dict) -> frozendict:
 	return frozendict(fd_sub_dict)
 
 
 @pytest.fixture()
-def fd_nested(fd_nested_dict):
+def fd_nested(fd_nested_dict: dict) -> frozendict:
 	return frozendict(fd_nested_dict)
 
 
-def math_fd_raw():
+def math_fd_raw() -> frozendict:
 	return frozendict(math_dict_raw())
 
 
-def math_items_raw():
+def math_items_raw() -> tuple:
 	return tuple(math_dict_raw().items())
 
 
 @pytest.fixture()
-def fd_giulia():
+def fd_giulia() -> frozendict:
 	return frozendict({"Marco": "Sulla", "Giulia": "Sulla"})
 
 
 @pytest.fixture()
-def fd_items(fd_dict):
+def fd_items(fd_dict: dict) -> tuple:
 	return tuple(fd_dict.items())
 
 
 @pytest.fixture()
-def fd_empty():
+def fd_empty() -> frozendict:
 	return frozendict()
 
 
 @pytest.fixture()
-def fd_repr(fd_dict):
+def fd_repr(fd_dict: dict) -> str:
 	return f"<{frozendict.__name__} {fd_dict!r}>"
 
 
@@ -133,81 +133,81 @@ def fd_repr(fd_dict):
 # main tests
 
 
-def test_normalget(fd):
+def test_normalget(fd: frozendict):
 	assert fd["Sulla"] == "Marco"
 
 
-def test_keyerror(fd):
+def test_keyerror(fd: frozendict):
 	with pytest.raises(KeyError):
 		fd["Bim"]  # pylint: disable=pointless-statement
 
 
-def test_len(fd, fd_dict):
+def test_len(fd: frozendict, fd_dict: dict):
 	assert len(fd) == len(fd_dict)
 
 
-def test_in_true(fd):
+def test_in_true(fd: frozendict):
 	assert "Sulla" in fd
 
 
-def test_not_in_false(fd):
+def test_not_in_false(fd: frozendict):
 	assert not ("Sulla" not in fd)
 
 
-def test_in_false(fd):
+def test_in_false(fd: frozendict):
 	assert not ("Bim" in fd)
 
 
-def test_not_in_true(fd):
+def test_not_in_true(fd: frozendict):
 	assert "Bim" not in fd
 
 
-def test_bool_true(fd):
+def test_bool_true(fd: frozendict):
 	assert fd
 
 
-def test_bool_false(fd_empty):
+def test_bool_false(fd_empty: frozendict):
 	assert not fd_empty
 
 
-def test_not_equal(fd, fd_giulia):
+def test_not_equal(fd: frozendict, fd_giulia: frozendict):
 	assert fd != fd_giulia
 
 
-def test_equals_dict(fd, fd_dict):
+def test_equals_dict(fd: frozendict, fd_dict: dict):
 	assert fd == fd_dict
 
 
-def test_hash(fd, fd_eq):
+def test_hash(fd: frozendict, fd_eq: frozendict):
 	assert hash(fd)
 	assert hash(fd) == hash(fd_eq)
 
 
-def test_constructor_kwargs(fd2, fd_dict_2):
+def test_constructor_kwargs(fd2: frozendict, fd_dict_2: dict):
 	assert frozendict(**fd_dict_2) == fd2
 
 
-def test_constructor_iterator(fd, fd_items):
+def test_constructor_iterator(fd: frozendict, fd_items: tuple):
 	assert frozendict(fd_items) == fd
 
 
-def test_sorted_keys(fd2, fd_dict_2):
+def test_sorted_keys(fd2: frozendict, fd_dict_2: str):
 	fd_sorted = fd2.sorted()
 	assert list(fd_sorted) == sorted(fd_dict_2)
 	assert fd_sorted is fd_sorted.sorted()
 
 
-def strangeSort(item):
+def strange_sort(item: tuple) -> str:
 	return f"{item[0]}{item[1]}"
 
 
-def test_sorted_items(fd2, fd_dict_2):
-	fd_sorted = fd2.sorted(by="items", key=strangeSort)
-	assert list(fd_sorted.items()) == sorted(fd_dict_2.items(), key=strangeSort)
+def test_sorted_items(fd2: frozendict, fd_dict_2: dict):
+	fd_sorted = fd2.sorted(by="items", key=strange_sort)
+	assert list(fd_sorted.items()) == sorted(fd_dict_2.items(), key=strange_sort)
 	assert fd_sorted is fd_sorted.sorted()
 
 
-def test_sorted_values(fd, fd_dict):
+def test_sorted_values(fd: frozendict, fd_dict: dict):
 	fd_sorted = fd.sorted(by="values")
 
 	res: List[Tuple] = []
@@ -232,16 +232,16 @@ def test_sorted_values(fd, fd_dict):
 	assert fd_sorted is fd_sorted.sorted(by="values")
 
 
-def test_sorted_empty(fd_empty):
+def test_sorted_empty(fd_empty: frozendict):
 	assert fd_empty.sorted() is fd_empty
 
 
-def test_sorted_bad_by(fd):
+def test_sorted_bad_by(fd: frozendict):
 	with pytest.raises(ValueError, match="Unexpected value for parameter `by`: value"):
 		fd.sorted(by="value")
 
 
-def test_unhashable_value(fd_unhashable):
+def test_unhashable_value(fd_unhashable: frozendict):
 	with pytest.raises(TypeError):
 		hash(fd_unhashable)
 
@@ -250,48 +250,48 @@ def test_unhashable_value(fd_unhashable):
 		hash(fd_unhashable)
 
 
-def test_todict(fd, fd_dict):
+def test_todict(fd: frozendict, fd_dict: dict):
 	assert dict(fd) == fd_dict
 
 
-def test_get(fd):
+def test_get(fd: frozendict):
 	assert fd.get("Sulla") == "Marco"
 
 
-def test_get_fail(fd):
+def test_get_fail(fd: frozendict):
 	default = object()
 	assert fd.get("Bim", default) is default
 
 
-def test_keys(fd, fd_dict):
+def test_keys(fd: frozendict, fd_dict: dict):
 	assert tuple(fd.keys()) == tuple(fd_dict.keys())
 
 
-def test_values(fd, fd_dict):
+def test_values(fd: frozendict, fd_dict: dict):
 	assert tuple(fd.values()) == tuple(fd_dict.values())
 
 
-def test_items(fd, fd_dict):
+def test_items(fd: frozendict, fd_dict: dict):
 	assert tuple(fd.items()) == tuple(fd_dict.items())
 
 
-def test_fromkeys(fd, fd_giulia):
+def test_fromkeys(fd_giulia: frozendict):
 	assert frozendict.fromkeys(["Marco", "Giulia"], "Sulla") == fd_giulia
 
 
-def test_repr(fd, fd_repr):
+def test_repr(fd: frozendict, fd_repr: str):
 	assert repr(fd) == fd_repr
 
 
-def test_str(fd, fd_repr):
+def test_str(fd: frozendict, fd_repr: str):
 	assert str(fd) == fd_repr
 
 
-def test_format(fd, fd_repr):
+def test_format(fd: frozendict, fd_repr: str):
 	assert format(fd) == fd_repr
 
 
-def test_iter(fd):
+def test_iter(fd: frozendict):
 	items = []
 
 	for x in iter(fd):
@@ -301,32 +301,31 @@ def test_iter(fd):
 
 
 @pytest.mark.parametrize(
-		"addend", [
+		"add_end", [
 				math_dict_raw(),
 				math_fd_raw(),
 				pytest.param("hell-o", marks=pytest.mark.xfail),
 				]
 		)
-def test_add(fd, addend):
+def test_add(fd: frozendict, add_end: dict):
 	newd = dict(fd)
-	newd.update(addend)
+	newd.update(add_end)
 	newfrozen: frozendict = frozendict(newd)
-	assert fd + addend == newfrozen
-	fd += addend
+	assert fd + add_end == newfrozen
+	fd += add_end
 	assert fd == newfrozen
 
 
-@pytest.mark.parametrize("subtrahend", [
+@pytest.mark.parametrize("subtract_end", [
 		math_dict_raw(),
 		math_fd_raw(),
 		math_items_raw(),
 		])
-def test_sub(fd, fd_dict, subtrahend):
-	fd_copy = fd.copy()
-	newd = {k: v for k, v in fd.items() if (k, v) not in subtrahend}
+def test_sub(fd: frozendict, subtract_end: dict):
+	newd = {k: v for k, v in fd.items() if (k, v) not in subtract_end}
 	newfrozen: frozendict = frozendict(newd)
-	assert fd - subtrahend == newfrozen
-	fd -= subtrahend
+	assert fd - subtract_end == newfrozen
+	fd -= subtract_end
 	assert fd == newfrozen
 
 
@@ -337,7 +336,7 @@ def test_sub(fd, fd_dict, subtrahend):
 				pytest.param(5, marks=pytest.mark.xfail),
 				]
 		)
-def test_bitwise_and(fd_eq, other):
+def test_bitwise_and(fd_eq: frozendict, other: Any):
 	assert fd_eq & other == {"Sulla": "Marco", "Hicks": "Bill"}
 
 
@@ -345,47 +344,47 @@ def test_bitwise_and(fd_eq, other):
 # immutability tests
 
 
-def test_normalset(fd):
+def test_normalset(fd: frozendict):
 	with pytest.raises(TypeError):
-		fd["Sulla"] = "Silla"
+		fd["Sulla"] = "Silla"  # type: ignore[index]
 
 
-def test_del(fd):
+def test_del(fd: frozendict):
 	with pytest.raises(TypeError):
-		del fd["Sulla"]
+		del fd["Sulla"]  # type: ignore[attr-defined]
 
 
-def test_clear(fd):
+def test_clear(fd: frozendict):
 	with pytest.raises(AttributeError):
-		fd.clear()
+		fd.clear()  # type: ignore[attr-defined]
 
 
-def test_pop(fd):
+def test_pop(fd: frozendict):
 	with pytest.raises(AttributeError):
-		fd.pop("Sulla")
+		fd.pop("Sulla")  # type: ignore[attr-defined]
 
 
-def test_popitem(fd):
+def test_popitem(fd: frozendict):
 	with pytest.raises(AttributeError):
-		fd.popitem()
+		fd.popitem()  # type: ignore[attr-defined]
 
 
-def test_setdefault(fd):
+def test_setdefault(fd: frozendict):
 	with pytest.raises(AttributeError):
-		fd.setdefault("Sulla")
+		fd.setdefault("Sulla")  # type: ignore[attr-defined]
 
 
-def test_update(fd):
+def test_update(fd: frozendict):
 	with pytest.raises(AttributeError):
-		fd.update({"Bim": "James May"})
+		fd.update({"Bim": "James May"})  # type: ignore[attr-defined]
 
 
-def test_init(fd):
+def test_init(fd: frozendict):
 	with pytest.raises(TypeError):
-		fd.__init__({"Trump": "Donald"})
+		fd.__init__({"Trump": "Donald"})  # type: ignore[misc]
 
 
-def test_delvar(fd):
+def test_delvar(fd: frozendict):
 	del fd
 
 	with pytest.raises(NameError):

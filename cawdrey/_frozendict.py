@@ -38,7 +38,7 @@ __all__ = ["frozendict"]
 
 
 @prettify_docstrings
-class frozendict(FrozenBase[KT, VT]):
+class frozendict(FrozenBase[KT, VT]):  # noqa: PRM002
 	"""
 	An immutable wrapper around dictionaries that implements the complete
 	:py:class:`collections.abc.Mapping` interface. It can be used as a
@@ -53,7 +53,7 @@ class frozendict(FrozenBase[KT, VT]):
 
 		super().__init__(*args, **kwargs)
 
-	def copy(self: _D, *args, **kwargs) -> _D:
+	def copy(self: _D, *args, **kwargs) -> _D:  # noqa: PRM002
 		"""
 		Return a copy of the dictionary.
 		"""
@@ -68,7 +68,7 @@ class frozendict(FrozenBase[KT, VT]):
 			self._hash = h
 		return self._hash
 
-	def sorted(self, *args, by: str = "keys", **kwargs):  # noqa: A003  # pylint: disable=redefined-builtin
+	def sorted(self, *args, by: str = "keys", **kwargs) -> "frozendict":  # noqa: A003,PRM002  # pylint: disable=redefined-builtin
 		"""
 		Return a new :class:`~cawdrey._frozendict.frozendict`, with the element
 		insertion sorted. The signature is the same as the builtin
@@ -117,7 +117,7 @@ class frozendict(FrozenBase[KT, VT]):
 		else:
 			return self.__class__(it_sorted)
 
-	def __add__(self, other, *args, **kwargs):
+	def __add__(self, other, *args, **kwargs) -> "frozendict":  # noqa: MAN001,PRM002
 		"""
 		If you add a dict-like object, a new frozendict will be returned, equal
 		to the old frozendict updated with the other object.
@@ -133,7 +133,7 @@ class frozendict(FrozenBase[KT, VT]):
 
 		return self.__class__(tmp)
 
-	def __sub__(self, other, *args, **kwargs):
+	def __sub__(self, other, *args, **kwargs) -> "frozendict":  # noqa: MAN001,PRM002
 		"""
 		The method will create a new :class:`~.frozendict`, result of the subtraction by `other`.
 
@@ -162,7 +162,7 @@ class frozendict(FrozenBase[KT, VT]):
 
 		return self.__class__(res)
 
-	def __and__(self, other, *args, **kwargs):
+	def __and__(self, other, *args, **kwargs) -> "frozendict":  # noqa: MAN001,PRM002
 		"""
 		Returns a new ``frozendict``, that is the intersection between ``self``
 		and ``other``.

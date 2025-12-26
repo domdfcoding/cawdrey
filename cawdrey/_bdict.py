@@ -27,7 +27,7 @@ Provides bdict, a dictionary where keys and values are also stored the other way
 
 # stdlib
 from collections import UserDict
-from typing import AbstractSet, Any, Iterable, Optional, Tuple, TypeVar, Union, ValuesView, overload
+from typing import AbstractSet, Iterable, Optional, Tuple, Union, ValuesView, overload
 
 # this package
 from cawdrey.base import KT, VT, T
@@ -36,7 +36,7 @@ __all__ = ["bdict"]
 
 
 class bdict(UserDict):
-	"""
+	r"""
 	Returns a new dictionary initialized from an optional positional argument,
 	and a possibly empty set of keyword arguments.
 
@@ -60,6 +60,9 @@ class bdict(UserDict):
 
 	Keys or values of :py:obj:`None`, :py:obj:`True` and :py:obj:`False` will be stored internally as
 	``"_None"``, ``"_True"`` and ``"_False"`` respectively
+
+	:param seq: Iterable to construct dict from.
+	:param \*\*kwargs: Keyword values to construct dict from.
 	"""  # noqa: D400
 
 	# Based on https://stackoverflow.com/a/1063393 by https://stackoverflow.com/users/9493/brian
@@ -79,7 +82,7 @@ class bdict(UserDict):
 		# 	for key, value in kwargs.items():
 		# 		self.__setitem__(key, value)
 
-	def __setitem__(self, key, val):
+	def __setitem__(self, key, val) -> None:  # noqa: MAN001
 		"""
 		Set ``self[key]`` to ``value``.
 
@@ -118,7 +121,7 @@ class bdict(UserDict):
 		self.data[key] = val
 		self.data[val] = key
 
-	def __delitem__(self, key: KT):
+	def __delitem__(self, key: KT) -> None:
 		"""
 		Delete ``self[key]``.
 
@@ -179,7 +182,7 @@ class bdict(UserDict):
 	@overload
 	def get(self, k: KT, default: Union[VT, T]) -> Union[VT, T]: ...  # pragma: no cover
 
-	def get(self, k, default=None):
+	def get(self, k, default=None):  # noqa: MAN001,MAN002
 		"""
 		Return the value for ``k`` if ``k`` is in the dictionary, else ``default``.
 
