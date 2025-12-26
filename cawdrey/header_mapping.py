@@ -114,12 +114,7 @@ class HeaderMapping(MutableMapping[str, VT]):
 		"""
 
 		name = name.lower()
-		newheaders = []
-
-		for k, v in self._headers:
-			if k.lower() != name:
-				newheaders.append((k, v))
-
+		newheaders = [(k, v) for k, v in self._headers if k.lower() != name]
 		self._headers = newheaders
 
 	def __contains__(self, name: object) -> bool:
@@ -234,12 +229,8 @@ class HeaderMapping(MutableMapping[str, VT]):
 		:param default:
 		"""
 
-		values = []
 		name = k.lower()
-
-		for k, v in self._headers:
-			if k.lower() == name:
-				values.append(v)
+		values = [v for k, v in self._headers if k.lower() == name]
 
 		if not values:
 			return default
