@@ -68,7 +68,7 @@ class TestSearchDict:
 					(re.compile("grape"), {"grapefruit": "citrus"}),
 					(re.compile("fruit"), {}),
 					(re.compile(".*fruit$"), {"grapefruit": "citrus"}),
-					]
+					],
 			)
 	def test_success(self, regex: Union[str, re.Pattern], expects: dict):
 		assert search_dict(self.example_dict, regex) == expects
@@ -114,7 +114,7 @@ class TestSearchDict:
 							_custom_type_output,
 							id="ChainMap",
 							),
-					]
+					],
 			)
 	def test_custom_types(self, regex: str, mapping: Mapping, expects: dict):
 		assert search_dict(mapping, regex) == expects
@@ -140,7 +140,7 @@ class TestSearchDict:
 							"can't use a string pattern on a bytes-like object",
 							marks=only_pypy(),
 							),
-					]
+					],
 			)
 	def test_errors_dict(self, dictionary: dict, expects: Type[Exception], match: str):
 		with pytest.raises(expects, match=match):
@@ -155,7 +155,7 @@ class TestSearchDict:
 					((12.34, "abc", 1234), TypeError, "first argument must be string or compiled pattern"),
 					({12.34, "abc", 1234}, TypeError, "unhashable type: 'set'"),
 					({12.34: "abc"}, TypeError, "unhashable type: 'dict'"),
-					]
+					],
 			)
 	def test_errors_regex(self, regex: Any, expects: Type[Exception], match: str):
 		with pytest.raises(expects, match=match):

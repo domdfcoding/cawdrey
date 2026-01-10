@@ -57,14 +57,14 @@ statements = (
 				"setup": "key = getUuid(); get = x.get",
 				"iterations": 13000000,
 				"name": "d.get(key)",
-				**size_unaffected
+				**size_unaffected,
 				},
 		{
 				"code": "x['12323f29-c31f-478c-9b15-e7acc5354df9']",
 				**skip_setup,
 				**x10000000,
 				"name": "d[key]",
-				**size_unaffected
+				**size_unaffected,
 				},
 		{"code": "key in x", **setup_getuid, **x10000000, "name": "key in d", **size_unaffected},
 		{"code": "key not in x", **setup_getuid, **x20000000, "name": "key not in d", **size_unaffected},
@@ -75,21 +75,21 @@ statements = (
 				"setup": "keys = x.keys",
 				**x100000,
 				"name": "d.keys()",
-				**size_affected
+				**size_affected,
 				},
 		{
 				"code": "for _ in values(): pass",
 				"setup": "values = x.values",
 				**x100000,
 				"name": "d.values()",
-				**size_affected
+				**size_affected,
 				},
 		{
 				"code": "for _ in items(): pass",
 				"setup": "items = x.items",
 				"iterations": 50000,
 				"name": "d.items()",
-				**size_affected
+				**size_affected,
 				},
 		{"code": "for _ in iter(x): pass", **skip_setup, **x100000, "name": "iter(d)", **size_affected},
 		{
@@ -97,28 +97,28 @@ statements = (
 				"setup": "klass = type(x)",
 				"iterations": 10000,
 				"name": "constructor(dict)",
-				**size_affected
+				**size_affected,
 				},
 		{
 				"code": "klass(v)",
 				"setup": "klass = type(x); v = tuple(d.items())",
 				"iterations": 10000,
 				"name": "constructor(d.items())",
-				**size_affected
+				**size_affected,
 				},
 		{
 				"code": "klass(**d)",
 				"setup": "klass = type(x)",
 				"iterations": 5000,
 				"name": "constructor(**d)",
-				**size_affected
+				**size_affected,
 				},
 		{
 				"code": "klass(x)",
 				"setup": "klass = type(x)",
 				"iterations": 50000,
 				"name": "constructor(self)",
-				**size_affected
+				**size_affected,
 				},
 		{"code": "x == d", **skip_setup, **x100000, "name": "d1 == d2", **size_affected},
 		{"code": "x == x", **skip_setup, **x100000, "name": "self == self", **size_affected},
@@ -154,10 +154,10 @@ for n in dictionary_sizes:
 					stmt=statement["code"],
 					setup=statement["setup"],
 					globals={'x': x, "getUuid": getUuid, 'd': d},
-					number=iterations
+					number=iterations,
 					)
 
 			print(
-					"Dictionary size: {: >4}; Type: {: >10}; Statement: {: <25} time: {:.3f}; iterations: {: >8}".
-					format(n, type(x).__name__, "`{}`;".format(statement["name"]), t, iterations)
+					"Dictionary size: {: >4}; Type: {: >10}; Statement: {: <25} time: {:.3f}; iterations: {: >8}"
+					.format(n, type(x).__name__, "`{}`;".format(statement["name"]), t, iterations),
 					)
