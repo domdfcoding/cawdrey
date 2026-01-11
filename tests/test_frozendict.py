@@ -53,9 +53,9 @@ def fd_nested_dict() -> dict:
 									"E=mo²",
 									"A Night at the Opera",
 									"Fascisti su Marte",
-									]
+									],
 							})
-					)
+					),
 			}
 
 
@@ -301,11 +301,12 @@ def test_iter(fd: frozendict):
 
 
 @pytest.mark.parametrize(
-		"add_end", [
+		"add_end",
+		[
 				math_dict_raw(),
 				math_fd_raw(),
 				pytest.param("hell-o", marks=pytest.mark.xfail),
-				]
+				],
 		)
 def test_add(fd: frozendict, add_end: dict):
 	newd = dict(fd)
@@ -316,11 +317,14 @@ def test_add(fd: frozendict, add_end: dict):
 	assert fd == newfrozen
 
 
-@pytest.mark.parametrize("subtract_end", [
-		math_dict_raw(),
-		math_fd_raw(),
-		math_items_raw(),
-		])
+@pytest.mark.parametrize(
+		"subtract_end",
+		[
+				math_dict_raw(),
+				math_fd_raw(),
+				math_items_raw(),
+				],
+		)
 def test_sub(fd: frozendict, subtract_end: dict):
 	newd = {k: v for k, v in fd.items() if (k, v) not in subtract_end}
 	newfrozen: frozendict = frozendict(newd)
@@ -330,11 +334,12 @@ def test_sub(fd: frozendict, subtract_end: dict):
 
 
 @pytest.mark.parametrize(
-		"other", [
+		"other",
+		[
 				fd2_raw(),
 				("frozen", "Sulla", "Hicks"),
 				pytest.param(5, marks=pytest.mark.xfail),
-				]
+				],
 		)
 def test_bitwise_and(fd_eq: frozendict, other: Any):
 	assert fd_eq & other == {"Sulla": "Marco", "Hicks": "Bill"}
