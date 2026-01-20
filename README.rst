@@ -189,7 +189,7 @@ To install with ``conda``:
 
 	.. code-block:: bash
 
-		$ conda install cawdrey
+		$ conda install Cawdrey
 
 .. end installation
 
