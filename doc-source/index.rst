@@ -186,6 +186,7 @@ Installation
 	:pypi:
 	:github:
 	:anaconda:
+	:conda-name: Cawdrey
 	:conda-channels: conda-forge, domdfcoding
 
 .. end installation
