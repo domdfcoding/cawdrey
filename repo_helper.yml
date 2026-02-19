@@ -1,7 +1,7 @@
 # Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
 ---
 modname: Cawdrey
-pypi_name: cawdrey
+conda_name: cawdrey
 repo_name: cawdrey
 import_name: cawdrey
 copyright_years: "2019-2022"
