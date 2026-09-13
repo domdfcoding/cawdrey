@@ -70,7 +70,7 @@ class SupportsMostCommon(Protocol[KT]):
 
 		.. code-block:: python
 
-			>>> Counter('abracadabra').most_common(3)
+			>>> Counter("abracadabra").most_common(3)
 			[('a', 5), ('b', 2), ('r', 2)]
 
 		:param n:
@@ -144,7 +144,7 @@ class Tally(Counter[KT]):
 
 		.. code-block:: python
 
-			>>> Tally('abracadabra').most_common(3)
+			>>> Tally("abracadabra").most_common(3)
 			[('a', 5), ('b', 2), ('r', 2)]
 
 		:param n:
@@ -168,7 +168,7 @@ class Percentage(Dict[KT, float]):
 
 		.. code-block:: python
 
-			>>> Tally('abracadabra').as_percentage().most_common(3)
+			>>> Tally("abracadabra").as_percentage().most_common(3)
 			[('a', 0.45454545454545453), ('b', 0.18181818181818182), ('r', 0.18181818181818182)]
 
 		:param n:
